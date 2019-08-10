@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controlador.ControladorGerente">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorGerente">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #1E346D;">
          <children>
@@ -45,6 +44,9 @@
                      <graphic>
                         <FontAwesomeIconView fill="#b8b1b1" glyphName="USERS" size="20" wrappingWidth="50.0" />
                      </graphic>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" style="-fx-background-color: #1E346D;" text="Productos" textFill="#b8b1b1">
                      <font>
@@ -53,6 +55,9 @@
                      <graphic>
                         <FontAwesomeIconView fill="#b8b1b1" glyphName="PRODUCT_HUNT" size="20" wrappingWidth="50.0" />
                      </graphic>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" style="-fx-background-color: #1E346D;" text="Pedidos" textFill="#b8b1b1">
                      <font>
@@ -61,6 +66,9 @@
                      <graphic>
                         <FontAwesomeIconView fill="#b8b1b1" glyphName="FILE_TEXT" size="20" wrappingWidth="50.0" />
                      </graphic>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" style="-fx-background-color: #1E346D;" text="Ventas" textFill="#b8b1b1">
                      <font>
@@ -69,6 +77,9 @@
                      <graphic>
                         <MaterialDesignIconView fill="#b8b1b1" glyphName="SALE" size="20" wrappingWidth="50.0" />
                      </graphic>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
                   </JFXButton>
                </children>
             </VBox>
@@ -97,6 +108,9 @@
                      <graphic>
                         <FontAwesomeIconView fill="#b8b1b1" glyphName="PENCIL_SQUARE_ALT" size="20" text="" wrappingWidth="50.0" />
                      </graphic>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
                   </JFXButton>
                </children>
             </VBox>
@@ -117,6 +131,9 @@
                      <graphic>
                         <FontAwesomeIconView fill="#b8b1b1" glyphName="USER_SECRET" size="20" wrappingWidth="50.0" />
                      </graphic>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
                   </JFXButton>
                </children>
             </VBox>

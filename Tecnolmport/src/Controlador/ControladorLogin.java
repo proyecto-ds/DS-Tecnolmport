@@ -11,8 +11,12 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -21,11 +25,14 @@ import javafx.stage.Stage;
  */
 public class ControladorLogin implements Initializable {
     
-    @FXML
-    private Label label;
     
     @FXML
     private FontAwesomeIconView salir;
+    @FXML
+    private AnchorPane parent;
+    
+    private double x=0, y=0;
+    
     @FXML
     void salirAction(MouseEvent event) {
         Stage stage = (Stage) salir.getScene().getWindow();
@@ -33,7 +40,7 @@ public class ControladorLogin implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
-    
-}
+
+    }
