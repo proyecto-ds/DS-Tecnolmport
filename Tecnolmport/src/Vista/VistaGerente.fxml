@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controlador.ControladorGerente">
+   <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #1E346D;">
+         <children>
+            <ImageView fitHeight="68.0" fitWidth="62.0" layoutX="94.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagen/gerente.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labelNameG" alignment="CENTER" layoutX="35.0" layoutY="101.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Gerente...." textFill="#b8b1b1">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelNameG1" layoutX="4.0" layoutY="149.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Consultar" textFill="#b8b1b1">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <VBox alignment="CENTER" layoutY="181.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="250.0">
+               <children>
+                  <JFXButton alignment="BASELINE_LEFT" graphicTextGap="0.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" style="-fx-background-color: #1E346D;" text="Empleado" textFill="#b8b1b1">
+                     <font>
+                        <Font name="Consolas" size="13.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#b8b1b1" glyphName="USERS" size="20" wrappingWidth="50.0" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" style="-fx-background-color: #1E346D;" text="Productos" textFill="#b8b1b1">
+                     <font>
+                        <Font name="Consolas" size="13.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#b8b1b1" glyphName="PRODUCT_HUNT" size="20" wrappingWidth="50.0" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" style="-fx-background-color: #1E346D;" text="Pedidos" textFill="#b8b1b1">
+                     <font>
+                        <Font name="Consolas" size="13.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#b8b1b1" glyphName="FILE_TEXT" size="20" wrappingWidth="50.0" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" style="-fx-background-color: #1E346D;" text="Ventas" textFill="#b8b1b1">
+                     <font>
+                        <Font name="Consolas" size="13.0" />
+                     </font>
+                     <graphic>
+                        <MaterialDesignIconView fill="#b8b1b1" glyphName="SALE" size="20" wrappingWidth="50.0" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="432.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="250.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </HBox>
+            <Label fx:id="labelNameG12" layoutX="4.0" layoutY="381.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Crear" textFill="#b8b1b1">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <VBox alignment="CENTER" layoutY="412.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="250.0">
+               <children>
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" style="-fx-background-color: #1E346D;" text="Pedido" textFill="#b8b1b1">
+                     <font>
+                        <Font name="Consolas" size="13.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#b8b1b1" glyphName="PENCIL_SQUARE_ALT" size="20" text="" wrappingWidth="50.0" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </VBox>
+            <Label fx:id="labelNameG121" layoutX="4.0" layoutY="465.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Asignar" textFill="#b8b1b1">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <VBox alignment="CENTER" layoutY="497.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="250.0">
+               <children>
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" style="-fx-background-color: #1E346D;" text="Permisos" textFill="#b8b1b1">
+                     <font>
+                        <Font name="Consolas" size="13.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#b8b1b1" glyphName="USER_SECRET" size="20" wrappingWidth="50.0" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

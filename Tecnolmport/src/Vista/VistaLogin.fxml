@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorLogin">
+   <children>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #1E346D;">
+         <children>
+            <ImageView fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagen/logo1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <Pane layoutX="400.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="91.0" fitWidth="226.0" layoutX="14.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagen/logo2.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="23.0" layoutY="130.0" text="Sign in to continue" textFill="#a49c9c">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <JFXTextField focusColor="#1e346d" labelFloat="true" layoutX="66.0" layoutY="233.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="270.0" promptText="user" unFocusColor="#1e346d">
+               <font>
+                  <Font name="Ebrima" size="14.0" />
+               </font>
+            </JFXTextField>
+            <FontAwesomeIconView fill="#1e346d" glyphName="USER" layoutX="23.0" layoutY="274.0" size="30" />
+            <FontAwesomeIconView fill="#1e346d" glyphName="LOCK" layoutX="25.0" layoutY="354.0" size="30" />
+            <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" contentDisplay="RIGHT" layoutX="65.0" layoutY="399.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="270.0" ripplerFill="#7493bc" style="-fx-background-color: #1E346D;" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="ARROW_CIRCLE_RIGHT" size="25" textAlignment="RIGHT" wrappingWidth="100.0" />
+               </graphic>
+            </JFXButton>
+            <FontAwesomeIconView fx:id="salir" glyphName="CLOSE" layoutX="370.0" layoutY="27.0" onMousePressed="#salirAction" size="25" />
+            <JFXPasswordField focusColor="#1e346d" labelFloat="true" layoutX="66.0" layoutY="312.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="270.0" promptText="password" unFocusColor="#1e346d">
+               <font>
+                  <Font name="Ebrima" size="14.0" />
+               </font>
+            </JFXPasswordField>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
