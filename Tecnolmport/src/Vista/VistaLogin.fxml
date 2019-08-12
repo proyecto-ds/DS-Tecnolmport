@@ -50,7 +50,6 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="ARROW_CIRCLE_RIGHT" size="25" textAlignment="RIGHT" wrappingWidth="100.0" />
                </graphic>
             </JFXButton>
-            <FontAwesomeIconView fx:id="salir" glyphName="CLOSE" layoutX="370.0" layoutY="27.0" onMousePressed="#salirAction" size="25" />
             <JFXPasswordField focusColor="#1e346d" labelFloat="true" layoutX="66.0" layoutY="312.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="270.0" promptText="password" unFocusColor="#1e346d">
                <font>
                   <Font name="Ebrima" size="14.0" />

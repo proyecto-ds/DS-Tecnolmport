@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -19,36 +20,40 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author bryan
  */
-public class ControladorGerente implements Initializable {
+public class ControladorGerente2 implements Initializable {
 
     
     @FXML private Label labelGerente;
-    @FXML private TableView<Empleado> tableEmpleado;
     @FXML private JFXButton btnEmpleado;
-    @FXML private TableColumn<Empleado, String> cid;
-    @FXML private TableColumn<Empleado, String> cnombre;
-    @FXML private TableColumn<Empleado, String> capellido;
-    @FXML private TableColumn<Empleado, String> ctelefono;
-    @FXML private TableColumn<Empleado, String> cdireccion;
-    @FXML private TableColumn<Empleado, String> cemail;
-    @FXML private TableColumn<Empleado, String> clocal;
     
     private ObservableList <Empleado> lista = FXCollections.observableArrayList ();
     private Empleado modeloEmpleado;
     private ObservableList<Empleado> listaEmpleado;
+    @FXML private AnchorPane root;
+    @FXML
+    private Label labelNameG1;
+    @FXML
+    private Label labelNameG12;
+    @FXML
+    private Label labelNameG121;
     
     /**
      * Initializes the controller class.
@@ -57,17 +62,15 @@ public class ControladorGerente implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     }
     @FXML
-    void consultarEmpleado(ActionEvent event) {
-        //tableEmpleado.setVisible(true);
-        cid.setCellValueFactory(new PropertyValueFactory<>("identificacion"));
-        cnombre.setCellValueFactory(new PropertyValueFactory<Empleado,String>("nombre"));
-        capellido.setCellValueFactory(new PropertyValueFactory<Empleado,String>("apellido"));
-        ctelefono.setCellValueFactory(new PropertyValueFactory<Empleado,String>("telefono"));
-        cdireccion.setCellValueFactory(new PropertyValueFactory<Empleado,String>("direccion"));
-        cemail.setCellValueFactory(new PropertyValueFactory<Empleado,String>("email"));
-        clocal.setCellValueFactory(new PropertyValueFactory<Empleado,String>("local"));
-        Empleado e = new Empleado();
-        e.llenarTableEmpleado(tableEmpleado);
+    void consultarEmpleado(ActionEvent event) throws IOException {
+        AnchorPane user = FXMLLoader.load(getClass().getResource(("/Vista/VistaGerente_1.fxml")));
+        root.getChildren().setAll(user);
+    }
+
+    @FXML
+    private void presentarNombre(ActionEvent event) throws IOException {
+        AnchorPane user = FXMLLoader.load(getClass().getResource(("/Vista/VistaGerente_3.fxml")));
+        root.getChildren().setAll(user);
     }
     
 }

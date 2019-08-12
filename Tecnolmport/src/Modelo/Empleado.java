@@ -5,11 +5,17 @@
  */
 package Modelo;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
 /**
  *
  * @author bryan
  */
-public class Empleado {
+public class Empleado extends RecursiveTreeObject<Empleado>{
     protected String identificacion;
     protected String nombre;
     protected String apellido;
@@ -98,5 +104,11 @@ public class Empleado {
         this.activo = activo;
     }
     
-    
+    public ObservableList <Empleado> llenarTableEmpleado(TableView tableEmpleado){
+        ObservableList <Empleado> lista = FXCollections.observableArrayList ();
+        lista.add(new Empleado("0926522703","bryan","tutiven","0988097982","Daule","brcetuti@espol.edu.ec","Matriz",true));
+        lista.add(new Empleado("0926522708","cesar","acosta","0988097982","Daule","brcetuti@espol.edu.ec","Bodega",true));
+        tableEmpleado.getItems().addAll(lista);
+        return lista;
+    }
 }

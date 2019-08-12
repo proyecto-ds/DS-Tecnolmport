@@ -32,7 +32,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author bryan
  */
-public class ControladorGerente implements Initializable {
+public class ControladorGerente3 implements Initializable {
 
     
     @FXML private Label labelGerente;
@@ -49,25 +49,17 @@ public class ControladorGerente implements Initializable {
     private ObservableList <Empleado> lista = FXCollections.observableArrayList ();
     private Empleado modeloEmpleado;
     private ObservableList<Empleado> listaEmpleado;
-    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
     }
     @FXML
     void consultarEmpleado(ActionEvent event) {
         //tableEmpleado.setVisible(true);
-        cid.setCellValueFactory(new PropertyValueFactory<>("identificacion"));
-        cnombre.setCellValueFactory(new PropertyValueFactory<Empleado,String>("nombre"));
-        capellido.setCellValueFactory(new PropertyValueFactory<Empleado,String>("apellido"));
-        ctelefono.setCellValueFactory(new PropertyValueFactory<Empleado,String>("telefono"));
-        cdireccion.setCellValueFactory(new PropertyValueFactory<Empleado,String>("direccion"));
-        cemail.setCellValueFactory(new PropertyValueFactory<Empleado,String>("email"));
-        clocal.setCellValueFactory(new PropertyValueFactory<Empleado,String>("local"));
-        Empleado e = new Empleado();
-        e.llenarTableEmpleado(tableEmpleado);
+        
     }
     
 }
