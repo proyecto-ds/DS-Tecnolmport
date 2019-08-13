@@ -29,7 +29,7 @@ public class Tecnolmport extends Application {
     public void SceneLogin() throws IOException{
         try{
             //Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaLogin.fxml"));
-            Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaGerente_2.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaJefeBodega.fxml"));
 
             Scene scene = new Scene(root);
             stagePrincipal.setScene(scene);
