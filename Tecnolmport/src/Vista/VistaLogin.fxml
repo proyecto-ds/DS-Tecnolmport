@@ -35,14 +35,14 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <JFXTextField focusColor="#1e346d" labelFloat="true" layoutX="66.0" layoutY="233.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="270.0" promptText="user" unFocusColor="#1e346d">
+            <JFXTextField fx:id="text_usuario" focusColor="#1e346d" labelFloat="true" layoutX="66.0" layoutY="233.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="270.0" promptText="user" unFocusColor="#1e346d">
                <font>
                   <Font name="Ebrima" size="14.0" />
                </font>
             </JFXTextField>
             <FontAwesomeIconView fill="#1e346d" glyphName="USER" layoutX="23.0" layoutY="274.0" size="30" />
             <FontAwesomeIconView fill="#1e346d" glyphName="LOCK" layoutX="25.0" layoutY="354.0" size="30" />
-            <JFXButton alignment="CENTER_RIGHT" buttonType="RAISED" contentDisplay="RIGHT" layoutX="65.0" layoutY="399.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="270.0" ripplerFill="#7493bc" style="-fx-background-color: #1E346D;" text="Login" textFill="WHITE">
+            <JFXButton fx:id="btn_login" alignment="CENTER_RIGHT" buttonType="RAISED" contentDisplay="RIGHT" layoutX="65.0" layoutY="399.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#login" prefHeight="40.0" prefWidth="270.0" ripplerFill="#7493bc" style="-fx-background-color: #1E346D;" text="Login" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -50,7 +50,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="ARROW_CIRCLE_RIGHT" size="25" textAlignment="RIGHT" wrappingWidth="100.0" />
                </graphic>
             </JFXButton>
-            <JFXPasswordField focusColor="#1e346d" labelFloat="true" layoutX="66.0" layoutY="312.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="270.0" promptText="password" unFocusColor="#1e346d">
+            <JFXPasswordField fx:id="text_contraseña" focusColor="#1e346d" labelFloat="true" layoutX="66.0" layoutY="312.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="270.0" promptText="password" unFocusColor="#1e346d">
                <font>
                   <Font name="Ebrima" size="14.0" />
                </font>

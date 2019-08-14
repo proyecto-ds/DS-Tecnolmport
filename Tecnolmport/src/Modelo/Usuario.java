@@ -40,11 +40,21 @@ public class Usuario extends Empleado{
     }
     
     public boolean login(){
+        String usuario = "bryan";
+        String contraseña = "123";
+        if(this.usuario.equals(usuario)&& this.contraseña.equals(contraseña)){
+            return true;
+        }
         return false;
     }
     
     
     public boolean logout(){
+        
         return false;
+    }
+    
+    public String obtenerRol(){
+        return "jefedebodega";
     }
 }

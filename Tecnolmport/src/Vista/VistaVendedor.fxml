@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-insets: #1E346D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorVendedor">
+   <children>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #1E346D;">
+         <children>
+            <Label layoutX="13.0" layoutY="158.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Registrar" textFill="#b8b1b1">
+               <font>
+                  <Font name="Calibri Bold" size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="90.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagen/vendedor.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labelVendedor" alignment="CENTER" layoutX="35.0" layoutY="107.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Vendedor" textFill="#b8b1b1">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="cbxRegistrar" layoutX="52.0" layoutY="193.0" prefHeight="33.0" prefWidth="163.0" stylesheets="@../css/comboBox.css" />
+            <Label layoutX="15.0" layoutY="317.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Consultar" textFill="#b8b1b1">
+               <font>
+                  <Font name="Calibri Bold" size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <JFXComboBox fx:id="cbxConsultar" layoutX="52.0" layoutY="354.0" prefHeight="33.0" prefWidth="163.0" stylesheets="@../css/comboBox.css" />
+            <Label layoutX="14.0" layoutY="469.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="156.0" text="Actualizar" textFill="#b8b1b1">
+               <font>
+                  <Font name="Calibri Bold" size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <JFXComboBox fx:id="cbxActualizar" layoutX="51.0" layoutY="508.0" prefHeight="33.0" prefWidth="163.0" stylesheets="@../css/comboBox.css" />
+         </children>
+      </Pane>
+      <Pane layoutX="256.0" layoutY="166.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="730.0" />
+   </children>
+</AnchorPane>
