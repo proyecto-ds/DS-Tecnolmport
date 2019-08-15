@@ -12,7 +12,13 @@ import java.util.Queue;
  * @author bryan
  */
 public class JefeDeBodega extends Usuario{
+    
+   
     protected Queue<Repartidor> repartidor;
+    
+    
+    
+    
 
     public JefeDeBodega() {
     }

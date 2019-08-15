@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import java.util.List;
+
 /**
  *
  * @author bryan
@@ -23,6 +25,23 @@ public class Usuario extends Empleado{
         this.contraseña = contraseña;
     }
 
+    
+    public List<Empleado> ConsultarEmpleados(){
+        return null;
+    }
+    
+    public void ActualizarEmpleado(String usuario){
+        
+    }
+    
+    public void RegistrarEmpleado(String usuario){
+        
+    }
+    
+    public List<Producto> ConsultarProductos(){
+        return null;
+    }
+    
     public String getUsuario() {
         return usuario;
     }
@@ -38,7 +57,6 @@ public class Usuario extends Empleado{
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-    
     public boolean login(){
         String usuario = "bryan";
         String contraseña = "123";

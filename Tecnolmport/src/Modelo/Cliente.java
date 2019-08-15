@@ -10,6 +10,7 @@ package Modelo;
  * @author bryan
  */
 public class Cliente {
+    
     protected String identificacion;
     protected String nombre;
     protected String apellido;
@@ -26,6 +27,10 @@ public class Cliente {
         this.ciudad = ciudad;
     }
 
+    
+    
+    
+    
     public String getIdentificacion() {
         return identificacion;
     }
