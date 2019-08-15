@@ -5,8 +5,6 @@
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-insets: #1E346D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorGerente">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-insets: #1E346D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorGerente2">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #1E346D;">
          <children>
@@ -62,7 +60,7 @@
                         <Insets left="30.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Ventas" textFill="#b8b1b1">
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#presentarNombre" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Ventas" textFill="#b8b1b1">
                      <font>
                         <Font name="Consolas" size="13.0" />
                      </font>
@@ -141,19 +139,6 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="256.0" layoutY="166.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="730.0">
-         <children>
-            <TableView fx:id="tableEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="730.0" stylesheets="@../css/fullpackstyling.css">
-               <columns>
-                  <TableColumn fx:id="cid" prefWidth="85.0" text="ID" />
-                  <TableColumn fx:id="cnombre" prefWidth="100.0" text="Nombre" />
-                  <TableColumn fx:id="capellido" prefWidth="100.0" text="Apellido" />
-                  <TableColumn fx:id="ctelefono" prefWidth="100.0" text="Telefono" />
-                  <TableColumn fx:id="cdireccion" prefWidth="150.0" text="Direccion" />
-                  <TableColumn fx:id="cemail" prefWidth="115.0" text="Correo" />
-                  <TableColumn fx:id="clocal" minWidth="0.0" prefWidth="101.0" text="Local" />
-               </columns></TableView>
-         </children>
-      </Pane>
+      <AnchorPane fx:id="root" layoutX="264.0" layoutY="170.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="730.0" />
    </children>
 </AnchorPane>

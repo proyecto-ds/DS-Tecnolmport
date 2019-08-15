@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorJefeRuta">
+   <children>
+      <Label layoutX="22.0" layoutY="14.0" text="CREAR RUTA">
+         <font>
+            <Font name="Consolas" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="93.0" text="ASIGNAR RUTA DE ENTREGA">
+         <font>
+            <Font name="Consolas" size="16.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutX="133.0" layoutY="46.0" prefHeight="25.0" prefWidth="407.0" spacing="15.0" AnchorPane.bottomAnchor="527.0">
+         <children>
+            <Label text="Escriba una ruta nueva:">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtf_escribirRuta" />
+            <JFXButton fx:id="btn_agregarRuta" stylesheets="@../css/fullpackstyling.css" text="Agregar" textFill="WHITE">
+               <font>
+                  <Font name="Consolas" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets left="2.0" top="2.0" />
+         </padding>
+      </HBox>
+      <ListView fx:id="lv_entregas" layoutX="33.0" layoutY="167.0" prefHeight="285.0" prefWidth="200.0" />
+      <Label layoutX="81.0" layoutY="138.0" text="Lista de entregas">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <HBox layoutX="291.0" layoutY="167.0" prefHeight="37.0" prefWidth="242.0" spacing="10.0">
+         <children>
+            <Label prefHeight="26.0" prefWidth="149.0" text="Repartidores disponibles:" />
+            <JFXComboBox fx:id="cb_repartidor" onAction="#seleccionarRepartidor">
+               <padding>
+                  <Insets left="2.0" top="2.0" />
+               </padding>
+            </JFXComboBox>
+         </children>
+      </HBox>
+      <VBox alignment="TOP_CENTER" layoutX="273.0" layoutY="211.0" prefHeight="259.0" prefWidth="376.0" spacing="5.0">
+         <children>
+            <Label alignment="BASELINE_LEFT" prefHeight="17.0" prefWidth="205.0" text="Seleccione una ruta para la entrega" textAlignment="CENTER" />
+            <ListView fx:id="lv_rutasCreadas" prefHeight="209.0" prefWidth="356.0" />
+         </children>
+         <padding>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <JFXButton fx:id="btn_guardar" layoutX="321.0" layoutY="487.0" stylesheets="@../css/fullpackstyling.css" text="Guardar" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
