@@ -10,6 +10,8 @@ package Modelo;
  * @author bryan
  */
 public class Local {
+    
+    
     protected String id;
     protected String nombre;
     protected String direccion;
