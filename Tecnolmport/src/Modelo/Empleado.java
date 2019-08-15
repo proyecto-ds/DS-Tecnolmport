@@ -16,7 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author bryan
  */
 public class Empleado extends RecursiveTreeObject<Empleado>{
-    protected String identificacion;
+    protected String id;
     protected String nombre;
     protected String apellido;
     protected String telefono;
@@ -30,7 +30,7 @@ public class Empleado extends RecursiveTreeObject<Empleado>{
     
     
     public Empleado(String identificacion, String nombre, String apellido, String telefono, String direccion, String email, String local, boolean activo) {
-        this.identificacion = identificacion;
+        this.id = identificacion;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -40,12 +40,12 @@ public class Empleado extends RecursiveTreeObject<Empleado>{
         this.activo = activo;
     }
 
-    public String getIdentificacion() {
-        return identificacion;
+    public String getId() {
+        return id;
     }
 
-    public void setIdentificacion(String identificacion) {
-        this.identificacion = identificacion;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {

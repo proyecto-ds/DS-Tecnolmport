@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -12,41 +13,31 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorJefeBodega">
    <children>
-      <Pane prefHeight="600.0" prefWidth="267.0" style="-fx-background-color: #1E346D;">
+      <Pane prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #1E346D;">
          <children>
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="99.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="99.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagen/jefeBodega.png" />
                </image>
             </ImageView>
-            <Label layoutX="74.0" layoutY="121.0" prefHeight="21.0" prefWidth="119.0" text="Jefe de Bodega..." textFill="#b8b1b1">
+            <Label layoutX="74.0" layoutY="103.0" prefHeight="21.0" prefWidth="119.0" text="Jefe de Bodega..." textFill="#b8b1b1">
                <font>
                   <Font name="Calibri Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="15.0" layoutY="179.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="50.0" text="Rutas" textFill="#b8b1b1">
+            <Label layoutX="15.0" layoutY="299.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="100.0" text="Repartidores" textFill="#b8b1b1">
                <font>
                   <Font name="Calibri Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="15.0" layoutY="300.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="100.0" text="Repartidores" textFill="#b8b1b1">
+            <Label layoutX="15.0" layoutY="396.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="78.0" text="Entregas" textFill="#b8b1b1">
                <font>
                   <Font name="Calibri Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="15.0" layoutY="403.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="78.0" text="Entregas" textFill="#b8b1b1">
-               <font>
-                  <Font name="Calibri Bold" size="16.0" />
-               </font>
-            </Label>
-            <VBox layoutX="79.0" layoutY="212.0" prefHeight="66.0" prefWidth="119.0" spacing="2.0">
+            <VBox alignment="CENTER_LEFT" layoutX="84.0" layoutY="220.0" prefHeight="67.0" prefWidth="156.0" spacing="2.0">
                <children>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="170.0" stylesheets="@../css/fullpackstyling.css" text="Crear Ruta" textAlignment="CENTER" textFill="#b8b1b1">
-                     <font>
-                        <Font name="Consolas" size="13.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="170.0" stylesheets="@../css/fullpackstyling.css" text="Asignar Ruta" textAlignment="CENTER" textFill="#b8b1b1">
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#crearAsignarRuta" prefHeight="30.0" prefWidth="155.0" stylesheets="@../css/fullpackstyling.css" text="Crear/Asignar Ruta" textAlignment="CENTER" textFill="#b8b1b1">
                      <font>
                         <Font name="Consolas" size="13.0" />
                      </font>
@@ -56,9 +47,9 @@
                   <Insets left="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox layoutX="79.0" layoutY="335.0" prefHeight="33.0" prefWidth="162.0" spacing="2.0">
+            <VBox layoutX="79.0" layoutY="343.0" prefHeight="35.0" prefWidth="160.0" spacing="2.0">
                <children>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="180.0" stylesheets="@../css/fullpackstyling.css" text="Consultar repartidores" textFill="#b8b1b1">
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="162.0" stylesheets="@../css/fullpackstyling.css" text="Consultar repartidores" textFill="#b8b1b1">
                      <font>
                         <Font name="Consolas" size="13.0" />
                      </font>
@@ -68,24 +59,24 @@
                   <Insets left="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox layoutX="89.0" layoutY="421.0" prefHeight="130.0" prefWidth="174.0" spacing="5.0">
+            <VBox layoutX="82.0" layoutY="408.0" prefHeight="137.0" prefWidth="143.0" spacing="5.0">
                <children>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="170.0" stylesheets="@../css/fullpackstyling.css" text="Consultar entregas" textFill="#b8b1b1">
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="164.0" stylesheets="@../css/fullpackstyling.css" text="Consultar entregas" textFill="#b8b1b1">
                      <font>
                         <Font name="Consolas" size="13.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="170.0" stylesheets="@../css/fullpackstyling.css" text="Registrar entregas" textFill="#b8b1b1">
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="164.0" stylesheets="@../css/fullpackstyling.css" text="Registrar entregas" textFill="#b8b1b1">
                      <font>
                         <Font name="Consolas" size="13.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="170.0" stylesheets="@../css/fullpackstyling.css" text="Generar documento" textFill="#b8b1b1">
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="163.0" stylesheets="@../css/fullpackstyling.css" text="Generar documento" textFill="#b8b1b1">
                      <font>
                         <Font name="Consolas" size="13.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="170.0" stylesheets="@../css/fullpackstyling.css" text="Registrar novedades" textFill="#b8b1b1">
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="163.0" stylesheets="@../css/fullpackstyling.css" text="Registrar novedades" textFill="#b8b1b1">
                      <font>
                         <Font name="Consolas" size="13.0" />
                      </font>
@@ -95,22 +86,56 @@
                   <Insets left="2.0" top="2.0" />
                </padding>
             </VBox>
-            <ImageView fitHeight="62.0" fitWidth="50.0" layoutX="17.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagen/route.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="75.0" fitWidth="50.0" layoutX="15.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="15.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagen/repartidor1.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="11.0" layoutY="467.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="15.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagen/envio.png" />
                </image>
             </ImageView>
+            <JFXButton alignment="BASELINE_LEFT" layoutX="19.0" layoutY="135.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="222.0" stylesheets="@../css/fullpackstyling.css" text="Consultar Artículos" textFill="#b8b1b1">
+               <font>
+                  <Font name="Consolas" size="13.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#b8b1b1" glyphName="SEARCH" size="20" wrappingWidth="65.0" />
+               </graphic>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </JFXButton>
+            <JFXButton fx:id="btnCerrarSesion" alignment="BASELINE_LEFT" layoutX="19.0" layoutY="552.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#cerrarSesion" prefHeight="40.0" prefWidth="222.0" stylesheets="@../css/fullpackstyling.css" text="Cerrar Sesión" textFill="#b8b1b1">
+               <font>
+                  <Font name="Consolas" size="13.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#b8b1b1" glyphName="SIGN_OUT" size="20" wrappingWidth="61.0" />
+               </graphic>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </JFXButton>
+            <JFXButton fx:id="btnAdmin" alignment="BASELINE_LEFT" layoutX="19.0" layoutY="182.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#cargarMenuAdmin" prefHeight="40.0" prefWidth="222.0" stylesheets="@../css/fullpackstyling.css" text="Administrador" textFill="#b8b1b1">
+               <font>
+                  <Font name="Consolas" size="13.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#b8b1b1" glyphName="LOCK" size="20" wrappingWidth="65.0" />
+               </graphic>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </JFXButton>
          </children>
       </Pane>
+      <Pane fx:id="parentRoot" layoutX="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" />
    </children>
 </AnchorPane>

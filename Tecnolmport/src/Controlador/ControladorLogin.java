@@ -69,7 +69,7 @@ public class ControladorLogin implements Initializable {
     
     public void asignarVistaRol(String rol, ActionEvent event) throws IOException{
         if(rol.toLowerCase().equals("gerente")){
-            Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaGerente.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Vista/vistaMenuAdministrador.fxml"));
             Scene sceneGerente = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(sceneGerente);
@@ -83,7 +83,7 @@ public class ControladorLogin implements Initializable {
             stage.show();
         }
         else if(rol.toLowerCase().equals("vendedor")){
-            Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaJefeBodega.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaVendedor.fxml"));
             Scene sceneVendedor = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(sceneVendedor);

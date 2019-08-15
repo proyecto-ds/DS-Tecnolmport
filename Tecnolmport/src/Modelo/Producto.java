@@ -13,7 +13,7 @@ public class Producto {
     protected String id;
     protected String nombre;
     protected float precio;
-    protected String dexcripcion;
+    protected String descripcion;
     protected String categoria;
     protected String proveedor;
     protected boolean estado;
@@ -23,7 +23,7 @@ public class Producto {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
-        this.dexcripcion = dexcripcion;
+        this.descripcion = dexcripcion;
         this.categoria = categoria;
         this.proveedor = proveedor;
         this.estado = estado;
@@ -53,12 +53,12 @@ public class Producto {
         this.precio = precio;
     }
 
-    public String getDexcripcion() {
-        return dexcripcion;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDexcripcion(String dexcripcion) {
-        this.dexcripcion = dexcripcion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getCategoria() {

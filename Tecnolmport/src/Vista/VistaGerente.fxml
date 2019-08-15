@@ -5,8 +5,6 @@
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,7 +17,7 @@
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #1E346D;">
          <children>
-            <Label fx:id="labelNameG1" layoutX="4.0" layoutY="149.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Consultar" textFill="#b8b1b1">
+            <Label layoutX="4.0" layoutY="149.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Consultar" textFill="#b8b1b1">
                <font>
                   <Font name="Calibri Bold" size="16.0" />
                </font>
@@ -27,14 +25,14 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <VBox alignment="CENTER" layoutY="181.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="250.0">
+            <VBox alignment="CENTER" layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="250.0">
                <children>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Artículos" textFill="#b8b1b1">
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#buscarArticulo" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Artículos" textFill="#b8b1b1">
                      <font>
                         <Font name="Consolas" size="13.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView fill="#b8b1b1" glyphName="PRODUCT_HUNT" size="20" wrappingWidth="50.0" />
+                        <FontAwesomeIconView fill="#b8b1b1" glyphName="SEARCH" size="20" wrappingWidth="50.0" />
                      </graphic>
                      <padding>
                         <Insets left="30.0" />
@@ -83,7 +81,7 @@
                   <Insets left="20.0" />
                </padding>
             </HBox>
-            <Label fx:id="labelNameG12" layoutX="4.0" layoutY="381.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Crear" textFill="#b8b1b1">
+            <Label layoutX="4.0" layoutY="360.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Crear" textFill="#b8b1b1">
                <font>
                   <Font name="Calibri Bold" size="16.0" />
                </font>
@@ -91,7 +89,7 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <VBox alignment="CENTER" layoutY="412.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="250.0">
+            <VBox alignment="CENTER" layoutY="399.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="250.0">
                <children>
                   <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Pedido" textFill="#b8b1b1">
                      <font>
@@ -106,7 +104,7 @@
                   </JFXButton>
                </children>
             </VBox>
-            <Label fx:id="labelNameG121" layoutX="4.0" layoutY="465.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Asignar" textFill="#b8b1b1">
+            <Label layoutX="4.0" layoutY="449.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Asignar" textFill="#b8b1b1">
                <font>
                   <Font name="Calibri Bold" size="16.0" />
                </font>
@@ -114,7 +112,7 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <VBox alignment="CENTER" layoutY="497.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="250.0">
+            <VBox alignment="CENTER" layoutY="487.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="250.0">
                <children>
                   <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Permisos" textFill="#b8b1b1">
                      <font>
@@ -139,21 +137,19 @@
                   <Font name="Calibri Bold" size="14.0" />
                </font>
             </Label>
+            <JFXButton fx:id="btnCerrarSesion" alignment="BASELINE_LEFT" layoutX="24.0" layoutY="551.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#cerrarSesion" prefHeight="40.0" prefWidth="203.0" stylesheets="@../css/fullpackstyling.css" text="Cerrar Sesión" textFill="#b8b1b1">
+               <font>
+                  <Font name="Consolas" size="13.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#b8b1b1" glyphName="SIGN_OUT" size="20" wrappingWidth="50.0" />
+               </graphic>
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+            </JFXButton>
          </children>
       </Pane>
-      <Pane layoutX="256.0" layoutY="166.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="730.0">
-         <children>
-            <TableView fx:id="tableEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="730.0" stylesheets="@../css/fullpackstyling.css">
-               <columns>
-                  <TableColumn fx:id="cid" prefWidth="85.0" text="ID" />
-                  <TableColumn fx:id="cnombre" prefWidth="100.0" text="Nombre" />
-                  <TableColumn fx:id="capellido" prefWidth="100.0" text="Apellido" />
-                  <TableColumn fx:id="ctelefono" prefWidth="100.0" text="Telefono" />
-                  <TableColumn fx:id="cdireccion" prefWidth="150.0" text="Direccion" />
-                  <TableColumn fx:id="cemail" prefWidth="115.0" text="Correo" />
-                  <TableColumn fx:id="clocal" minWidth="0.0" prefWidth="101.0" text="Local" />
-               </columns></TableView>
-         </children>
-      </Pane>
+      <Pane fx:id="parent" layoutX="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" />
    </children>
 </AnchorPane>

@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -19,6 +20,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -26,6 +28,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -36,19 +40,9 @@ public class ControladorGerente implements Initializable {
 
     
     @FXML private Label labelGerente;
-    @FXML private TableView<Empleado> tableEmpleado;
     @FXML private JFXButton btnEmpleado;
-    @FXML private TableColumn<Empleado, String> cid;
-    @FXML private TableColumn<Empleado, String> cnombre;
-    @FXML private TableColumn<Empleado, String> capellido;
-    @FXML private TableColumn<Empleado, String> ctelefono;
-    @FXML private TableColumn<Empleado, String> cdireccion;
-    @FXML private TableColumn<Empleado, String> cemail;
-    @FXML private TableColumn<Empleado, String> clocal;
-    
-    private ObservableList <Empleado> lista = FXCollections.observableArrayList ();
-    private Empleado modeloEmpleado;
-    private ObservableList<Empleado> listaEmpleado;
+    @FXML private JFXButton btnCerrarSesion;
+    @FXML private Pane parent;
     
     /**
      * Initializes the controller class.
@@ -58,16 +52,19 @@ public class ControladorGerente implements Initializable {
     }
     @FXML
     void consultarEmpleado(ActionEvent event) {
-        //tableEmpleado.setVisible(true);
-        cid.setCellValueFactory(new PropertyValueFactory<>("identificacion"));
-        cnombre.setCellValueFactory(new PropertyValueFactory<Empleado,String>("nombre"));
-        capellido.setCellValueFactory(new PropertyValueFactory<Empleado,String>("apellido"));
-        ctelefono.setCellValueFactory(new PropertyValueFactory<Empleado,String>("telefono"));
-        cdireccion.setCellValueFactory(new PropertyValueFactory<Empleado,String>("direccion"));
-        cemail.setCellValueFactory(new PropertyValueFactory<Empleado,String>("email"));
-        clocal.setCellValueFactory(new PropertyValueFactory<Empleado,String>("local"));
-        Empleado e = new Empleado();
-        e.llenarTableEmpleado(tableEmpleado);
+        
+    }
+
+    @FXML
+    private void cerrarSesion(ActionEvent event) {
+        Stage stage = (Stage) btnCerrarSesion.getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    private void buscarArticulo(ActionEvent event) throws IOException {
+        AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaBusquedaArticulo.fxml")));
+        parent.getChildren().setAll(vistaBA);
     }
     
 }

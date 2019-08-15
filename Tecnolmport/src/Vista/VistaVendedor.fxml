@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -32,7 +34,7 @@
                </font>
             </Label>
             <JFXComboBox fx:id="cbxRegistrar" layoutX="52.0" layoutY="193.0" prefHeight="33.0" prefWidth="163.0" stylesheets="@../css/comboBox.css" />
-            <Label layoutX="15.0" layoutY="317.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Consultar" textFill="#b8b1b1">
+            <Label layoutX="15.0" layoutY="289.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="180.0" text="Consultar" textFill="#b8b1b1">
                <font>
                   <Font name="Calibri Bold" size="16.0" />
                </font>
@@ -40,8 +42,8 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <JFXComboBox fx:id="cbxConsultar" layoutX="52.0" layoutY="354.0" prefHeight="33.0" prefWidth="163.0" stylesheets="@../css/comboBox.css" />
-            <Label layoutX="14.0" layoutY="469.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="156.0" text="Actualizar" textFill="#b8b1b1">
+            <JFXComboBox fx:id="cbxConsultar" layoutX="52.0" layoutY="329.0" prefHeight="33.0" prefWidth="163.0" stylesheets="@../css/comboBox.css" />
+            <Label layoutX="14.0" layoutY="435.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="156.0" text="Actualizar" textFill="#b8b1b1">
                <font>
                   <Font name="Calibri Bold" size="16.0" />
                </font>
@@ -49,9 +51,20 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <JFXComboBox fx:id="cbxActualizar" layoutX="51.0" layoutY="508.0" prefHeight="33.0" prefWidth="163.0" stylesheets="@../css/comboBox.css" />
+            <JFXComboBox fx:id="cbxActualizar" layoutX="51.0" layoutY="475.0" prefHeight="33.0" prefWidth="163.0" stylesheets="@../css/comboBox.css" />
+            <JFXButton fx:id="btnCerrarSesion" alignment="BASELINE_LEFT" layoutX="24.0" layoutY="546.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#cerrarSesion" prefHeight="40.0" prefWidth="203.0" stylesheets="@../css/fullpackstyling.css" text="Cerrar Sesión" textFill="#b8b1b1">
+               <font>
+                  <Font name="Consolas" size="13.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#b8b1b1" glyphName="SIGN_OUT" size="20" wrappingWidth="50.0" />
+               </graphic>
+               <padding>
+                  <Insets left="25.0" />
+               </padding>
+            </JFXButton>
          </children>
       </Pane>
-      <Pane layoutX="256.0" layoutY="166.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="730.0" />
+      <Pane fx:id="parent" layoutX="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" />
    </children>
 </AnchorPane>

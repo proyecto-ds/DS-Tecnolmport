@@ -27,6 +27,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -36,22 +38,30 @@ import javafx.scene.layout.AnchorPane;
 public class ControladorVendedor implements Initializable {
 
     
-    @FXML private Label labelGerente;
     @FXML private JFXComboBox<String> cbxConsultar;
     @FXML private JFXComboBox<String> cbxRegistrar;
     @FXML private JFXComboBox<String> cbxActualizar;
+    @FXML private Label labelVendedor;
+    @FXML private JFXButton btnCerrarSesion;
+    @FXML private Pane parent;
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cbxConsultar.getItems().addAll("Cliente","Cotizacion","EnvioDomicilio","Venta","NotaDeCredito");
+        cbxConsultar.getItems().addAll("Cliente","Cotizacion","EnvioDomicilio","Producto","Venta","NotaDeCredito");
         cbxRegistrar.getItems().addAll("Cliente","Cotizacion","Venta","NotaDeCredito");
         cbxActualizar.getItems().addAll("Cliente","Venta");
     }   
     void consultarEmpleado(ActionEvent event) {
         
+    }
+
+    @FXML
+    private void cerrarSesion(ActionEvent event) {
+        Stage stage = (Stage) btnCerrarSesion.getScene().getWindow();
+        stage.close();
     }
     
 }
