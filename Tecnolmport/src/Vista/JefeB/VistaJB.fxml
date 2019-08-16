@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorJefeBodega">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.CtrlJefeBodega.ControladorJefeBodega">
    <children>
       <Pane prefHeight="600.0" prefWidth="247.0" style="-fx-background-color: #1E346D;">
          <children>
@@ -42,7 +42,7 @@
                   <Insets left="10.0" />
                </padding>
             </JFXButton>
-            <JFXButton fx:id="btnCerrarSesion" alignment="BASELINE_LEFT" layoutX="19.0" layoutY="552.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#cerrarSesion" prefHeight="40.0" prefWidth="222.0" stylesheets="@../css/fullpackstyling.css" text="Cerrar Sesión" textFill="#b8b1b1">
+            <JFXButton fx:id="btnCerrarSesion" alignment="BASELINE_LEFT" layoutX="13.0" layoutY="546.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#cerrarSesion" prefHeight="40.0" prefWidth="222.0" stylesheets="@../css/fullpackstyling.css" text="Cerrar Sesión" textFill="#b8b1b1">
                <font>
                   <Font name="Consolas" size="13.0" />
                </font>
@@ -80,17 +80,17 @@
                         </ImageView>
                         <VBox alignment="TOP_RIGHT" prefHeight="97.0" prefWidth="144.0" spacing="5.0">
                            <children>
-                              <JFXButton alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="164.0" stylesheets="@../css/fullpackstyling.css" text="Registrar entregas" textFill="#b8b1b1">
+                              <JFXButton fx:id="btn_registrarEntrega" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#registrarEntrega" prefHeight="30.0" prefWidth="164.0" stylesheets="@../css/fullpackstyling.css" text="Registrar entregas" textFill="#b8b1b1">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="164.0" stylesheets="@../css/fullpackstyling.css" text="Consultar entregas" textFill="#b8b1b1">
+                              <JFXButton fx:id="btn_consultarEntrega" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#consultarEntrega" prefHeight="30.0" prefWidth="164.0" stylesheets="@../css/fullpackstyling.css" text="Consultar entregas" textFill="#b8b1b1">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="164.0" stylesheets="@../css/fullpackstyling.css" text="Registrar novedades" textFill="#b8b1b1">
+                              <JFXButton fx:id="btn_registrarNovedad" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#registrarNovedad" prefHeight="30.0" prefWidth="164.0" stylesheets="@../css/fullpackstyling.css" text="Registrar novedades" textFill="#b8b1b1">
                                  <font>
                                     <Font name="Consolas" size="13.0" />
                                  </font>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.CtrlJefeBodega.CtrlJBRegistrarEntrega">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Registrar Entrega">
+         <font>
+            <Font name="Verdana" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="317.0" layoutY="43.0" text="Tabla de Pedidos">
+         <font>
+            <Font name="Consolas" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="321.0" layoutY="310.0" text="Tabla de Envíos">
+         <font>
+            <Font name="Consolas" size="15.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tbl_pedido" layoutX="34.0" layoutY="70.0" prefHeight="180.0" prefWidth="690.0" stylesheets="@../../css/fullpackstyling.css">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Id Pedido" />
+          <TableColumn prefWidth="98.0" text="Fecha Pedido" />
+            <TableColumn prefWidth="75.0" text="Descripción" />
+            <TableColumn prefWidth="75.0" text="Estado" />
+            <TableColumn prefWidth="75.0" text="Local" />
+            <TableColumn prefWidth="75.0" text="Producto" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TableView fx:id="tbl_envio" layoutX="38.0" layoutY="352.0" prefHeight="180.0" prefWidth="690.0" stylesheets="@../../css/fullpackstyling.css">
+         <columns>
+            <TableColumn prefWidth="75.0" text="Id Envio" />
+            <TableColumn prefWidth="98.0" text="Venta" />
+            <TableColumn prefWidth="75.0" text="Descripción" />
+            <TableColumn prefWidth="75.0" text="Direccion" />
+            <TableColumn prefWidth="75.0" text="FechaInicio" />
+            <TableColumn prefWidth="75.0" text="FechaFin" />
+            <TableColumn prefWidth="75.0" text="Estado" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="34.0" layoutY="53.0" text="Seleccione el pedido a autorizar" />
+      <Label layoutX="36.0" layoutY="328.0" text="Seleccione el envio a autorizar" />
+      <Label layoutX="523.0" layoutY="20.0" text="Consultar productos ()" />
+      <HBox layoutX="383.0" layoutY="256.0" prefHeight="30.0" prefWidth="343.0" spacing="5.0">
+         <children>
+            <JFXButton fx:id="btn_registrarPedido" onAction="#act_registrarPedido" prefWidth="179.0" stylesheets="@../../css/fullpackstyling.css" text="Registrar Entrega-Pedido" textFill="WHITE" />
+            <JFXButton fx:id="btn_negarPedido" onAction="#act_negarPedido" stylesheets="@../../css/fullpackstyling.css" text="Negar Entrega-Pedido" textFill="WHITE" />
+         </children>
+      </HBox>
+      <HBox layoutX="404.0" layoutY="538.0" prefHeight="30.0" prefWidth="320.0" spacing="5.0">
+         <children>
+            <JFXButton fx:id="btn_registrarEnvio" onAction="#act_registrarEnvio" stylesheets="@../../css/fullpackstyling.css" text="Registrar Entrega-Envio" textFill="WHITE" />
+            <JFXButton fx:id="btn_negarEnvio" onAction="#act_negarEnvio" stylesheets="@../../css/fullpackstyling.css" text="Negar Entrega-Envio" textFill="WHITE" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

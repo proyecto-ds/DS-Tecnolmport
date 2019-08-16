@@ -9,24 +9,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorJefeAsignarRuta">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.CtrlJefeBodega.CtrlJBAsignarRuta">
    <children>
-      <Label layoutX="32.0" layoutY="32.0" text="ASIGNAR RUTA DE ENTREGA">
+      <Label layoutX="21.0" layoutY="26.0" text="ASIGNAR RUTA DE ENTREGA">
          <font>
-            <Font name="Consolas" size="16.0" />
+            <Font name="Consolas" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="51.0" layoutY="91.0" prefHeight="26.0" prefWidth="165.0" text="Repartidores disponibles:">
+      <Label layoutX="38.0" layoutY="72.0" prefHeight="26.0" prefWidth="203.0" text="REPARTIDORES DISPONIBLES">
          <font>
             <Font name="Verdana" size="12.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="cb_repartidor" layoutX="258.0" layoutY="90.0" onAction="#seleccionarRepartidor" stylesheets="@../../css/comboBox.css">
+      <JFXComboBox fx:id="cb_repartidor" layoutX="279.0" layoutY="98.0" onAction="#seleccionarRepartidor" stylesheets="@../../css/comboBox.css">
          <padding>
             <Insets left="2.0" top="2.0" />
          </padding>
       </JFXComboBox>
-      <Label alignment="BASELINE_LEFT" layoutX="51.0" layoutY="150.0" prefHeight="15.0" prefWidth="192.0" text="Seleccione ruta para  entrega" textAlignment="CENTER">
+      <Label alignment="BASELINE_LEFT" layoutX="38.0" layoutY="150.0" prefHeight="15.0" prefWidth="192.0" text="Seleccione ruta para  entrega" textAlignment="CENTER">
          <font>
             <Font name="Verdana" size="12.0" />
          </font>
@@ -48,5 +48,10 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <Label alignment="BASELINE_LEFT" layoutX="88.0" layoutY="113.0" prefHeight="15.0" prefWidth="153.0" text="Selecciona un repartidor" textAlignment="CENTER">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
