@@ -28,6 +28,12 @@ public class ControladorJefeBodega implements Initializable {
     @FXML private JFXButton btnCerrarSesion;
     @FXML private JFXButton btnAdmin;
     @FXML private Pane parentRoot;
+    @FXML
+    private JFXButton btn_crearRuta;
+    @FXML
+    private JFXButton btn_asignarRuta;
+    @FXML
+    private JFXButton btn_mostrarRutas;
 
     /**
      * Initializes the controller class.
@@ -38,8 +44,8 @@ public class ControladorJefeBodega implements Initializable {
     }    
 
     @FXML
-    private void crearAsignarRuta(ActionEvent event) throws IOException {
-        AnchorPane vistaCARuta = FXMLLoader.load(getClass().getResource(("/Vista/VistaJefeRuta.fxml")));
+    private void crearRuta(ActionEvent event) throws IOException {
+        AnchorPane vistaCARuta = FXMLLoader.load(getClass().getResource(("/Vista/JefeB/VistaJBCrearRuta.fxml")));
         parentRoot.getChildren().setAll(vistaCARuta);
     }
 
@@ -53,6 +59,17 @@ public class ControladorJefeBodega implements Initializable {
     private void cargarMenuAdmin(ActionEvent event) throws IOException {
         AnchorPane vistaAdmin = FXMLLoader.load(getClass().getResource(("/Vista/vistaMenuAdministrador.fxml")));
         parentRoot.getChildren().setAll(vistaAdmin);
+    }
+    
+
+    @FXML
+    private void AsignarRuta(ActionEvent event) throws IOException {
+        AnchorPane vistaCARuta = FXMLLoader.load(getClass().getResource(("/Vista/JefeB/VistaJBAsignarRuta.fxml")));
+        parentRoot.getChildren().setAll(vistaCARuta);
+    }
+
+    @FXML
+    private void mostrarRuta(ActionEvent event) {
     }
 
 

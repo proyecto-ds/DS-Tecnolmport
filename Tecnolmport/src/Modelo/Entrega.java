@@ -29,10 +29,6 @@ public class Entrega {
         this.cantidad = cantidad;
         this.descripcion = descripcion;
     }
-    
-    
-    
-    
 
     public String getId() {
         return id;
