@@ -10,6 +10,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -31,6 +32,8 @@ public class Tecnolmport extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("/Vista/JefeB/VistaJB.fxml"));
             Scene scene = new Scene(root);
             stagePrincipal.setScene(scene);
+            Image image = new Image("/Imagen/logo1.png");
+            stagePrincipal.getIcons().add(image);
             //stagePrincipal.initStyle(StageStyle.UNDECORATED);
             stagePrincipal.show();
             
