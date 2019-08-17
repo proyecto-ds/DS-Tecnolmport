@@ -14,9 +14,9 @@ public class DBConnection {
     private static DBConnection dbConnection;
     private Connection connection;
     //private final String driver = "com.mysql.jdbc.Driver";
-    private final String url = "jdbc:mysql://localhost:3306/tecnolmport_schemaf?autoReconnect=true&useSSL=false";
+    private final String url = "jdbc:mysql://localhost:3306/TecnolmportDS?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private final String user = "root";
-    private final String pass = "root"; 
+    private final String pass = "toby"; 
     private static final Logger LOGGER = Logger.getLogger("DBConnection Logger");
     
     private DBConnection(){   

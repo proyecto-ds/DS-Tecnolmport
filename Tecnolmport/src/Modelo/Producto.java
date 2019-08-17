@@ -5,6 +5,16 @@
  */
 package Modelo;
 
+import Singleton.DBConnection;
+import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 /**
  *
  * @author bryan
@@ -17,13 +27,23 @@ public class Producto {
     protected String categoria;
     protected String proveedor;
     protected boolean estado;
+    protected int stock;
+    
+    protected static final DBConnection CONNECTION = DBConnection.getInstance();
+    protected static final Logger LOGGER = Logger.getLogger("Usuario Logger");
+    private final String actualizar = "{call  actualizarProducto (?,?,?,?,?,?,?)}";
+    private final String ingresar = "{call   ingresarProducto(?,?,?,?,?,?,?)}";
+    private final String eliminar = "{call   eliminarProducto (?)}";
+
+    public Producto() {
+    }
     
     
-    public Producto(String id, String nombre, float precio, String dexcripcion, String categoria, String proveedor, boolean estado) {
+    public Producto(String id, String nombre, float precio, String descripcion, String categoria, String proveedor, boolean estado) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
-        this.descripcion = dexcripcion;
+        this.descripcion = descripcion;
         this.categoria = categoria;
         this.proveedor = proveedor;
         this.estado = estado;
@@ -85,5 +105,88 @@ public class Producto {
         this.estado = estado;
     }
     
+    public ObservableList<Producto> llenarTableProducto(){
+        ObservableList <Producto> lista = FXCollections.observableArrayList ();
+        try {
+            CONNECTION.conectar();
+            String consulta = "{call  obtenerProductos ()}";
+            PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
+            ResultSet resultado = ingreso.executeQuery();
+            while (resultado.next()) {
+                lista.add(
+                        new Producto(
+                                resultado.getString("idProducto"),
+                                resultado.getString("nombre"),
+                                resultado.getFloat("precio"),
+                                resultado.getString("categoria"),
+                                resultado.getString("descripcion"),
+                                resultado.getString("proveedor"),
+                                resultado.getBoolean("estado")));
+            }
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return lista;
+    }
+    public boolean ingresarProducto(){
+        try {
+            CONNECTION.conectar();
+            PreparedStatement sp = CONNECTION.getConnection().prepareStatement(ingresar);
+            sp.setString(1, this.getId());
+            sp.setString(2, this.getNombre());
+            sp.setFloat(3, this.getPrecio());
+            sp.setString(4, this.getCategoria());
+            sp.setString(5, this.getDescripcion());
+            sp.setString(6, this.getProveedor());
+            sp.setBoolean(7, this.isEstado());
+            sp.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return false;
+    }
+    
+    public boolean actualizarProducto(){
+        try {
+            CONNECTION.conectar();
+            CallableStatement sp = CONNECTION.getConnection().prepareCall(actualizar);
+            sp.setString(1, this.getId());
+            sp.setString(2, this.getNombre());
+            sp.setFloat(3, this.getPrecio());
+            sp.setString(4, this.getCategoria());
+            sp.setString(5, this.getDescripcion());
+            sp.setString(6, this.getProveedor());
+            sp.setBoolean(7, this.isEstado());
+            sp.execute();
+            sp.close();
+            return true;
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return false;
+    }
+    
+    public boolean eliminarProducto(){
+        try {
+            CONNECTION.conectar();
+            CallableStatement sp = CONNECTION.getConnection().prepareCall(eliminar);
+            sp.setString(1, this.getId());
+            sp.execute();
+            sp.close();
+            return true;
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return false;
+    }
     
 }

@@ -14,12 +14,13 @@ public class Repartidor extends Empleado{
 
     public Repartidor() {
     }
-    
-    
-    public Repartidor(boolean disponibilidad, String identificacion, String nombre, String apellido, String telefono, String direccion, String email, String local, boolean activo) {
-        super(identificacion, nombre, apellido, telefono, direccion, email, local, activo);
-        this.disponibilidad = disponibilidad;
+
+    public Repartidor(String id, String nombre, String apellido, String rol, int salario, String direccion, String email, String telefono, String local, boolean activo) {
+        super(id, nombre, apellido, rol, salario, direccion, email, telefono, local, activo);
     }
+    
+    
+   
 
     public boolean isDisponibilidad() {
         return disponibilidad;

@@ -62,7 +62,7 @@ public class ControladorGerente1 implements Initializable {
         cemail.setCellValueFactory(new PropertyValueFactory<Empleado,String>("email"));
         clocal.setCellValueFactory(new PropertyValueFactory<Empleado,String>("local"));
         Empleado e = new Empleado();
-        e.llenarTableEmpleado(tableEmpleado);
+        //e.llenarTableEmpleado(tableEmpleado);
     }
     @FXML
     void consultarEmpleado(ActionEvent event) {
