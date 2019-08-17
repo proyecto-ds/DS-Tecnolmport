@@ -48,11 +48,12 @@ public class ControladorMenuAdministrador implements Initializable {
             System.out.println("");
         }
         else if(seleccionG.equals("empleado")){
-            AnchorPane vistaCARuta = FXMLLoader.load(getClass().getResource(("/Vista/VistaGestionarEmpleado.fxml")));
-            parent2.getChildren().setAll(vistaCARuta);
+            AnchorPane vistaGE = FXMLLoader.load(getClass().getResource(("/Vista/VistaGestionarEmpleado.fxml")));
+            parent2.getChildren().setAll(vistaGE);
         }
         else if(seleccionG.equals("producto")){
-            System.out.println("");
+            AnchorPane vistaGP = FXMLLoader.load(getClass().getResource(("/Vista/VistaGestionarProducto.fxml")));
+            parent2.getChildren().setAll(vistaGP);
         }
         else if(seleccionG.equals("inventario")){
             System.out.println("");

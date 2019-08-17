@@ -19,23 +19,26 @@ public class Empleado extends RecursiveTreeObject<Empleado>{
     protected String id;
     protected String nombre;
     protected String apellido;
-    protected String telefono;
+    protected String rol;
+    protected int salario;
     protected String direccion;
     protected String email;
+    protected String telefono;
     protected String local;
     protected boolean activo;
 
     public Empleado() {
     }
-    
-    
-    public Empleado(String identificacion, String nombre, String apellido, String telefono, String direccion, String email, String local, boolean activo) {
-        this.id = identificacion;
+
+    public Empleado(String id, String nombre, String apellido, String rol, int salario, String direccion, String email, String telefono, String local, boolean activo) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.telefono = telefono;
+        this.rol = rol;
+        this.salario = salario;
         this.direccion = direccion;
         this.email = email;
+        this.telefono = telefono;
         this.local = local;
         this.activo = activo;
     }
@@ -64,12 +67,20 @@ public class Empleado extends RecursiveTreeObject<Empleado>{
         this.apellido = apellido;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getRol() {
+        return rol;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public int getSalario() {
+        return salario;
+    }
+
+    public void setSalario(int salario) {
+        this.salario = salario;
     }
 
     public String getDireccion() {
@@ -88,6 +99,14 @@ public class Empleado extends RecursiveTreeObject<Empleado>{
         this.email = email;
     }
 
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
     public String getLocal() {
         return local;
     }
@@ -103,12 +122,6 @@ public class Empleado extends RecursiveTreeObject<Empleado>{
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+
     
-    public ObservableList <Empleado> llenarTableEmpleado(TableView tableEmpleado){
-        ObservableList <Empleado> lista = FXCollections.observableArrayList ();
-        lista.add(new Empleado("0926522703","bryan","tutiven","0988097982","Daule","brcetuti@espol.edu.ec","Matriz",true));
-        lista.add(new Empleado("0926522708","cesar","acosta","0988097982","Daule","brcetuti@espol.edu.ec","Bodega",true));
-        tableEmpleado.getItems().addAll(lista);
-        return lista;
-    }
 }

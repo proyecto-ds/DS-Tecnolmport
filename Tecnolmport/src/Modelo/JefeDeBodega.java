@@ -23,9 +23,10 @@ public class JefeDeBodega extends Usuario{
     public JefeDeBodega() {
     }
 
-    public JefeDeBodega(String usuario, String contraseña, String identificacion, String nombre, String apellido, String telefono, String direccion, String email, String local, boolean activo) {
-        super(usuario, contraseña, identificacion, nombre, apellido, telefono, direccion, email, local, activo);
+    public JefeDeBodega(String usuario, String contraseña, String id, String nombre, String apellido, String rol, int salario, String direccion, String email, String telefono, String local, boolean activo) {
+        super(usuario, contraseña, id, nombre, apellido, rol, salario, direccion, email, telefono, local, activo);
     }
+
     
     
 }
