@@ -32,12 +32,11 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author bryan
  */
-public class ControladorGerente1 implements Initializable {
+public class ControladorGerenteEmpleados implements Initializable {
 
     
-    @FXML private Label labelGerente;
     @FXML private TableView<Empleado> tableEmpleado;
-    @FXML private JFXButton btnEmpleado;
+    
     @FXML private TableColumn<Empleado, String> cid;
     @FXML private TableColumn<Empleado, String> cnombre;
     @FXML private TableColumn<Empleado, String> capellido;
@@ -47,7 +46,7 @@ public class ControladorGerente1 implements Initializable {
     @FXML private TableColumn<Empleado, String> clocal;
     
     private ObservableList <Empleado> lista = FXCollections.observableArrayList ();
-    private Empleado modeloEmpleado;
+    //private Empleado modeloEmpleado;
     private ObservableList<Empleado> listaEmpleado;
     /**
      * Initializes the controller class.
@@ -64,7 +63,6 @@ public class ControladorGerente1 implements Initializable {
         Empleado e = new Empleado();
         e.llenarTableEmpleado(tableEmpleado);
     }
-    @FXML
     void consultarEmpleado(ActionEvent event) {
         //tableEmpleado.setVisible(true);
         

@@ -36,6 +36,7 @@ public class ControladorBusquedaArticulo implements Initializable {
     @FXML private TableColumn<Producto, String> cprecio;
     @FXML private TableColumn<Producto, String> ccategoria;
     @FXML private TableColumn<Producto, String> cproveedor;
+    @FXML private TableColumn<Producto, String> CEstado;
 
     /**
      * Initializes the controller class.
@@ -50,6 +51,7 @@ public class ControladorBusquedaArticulo implements Initializable {
         cprecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         ccategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         cproveedor.setCellValueFactory(new PropertyValueFactory<>("proveedor"));
+        CEstado.setCellValueFactory(new PropertyValueFactory<>("Estado"));
     }    
     
 }

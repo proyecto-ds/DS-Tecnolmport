@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" style="-fx-background-insets: #1E346D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorGerentePedido">
+   <children>
+      <TableView fx:id="tablePedido" editable="true" layoutX="16.0" layoutY="37.0" prefHeight="538.0" prefWidth="718.0" stylesheets="@../css/fullpackstyling.css">
+        <columns>
+            <TableColumn fx:id="Cid" prefWidth="110.30746358633041" text="      id" />
+          <TableColumn fx:id="CFecha" prefWidth="128.07144165039062" text="         Fecha " />
+          <TableColumn fx:id="CEstado" prefWidth="94.10252380371094" text="     Estado" />
+            <TableColumn fx:id="CLocal" prefWidth="133.8974609375" text="            Local" />
+            <TableColumn fx:id="CGerente" prefWidth="135.84478759765625" text="          Gerente" />
+            <TableColumn fx:id="CProductos" prefWidth="153.15521240234375" text="    Productos" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

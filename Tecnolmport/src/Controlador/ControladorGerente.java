@@ -50,8 +50,12 @@ public class ControladorGerente implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
+    
     @FXML
-    void consultarEmpleado(ActionEvent event) {
+    private void consultarEmpleado(ActionEvent event) throws IOException {
+        AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaGerenteEmpleados.fxml")));
+        parent.getChildren().setAll(vistaBA);
+        
         
     }
 
@@ -66,5 +70,26 @@ public class ControladorGerente implements Initializable {
         AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaBusquedaArticulo.fxml")));
         parent.getChildren().setAll(vistaBA);
     }
+    
+     @FXML
+    private void ConsultarPedido(ActionEvent event) throws IOException {
+        AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaGerentePedido.fxml")));
+        parent.getChildren().setAll(vistaBA);
+    }
+    
+    
+      @FXML
+    private void ConsultarVenta(ActionEvent event) throws IOException {
+        AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaGerenteVenta.fxml")));
+        parent.getChildren().setAll(vistaBA);
+    }
+    
+     @FXML
+    private void RealizarPedido(ActionEvent event) throws IOException {
+        AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaGerenteGPedido.fxml")));
+        parent.getChildren().setAll(vistaBA);
+    }
+    
+   
     
 }
