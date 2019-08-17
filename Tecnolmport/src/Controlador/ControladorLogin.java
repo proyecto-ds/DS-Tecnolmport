@@ -58,8 +58,9 @@ public class ControladorLogin implements Initializable {
         if(controladorValidar.ValidarUsuarioContrasena(usuario, contraseña)){
             modeloUsuario.setUsuario(usuario);
             modeloUsuario.setContraseña(contraseña);
-            if(modeloUsuario.login()){
-                asignarVistaRol(modeloUsuario.obtenerRol(), event);
+            String rol = modeloUsuario.login();
+            if(rol !=null){
+                asignarVistaRol(rol, event);
             }
                 
         }
@@ -75,7 +76,7 @@ public class ControladorLogin implements Initializable {
             stage.setScene(sceneGerente);
             stage.show();
         }
-        else if(rol.toLowerCase().equals("jefedebodega")){
+        else if(rol.toLowerCase().equals("jefe")){
             Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaJefeBodega.fxml"));
             Scene sceneJefe = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

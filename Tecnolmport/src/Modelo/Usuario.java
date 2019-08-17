@@ -5,14 +5,21 @@
  */
 package Modelo;
 
+import Singleton.DBConnection;
+import java.sql.CallableStatement;
+import java.sql.SQLException;
+import java.sql.Types;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author bryan
  */
 public class Usuario extends Empleado{
-    
+    protected static final DBConnection CONNECTION = DBConnection.getInstance();
+    protected static final Logger LOGGER = Logger.getLogger("Usuario Logger");
     protected String usuario;
     protected String contraseña;
 
@@ -57,13 +64,27 @@ public class Usuario extends Empleado{
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-    public boolean login(){
-        String usuario = "bryan";
-        String contraseña = "123";
-        if(this.usuario.equals(usuario)&& this.contraseña.equals(contraseña)){
-            return true;
+    public String login(){
+        try {
+            CONNECTION.conectar();
+            String consulta = "{call  login (?,?,?)}";
+            CallableStatement sp = CONNECTION.getConnection().prepareCall(consulta);
+            sp.setString(1, this.getUsuario());
+            sp.setString(2, this.getContraseña());
+            System.out.println("888888888888888");
+            sp.registerOutParameter(3, Types.VARCHAR);
+            sp.execute();
+            System.out.println("999999999999999999999999");
+            String rol = sp.getString(3);
+            System.out.println(rol);
+            sp.close();
+            return rol;
+        } catch (SQLException ex) {
+           Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        } finally {
+            CONNECTION.desconectar();
         }
-        return false;
     }
     
     
