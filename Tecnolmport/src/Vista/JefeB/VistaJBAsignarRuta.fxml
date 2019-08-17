@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.CtrlJefeBodega.CtrlJBAsignarRuta">
+   <children>
+      <Label layoutX="21.0" layoutY="26.0" text="ASIGNAR RUTA DE ENTREGA">
+         <font>
+            <Font name="Consolas" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="72.0" prefHeight="26.0" prefWidth="203.0" text="REPARTIDORES DISPONIBLES">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cb_repartidor" layoutX="279.0" layoutY="98.0" onAction="#seleccionarRepartidor" stylesheets="@../../css/comboBox.css">
+         <padding>
+            <Insets left="2.0" top="2.0" />
+         </padding>
+      </JFXComboBox>
+      <Label alignment="BASELINE_LEFT" layoutX="38.0" layoutY="150.0" prefHeight="15.0" prefWidth="192.0" text="Seleccione ruta para  entrega" textAlignment="CENTER">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btn_asignarRuta" layoutX="326.0" layoutY="496.0" onAction="#asignarRuta" stylesheets="@../../css/fullpackstyling.css" text="Asignar Ruta" textFill="WHITE">
+         <font>
+            <Font name="Consolas" size="12.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tbl_rutaEntrega" layoutX="72.0" layoutY="176.0" prefHeight="292.0" prefWidth="608.0" stylesheets="@../../css/fullpackstyling.css">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Id" />
+            <TableColumn prefWidth="75.0" text="Entrega" />
+          <TableColumn prefWidth="75.0" text="Direccion" />
+            <TableColumn prefWidth="75.0" text="Cantidad" />
+            <TableColumn prefWidth="75.0" text="Ruta" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label alignment="BASELINE_LEFT" layoutX="88.0" layoutY="113.0" prefHeight="15.0" prefWidth="153.0" text="Selecciona un repartidor" textAlignment="CENTER">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

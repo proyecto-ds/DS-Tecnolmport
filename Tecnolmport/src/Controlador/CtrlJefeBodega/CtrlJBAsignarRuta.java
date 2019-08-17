@@ -3,50 +3,45 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controlador;
+package Controlador.CtrlJefeBodega;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
  *
  * @author Rogencio
  */
-public class ControladorJefeRuta implements Initializable {
+public class CtrlJBAsignarRuta implements Initializable {
 
     @FXML
-    private JFXTextField txtf_escribirRuta;
+    private JFXComboBox<String> cb_repartidor;
     @FXML
-    private JFXButton btn_agregarRuta;
+    private JFXButton btn_asignarRuta;
     @FXML
-    private ListView<?> lv_entregas;
-    @FXML
-    private JFXComboBox<?> cb_repartidor;
-    @FXML
-    private ListView<?> lv_rutasCreadas;
-    @FXML
-    private JFXButton btn_guardar;
+    private TableView<?> tbl_rutaEntrega;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        cb_repartidor.getItems().addAll("Jhonny","Scarlett","Steve");
     }    
 
     @FXML
     private void seleccionarRepartidor(ActionEvent event) {
+    }
+
+    @FXML
+    private void asignarRuta(ActionEvent event) {
     }
     
 }
