@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.CtrlJefeBodega.CtrlJBRegistrarEntrega">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Registrar Entrega">
@@ -28,12 +27,13 @@
       </Label>
       <TableView fx:id="tbl_pedido" layoutX="34.0" layoutY="70.0" prefHeight="180.0" prefWidth="690.0" stylesheets="@../../css/fullpackstyling.css">
         <columns>
-          <TableColumn prefWidth="75.0" text="Id Pedido" />
-          <TableColumn prefWidth="98.0" text="Fecha Pedido" />
-            <TableColumn prefWidth="75.0" text="Descripción" />
-            <TableColumn prefWidth="75.0" text="Estado" />
-            <TableColumn prefWidth="75.0" text="Local" />
-            <TableColumn prefWidth="75.0" text="Producto" />
+          <TableColumn fx:id="CIdPedido" prefWidth="75.0" text="Id Pedido" />
+          <TableColumn fx:id="CFechaPedido" prefWidth="98.0" text="Fecha Pedido" />
+            <TableColumn fx:id="CDescripcionPedido" prefWidth="75.0" text="Descripción" />
+            <TableColumn fx:id="CEstadoPedido" prefWidth="75.0" text="Estado" />
+            <TableColumn fx:id="CLocalPedido" prefWidth="75.0" text="Local" />
+            <TableColumn fx:id="CPProducto" prefWidth="75.0" text="Producto" />
+            <TableColumn fx:id="CGerentePedido" prefWidth="75.0" text="Gerente" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -41,13 +41,13 @@
       </TableView>
       <TableView fx:id="tbl_envio" layoutX="38.0" layoutY="352.0" prefHeight="180.0" prefWidth="690.0" stylesheets="@../../css/fullpackstyling.css">
          <columns>
-            <TableColumn prefWidth="75.0" text="Id Envio" />
-            <TableColumn prefWidth="98.0" text="Venta" />
-            <TableColumn prefWidth="75.0" text="Descripción" />
-            <TableColumn prefWidth="75.0" text="Direccion" />
-            <TableColumn prefWidth="75.0" text="FechaInicio" />
-            <TableColumn prefWidth="75.0" text="FechaFin" />
-            <TableColumn prefWidth="75.0" text="Estado" />
+            <TableColumn fx:id="CIdEnvio" prefWidth="75.0" text="Id Envio" />
+            <TableColumn fx:id="CVenta" prefWidth="98.0" text="Venta" />
+            <TableColumn fx:id="CDireccion" prefWidth="75.0" text="Direccion" />
+            <TableColumn fx:id="CDescripcion" prefWidth="75.0" text="Descripción" />
+            <TableColumn fx:id="CFechaInicio" prefWidth="75.0" text="FechaInicio" />
+            <TableColumn fx:id="CFechaFin" prefWidth="75.0" text="FechaFin" />
+            <TableColumn fx:id="CEstado" prefWidth="75.0" text="Estado" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
