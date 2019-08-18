@@ -22,10 +22,12 @@ public class DBConnection {
     private final String url = "jdbc:mysql://localhost:3306/TecnolmportDS?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private final String user = "root";
 
+
     private final String pass = "betoelperro"; 
 
 
     //private final String pass = "toby"; 
+
     
     private static final Logger LOGGER = Logger.getLogger("DBConnection Logger");
     

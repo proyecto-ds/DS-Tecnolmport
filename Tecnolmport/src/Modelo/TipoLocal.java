@@ -10,5 +10,5 @@ package Modelo;
  * @author bryan
  */
 public enum TipoLocal {
-    Matriz,Sucursal,Bodega;
+    matriz,sucursal,bodega;
 }

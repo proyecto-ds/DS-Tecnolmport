@@ -20,6 +20,7 @@ import javafx.collections.ObservableList;
  * @author bryan
  */
 public class Producto {
+    protected String idI;
     protected String id;
     protected String nombre;
     protected float precio;
@@ -37,6 +38,18 @@ public class Producto {
 
     public Producto() {
     }
+
+    public Producto(String idI, String id, String nombre, float precio, String descripcion, String categoria, String proveedor, boolean estado, int stock) {
+        this.idI = idI;
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.descripcion = descripcion;
+        this.categoria = categoria;
+        this.proveedor = proveedor;
+        this.estado = estado;
+        this.stock = stock;
+    }
     
     
     public Producto(String id, String nombre, float precio, String descripcion, String categoria, String proveedor, boolean estado) {
@@ -48,6 +61,23 @@ public class Producto {
         this.proveedor = proveedor;
         this.estado = estado;
     }
+
+    public String getIdI() {
+        return idI;
+    }
+
+    public void setIdI(String idI) {
+        this.idI = idI;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+    
 
     public String getId() {
         return id;
@@ -171,6 +201,11 @@ public class Producto {
             CONNECTION.desconectar();
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" + "idI=" + idI + ", id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", descripcion=" + descripcion + ", categoria=" + categoria + ", proveedor=" + proveedor + ", estado=" + estado + ", stock=" + stock + '}';
     }
     
     public boolean eliminarProducto(){

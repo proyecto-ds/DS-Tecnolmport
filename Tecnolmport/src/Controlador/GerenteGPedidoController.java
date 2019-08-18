@@ -28,50 +28,30 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class GerenteGPedidoController implements Initializable {
 
-    @FXML
-    private TextArea Descripcion;
-    @FXML
-    private Label lblDescripcion;
-    @FXML
-    private Label lblLocal;
-    @FXML
-    private TextArea textDireccion;
-    @FXML
-    private TableView<Producto> TableProductos;
-    @FXML
-    private TableColumn<Producto, String> CId;
-    @FXML
-    private TableColumn<Producto, String> CnombreProd;
-    @FXML
-    private TableColumn<Producto, String> CdescripProd;
-    @FXML
-    private TableColumn<Producto, String> CcategoProd;
-    @FXML
-    private Button btnAnadir;
-    @FXML
-    private Label lblCantidadPro;
-    @FXML
-    private TextField textCantidadProd;
-    @FXML
-    private Button btnFinalizar;
-    @FXML
-    private DatePicker FechaPedido;
+    @FXML private TextArea Descripcion;
+    @FXML private Label lblDescripcion;
+    @FXML private Label lblLocal;
+    @FXML private TextArea textDireccion;
+    @FXML private TableView<Producto> TableProductos;
+    @FXML private TableColumn<Producto, String> CId;
+    @FXML private TableColumn<Producto, String> CnombreProd;
+    @FXML private TableColumn<Producto, String> CdescripProd;
+    @FXML private TableColumn<Producto, String> CcategoProd;
+    @FXML private Button btnAnadir;
+    @FXML private Label lblCantidadPro;
+    @FXML private TextField textCantidadProd;
+    @FXML private Button btnFinalizar;
+    @FXML private DatePicker FechaPedido;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
         CId.setCellValueFactory(new PropertyValueFactory<>("id"));
         CnombreProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("nombre"));
         CdescripProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("descripcion"));
         CcategoProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("categoria"));
-      
-        
-        
-        // TODO
     }   
     
     

@@ -56,7 +56,8 @@ public class ControladorMenuAdministrador implements Initializable {
             parent2.getChildren().setAll(vistaGP);
         }
         else if(seleccionG.equals("inventario")){
-            System.out.println("");
+            AnchorPane vistaGI = FXMLLoader.load(getClass().getResource(("/Vista/VistaGestionarInventario.fxml")));
+            parent2.getChildren().setAll(vistaGI);
         }
         else if(seleccionG.equals("pedido")){
             System.out.println("");

@@ -34,14 +34,15 @@ import javafx.stage.Stage;
 public class ControladorLogin implements Initializable {
     
     
-    @FXML
-    private AnchorPane parent;
-    @FXML
-    private JFXTextField text_usuario;
-    @FXML
-    private JFXPasswordField text_contraseña;
-    @FXML
-    private JFXButton btn_login;
+    @FXML private AnchorPane parent;
+    @FXML private JFXTextField text_usuario;
+    @FXML private JFXPasswordField text_contraseña;
+    @FXML private JFXButton btn_login;
+    
+    public static String user;
+
+    
+    
     
     private ControladorValidar controladorValidar = new ControladorValidar();
     private Usuario modeloUsuario = new Usuario();
@@ -61,6 +62,7 @@ public class ControladorLogin implements Initializable {
             String rol = modeloUsuario.login();
             if(rol !=null){
                 asignarVistaRol(rol, event);
+                user = usuario;
             }
                 
         }
