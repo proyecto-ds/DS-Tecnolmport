@@ -13,6 +13,7 @@ import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -20,7 +21,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -59,9 +63,12 @@ public class ControladorVendedor implements Initializable {
     }
 
     @FXML
-    private void cerrarSesion(ActionEvent event) {
+    private void cerrarSesion(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaLogin.fxml"));
+        Scene scene = new Scene(root);
         Stage stage = (Stage) btnCerrarSesion.getScene().getWindow();
-        stage.close();
+        stage.setScene(scene);
+        stage.show();
     }
     
 }

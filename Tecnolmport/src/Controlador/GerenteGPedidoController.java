@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import static Controlador.ControladorLogin.user;
 import Modelo.Inventario;
 import Modelo.Pedido;
 import Modelo.Producto;
@@ -94,10 +95,11 @@ public class GerenteGPedidoController implements Initializable {
         
         Pedido pedido = new Pedido();
         
-//        protected String id;
-      Date fechaPedido =   java.sql.Date.valueOf(FechaPedido.getValue());
-       String descripcion =Descripcion.getText();   
-       boolean estado =false;
+//    protected String id; //falta saber como ingresar esto
+      Date fechaPedido = java.sql.Date.valueOf(FechaPedido.getValue());
+      String descripcion = Descripcion.getText();   
+      boolean estado =false;
+      
 //    protected Local local;
 //    protected List<Producto> productos;
 //    protected Gerente gerent;
