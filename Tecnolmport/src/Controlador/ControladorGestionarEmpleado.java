@@ -61,6 +61,7 @@ public class ControladorGestionarEmpleado implements Initializable {
     private Usuario modeloUsuario = new Usuario();
     private ControladorValidar validar =  new ControladorValidar();
     private ObservableList<Usuario> list = null;
+    private Usuario user;
     
     /**
      * Initializes the controller class.
@@ -141,7 +142,7 @@ public class ControladorGestionarEmpleado implements Initializable {
 
     @FXML
     private void seleccionarEmpleado(MouseEvent event) {
-        Usuario user = (Usuario)table_empleado.getSelectionModel().getSelectedItem();
+        user = (Usuario)table_empleado.getSelectionModel().getSelectedItem();
         txt_idEmpleado.setText(user.getId());
         txt_nomEmpleado.setText(user.getNombre());
         txt_apeEmpleado.setText(user.getApellido());

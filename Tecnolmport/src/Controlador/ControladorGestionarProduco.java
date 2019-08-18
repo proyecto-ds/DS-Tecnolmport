@@ -50,6 +50,7 @@ public class ControladorGestionarProduco implements Initializable {
     private Producto modeloProducto = new Producto();
     private ControladorValidar validar =  new ControladorValidar();
     private ObservableList<Producto> list = null;
+    private Producto producto;
     
     
     /**
@@ -124,7 +125,7 @@ public class ControladorGestionarProduco implements Initializable {
 
     @FXML
     private void seleccionarProducto(MouseEvent event) {
-        Producto producto = (Producto)table_producto.getSelectionModel().getSelectedItem();
+        producto = (Producto)table_producto.getSelectionModel().getSelectedItem();
         txt_id.setText(producto.getId());
         txt_nom.setText(producto.getNombre());
         txt_precioProd.setText(String.valueOf(producto.getPrecio()));
