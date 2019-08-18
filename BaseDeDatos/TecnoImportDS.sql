@@ -151,7 +151,7 @@ DROP TABLE IF EXISTS `TecnolmportDS`.`Ruta` ;
 CREATE TABLE IF NOT EXISTS `TecnolmportDS`.`Ruta` (
   `idRuta` VARCHAR(20) NOT NULL,
   `Zona` VARCHAR(20) NULL,
-  `id__Empleado` VARCHAR(20) NOT NULL,
+  `id__Empleado` VARCHAR(20) NULL,
   PRIMARY KEY (`idRuta`),
   INDEX `idEmpleado_idx` (`id__Empleado` ASC) VISIBLE,
   CONSTRAINT `id__Empleado`
@@ -169,11 +169,11 @@ DROP TABLE IF EXISTS `TecnolmportDS`.`Entrega` ;
 
 CREATE TABLE IF NOT EXISTS `TecnolmportDS`.`Entrega` (
   `idEntrega` VARCHAR(20) NOT NULL,
-  `fecha` DATETIME NOT NULL,
+  `fecha` Date NOT NULL,
   `direccion` VARCHAR(45) NOT NULL,
   `estado` TINYINT NOT NULL,
-  `idEmpleado` VARCHAR(20) NOT NULL,
-  `id_Ruta` VARCHAR(20) NOT NULL,
+  `id_Ruta` VARCHAR(20) NULL,
+  `novedades` VARCHAR(45) NULL,
   PRIMARY KEY (`idEntrega`),
   INDEX `idRuta_idx` (`id_Ruta` ASC) VISIBLE,
   CONSTRAINT `id_Ruta`
@@ -194,10 +194,10 @@ CREATE TABLE IF NOT EXISTS `TecnolmportDS`.`Envio` (
   `id_Venta` VARCHAR(20) NOT NULL,
   `direccion` VARCHAR(45) NOT NULL,
   `descripcion` VARCHAR(80) NOT NULL,
-  `fechaInicio` DATETIME NOT NULL,
-  `fechaFin` DATETIME NOT NULL,
+  `fechaInicio` Date NOT NULL,
+  `fechaFin` Date NOT NULL,
   `estado` VARCHAR(15) NOT NULL,
-  `id_Entrega` VARCHAR(20) NOT NULL,
+  `id_Entrega` VARCHAR(20) NULL,
   PRIMARY KEY (`idEnvio`),
   INDEX `idVenta_idx` (`id_Venta` ASC) VISIBLE,
   INDEX `idEntrega_idx` (`id_Entrega` ASC) VISIBLE,
@@ -265,8 +265,8 @@ CREATE TABLE IF NOT EXISTS `TecnolmportDS`.`Pedido` (
   `idPedido` VARCHAR(20) NOT NULL,
   `observaciones` VARCHAR(60) NULL,
   `estado` TINYINT NOT NULL,
-  `fechaPedido` DATETIME NOT NULL,
-  `fechaEntrega` DATETIME NOT NULL,
+  `fechaPedido` Date NOT NULL,
+  `fechaEntrega` Date NOT NULL,
   `id_Empleado` VARCHAR(20) NOT NULL,
   `id_Entrega` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`idPedido`),
@@ -604,4 +604,46 @@ create procedure obtenerLocales()
         from Local l;
 	end $$
 delimiter ;
+
+#Procedure Jefe Bodega
+delimiter $$
+create procedure obtenerRepartidorDisponible()
+	begin
+		SELECT e.nombre FROM Empleado e  
+        WHERE e.idEmpleado  NOT IN (
+			SELECT r.id__Empleado 
+			FROM Ruta r 
+			WHERE e.idEmpleado = r.id__Empleado) and e.rol='repartidor';
+	end $$
+delimiter ;
+call obtenerRepartidorDisponible();
+
+delimiter $$
+create procedure obtenerRutaEntrega()
+	begin
+		SELECT r.idRuta, r.zona, e.nombre, e.apellido 
+        FROM ruta r, empleado e 
+        where r.id__Empleado = e.idEmpleado;
+	end $$
+delimiter ;
+call obtenerRutaEntrega();
+
+delimiter $$
+create procedure obtenerEnvioEstado(in ids varchar(20))
+	begin
+		select * from envio where estado=ids;
+	end $$
+delimiter ;
+call obtenerEnvioEstado(1);
+
+delimiter $$
+create procedure obtenerEntrega()
+	begin 
+		SELECT e.idEntrega, env.idEnvio ,e.fecha, e.direccion,env.descripcion 
+        from Entrega e, Envio env where e.estado=4 and e.idEntrega=env.id_Entrega;
+	end $$
+delimiter ;
+call obtenerEntrega();
+drop procedure obtenerEntrega;
+-- FIN de PROCEDURE JEFE BODEGA
 

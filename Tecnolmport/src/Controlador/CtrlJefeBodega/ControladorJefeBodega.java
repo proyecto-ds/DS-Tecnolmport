@@ -34,6 +34,8 @@ public class ControladorJefeBodega implements Initializable {
     @FXML private JFXButton btn_mostrarRutas;
     @FXML private JFXButton btn_registrarEntrega;
     @FXML private JFXButton btn_registrarNovedad;
+    @FXML
+    private JFXButton btn_consultarArticulo;
 
     /**
      * Initializes the controller class.
@@ -87,6 +89,12 @@ public class ControladorJefeBodega implements Initializable {
     private void registrarNovedad(ActionEvent event) throws IOException {
         AnchorPane vistaMostrarRuta = FXMLLoader.load(getClass().getResource(("/Vista/JefeB/VistaJBRegistrarNovedad.fxml")));
         parentRoot.getChildren().setAll(vistaMostrarRuta);
+    }
+
+    @FXML
+    private void act_consultarArticulo(ActionEvent event) throws IOException {
+        AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaBusquedaArticulo.fxml")));
+        parentRoot.getChildren().setAll(vistaBA);
     }
 
 

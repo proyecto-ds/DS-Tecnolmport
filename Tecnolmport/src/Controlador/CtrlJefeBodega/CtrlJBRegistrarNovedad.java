@@ -63,8 +63,8 @@ public class CtrlJBRegistrarNovedad implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        CIdEnvio.setCellValueFactory(new PropertyValueFactory<>("idEnvio"));
-        CVenta.setCellValueFactory(new PropertyValueFactory<>("id_Venta"));
+        CIdEnvio.setCellValueFactory(new PropertyValueFactory<>("id"));
+        CVenta.setCellValueFactory(new PropertyValueFactory<>("vent"));
         CDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
         CDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         CFechaInicio.setCellValueFactory(new PropertyValueFactory<>("fechaInicio"));
@@ -74,12 +74,12 @@ public class CtrlJBRegistrarNovedad implements Initializable {
     }    
     private void llenarTableEnvio(){
         if(enviosObs == null){
-            enviosObs = e.cargarPedido();
+            enviosObs = e.cargarPedido("1");
             tbl_envio.setItems(enviosObs);
         }
         else{
             enviosObs.removeAll(enviosObs);
-            enviosObs = e.cargarPedido();
+            enviosObs = e.cargarPedido("1");
             tbl_envio.setItems(enviosObs);
         }
     }
@@ -90,5 +90,6 @@ public class CtrlJBRegistrarNovedad implements Initializable {
         String txt = txt_ingresarNovedad.getText();
         if(envio==null || txt==null)
             control.mensajeSeleccionarCampos("Falta seleccionar una entrega o\nllenar el campo Novedad");
+        System.out.println(txt);
     }
 }

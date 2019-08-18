@@ -101,7 +101,7 @@ public class Ruta {
         ObservableList <Ruta> lista = FXCollections.observableArrayList ();
         try {
             CONNECTION.conectar();
-            String consulta ="{call  obtenerRutas()}";
+            String consulta ="{call  obtenerRutaEntrega()}";
             PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
             ResultSet resultado = ingreso.executeQuery(); 
             while (resultado.next()) {

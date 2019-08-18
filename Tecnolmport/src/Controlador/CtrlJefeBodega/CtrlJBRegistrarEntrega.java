@@ -84,14 +84,14 @@ public class CtrlJBRegistrarEntrega implements Initializable {
 
     private void llenarTableEnvio(){
         if(enviosObs == null){
-            enviosObs = modeloEnvio.cargarPedido();
+            enviosObs = modeloEnvio.cargarPedido("3");
             tbl_envio.setItems(enviosObs);
         }
-        else{
+        /*else{
             enviosObs.removeAll(enviosObs);
             enviosObs = modeloEnvio.cargarPedido();
             tbl_envio.setItems(enviosObs);
-        }
+        }*/
     }
     
     @FXML
