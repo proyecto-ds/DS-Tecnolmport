@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import javafx.collections.FXCollections;
@@ -25,7 +26,7 @@ import javafx.collections.ObservableList;
 public class Venta {
     
     protected  String id;
-    protected LocalDate date;
+    protected Date date;
     protected String descripcion;
     protected int esCotizacion ;
     protected  String local;
@@ -41,7 +42,7 @@ public class Venta {
     public Venta() {
     }
 
-    public Venta(String id, LocalDate date, String descripcion, int esCotizacion, String local, float total, String producto, String vendedor) {
+    public Venta(String id, Date date, String descripcion, int esCotizacion, String local, float total, String producto, String vendedor) {
         this.id = id;
         this.date = date;
         this.descripcion = descripcion;
@@ -61,11 +62,11 @@ public class Venta {
         this.id = id;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -164,10 +165,9 @@ public class Venta {
             ResultSet resultado = ingreso.executeQuery(); 
             
             while (resultado.next()) {                
-                LocalDate sqlDateI = LocalDate.parse(resultado.getString("fechaVenta"));
                 lista.add(new Venta(
                             resultado.getString("idVenta"),
-                            sqlDateI,
+                            resultado.getDate("fechaVenta"),
                             resultado.getString("DireccionEnvio"),
                             resultado.getInt("esCotizacion"),
                             resultado.getString("Local"),
