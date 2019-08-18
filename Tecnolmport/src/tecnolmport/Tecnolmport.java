@@ -31,7 +31,7 @@ public class Tecnolmport extends Application {
         try{
             ///Vista/VistaVendedor.fxml
             ///Vista/JefeB/VistaJB.fxml
-            Parent root = FXMLLoader.load(getClass().getResource("/Vista/JefeB/VistaJB.fxml"));///Vista/VistaGerente.fxml
+            Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaGerente.fxml"));///Vista/VistaGerente.fxml
 
             Scene scene = new Scene(root);
             stagePrincipal.setScene(scene);

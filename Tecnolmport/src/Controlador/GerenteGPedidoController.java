@@ -42,7 +42,8 @@ public class GerenteGPedidoController implements Initializable {
     @FXML private Button btnFinalizar;
     @FXML private DatePicker FechaPedido;
     @FXML
-    private TableColumn<?, ?> CPrecio;
+    private TableColumn<Producto, String> CPrecio;
+    
 
     /**
      * Initializes the controller class.
