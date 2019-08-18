@@ -6,6 +6,7 @@
 package Modelo;
 
 import static Modelo.Producto.CONNECTION;
+import java.sql.CallableStatement;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -145,12 +146,13 @@ public class Pedido {
         return lista;
     }
       
-      public ObservableList <Pedido> llenarTablePedidoNovedades(){
+      public ObservableList <Pedido> llenarTablePedidoNovedades(String estado){
         ObservableList <Pedido> lista = FXCollections.observableArrayList ();
         try {
             CONNECTION.conectar();
-            String consulta = "{call obtenerPedidosNovedad()}";
-            PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
+            String consulta = "{call obtenerPedidosNovedad(?)}";
+            CallableStatement ingreso = CONNECTION.getConnection().prepareCall(consulta);
+            ingreso.setString(1,estado);
             ResultSet resultado = ingreso.executeQuery();
             while (resultado.next()) {
                 lista.add(

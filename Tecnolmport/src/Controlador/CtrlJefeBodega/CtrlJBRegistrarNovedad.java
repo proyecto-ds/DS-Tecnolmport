@@ -98,12 +98,12 @@ public class CtrlJBRegistrarNovedad implements Initializable {
 
      public void llenarTablePedido(){
         if(pedidosObs == null){
-            pedidosObs = modeloPedido.llenarTablePedidoNovedades();
+            pedidosObs = modeloPedido.llenarTablePedidoNovedades("1");
             tbl_pedido.setItems(pedidosObs);
         }
         else{
             pedidosObs.removeAll(pedidosObs);
-            pedidosObs = modeloPedido.llenarTablePedidoNovedades();
+            pedidosObs = modeloPedido.llenarTablePedidoNovedades("1");
             tbl_pedido.setItems(pedidosObs);
         }
     }

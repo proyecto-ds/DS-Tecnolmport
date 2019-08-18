@@ -208,12 +208,12 @@ create procedure obtenerVentas()
 delimiter ;
 
 delimiter $$
-create procedure obtenerPedidosNovedad()
+create procedure obtenerPedidosNovedad(in ids varchar(20))
 	begin
 		 select pe.idPedido, pe.observaciones, pe.estado, pe.fechaPedido , e.nombre as Gerente, pr.nombre as Producto , lo.nombre as Local 
  from Pedido pe join Empleado e on pe.id_Empleado = e.idEmpleado join
 							DetallePedido  dp on pe.idPedido = dp.id_Pedido  join Producto pr on dp.id_Producto =  pr.idProducto join local lo on e.id_Local = lo.idLocal 
-where    pe.id_Empleado = e.idEmpleado   ;
+where    pe.id_Empleado = e.idEmpleado  and pe.estado=ids ;
 	end $$
 delimiter ;
 
@@ -232,7 +232,7 @@ create procedure obtenerEntrega()
 	end $$
 delimiter ;
 
-<<<<<<< HEAD
+
 
 #procedure para obtener el id del local y del id del usuario pasando el usuario del empleado
 delimiter $$
@@ -244,7 +244,7 @@ create procedure obtenerLocalUserId(in usuario varchar(20))
 	end $$
 delimiter ;
 
-=======
+
 delimiter $$
 create procedure actualizarPermiso(in id varchar(20), in perm varchar(20))
 	begin
@@ -254,4 +254,51 @@ create procedure actualizarPermiso(in id varchar(20), in perm varchar(20))
 		where idEmpleado = id;
 	end $$
 delimiter ;
->>>>>>> d279404e6c1a4ab08e72d48cc3c1bd4d664683f0
+
+#Actualiza los datos de los envios ya entregados
+#drop procedure actualizarEntregaEnvioNovedad;
+delimiter $$
+create procedure actualizarEntregaEnvioNovedad(in idEnvio varchar(20),in novedades varchar(45))
+	begin
+        update Entrega e, Envio env
+        set
+			e.estado =2,
+            e.novedades =novedades,
+            env.estado =2
+		where env.idEnvio= idEnvio and env.id_Entrega =e.idEntrega;
+    end $$
+delimiter ;
+
+delimiter $$
+create procedure actualizarEntregaPedidoNovedad(in idPedido varchar(20),in novedades varchar(45))
+	begin
+        update Entrega e, Pedido p
+        set
+			e.estado =2,
+            e.novedades =novedades,
+            p.estado =2
+		where p.idPedido= idPedido and p.id_Entrega=e.idEntrega;
+    end $$
+delimiter ;
+
+
+#Setea el valor a null del repartidor
+delimiter $$
+create procedure nullRutaRepartidor(in idRuta varchar(20))
+	begin
+		update Ruta r set r.id__Empleado=null 
+        where r.idRuta=idRuta and 
+			(select  count(r.idRuta) as rutaConEntrega
+			from Entrega e
+			where r.idRuta=idRuta and r.idRuta=e.id_Ruta)=1;
+    end $$
+delimiter ;
+
+delimiter $$
+create procedure obtenerRutaEspecifica(in idEntrega varchar(20))
+	begin
+		select r.idRuta from Ruta r, Entrega e where e.idEntrega=idEntrega and r.idRuta=e.id_Ruta;
+    end $$
+delimiter ;
+
+

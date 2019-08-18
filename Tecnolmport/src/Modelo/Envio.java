@@ -34,12 +34,17 @@ public class Envio {
     protected LocalDate fechaInicio;
     protected LocalDate fechaFin;
     protected String estado;
+    protected String idEntregaV;
     
 
     
     
     protected static final Logger LOGGER = Logger.getLogger("Envio Logger");
     protected static final DBConnection CONNECTION = DBConnection.getInstance();
+    
+    
+    private final String actualizar = "{call actualizarEntregaEnvioNovedad (? , ?)}";
+    private final String actualizarRuta = "{call nullRutaRepartidor ( ? )}";
 
     public Envio(String id, String vent, String direccion, String descripcion, LocalDate fechaInicio, LocalDate fechaFin, String estado) {
         this.id = id;
@@ -54,6 +59,15 @@ public class Envio {
     
     public Envio() {
     }
+
+    public String getIdEntregaV() {
+        return idEntregaV;
+    }
+
+    public void setIdEntregaV(String idEntregaV) {
+        this.idEntregaV = idEntregaV;
+    }
+    
     
     public String getId() {
         return id;
@@ -111,7 +125,7 @@ public class Envio {
         this.direccion = direccion;
     }
             
-
+  
     public ObservableList<Envio> cargarEnvio(String estado){
         ObservableList <Envio> lista = FXCollections.observableArrayList ();
         try {
@@ -120,6 +134,7 @@ public class Envio {
             CallableStatement ingreso = CONNECTION.getConnection().prepareCall(consulta);
             ingreso.setString(1,estado);
             ResultSet resultado = ingreso.executeQuery(); 
+            System.out.println("holA");
             while (resultado.next()) {                
                 LocalDate sqlDateI = LocalDate.parse(resultado.getString("fechaInicio"));                
                 LocalDate sqlDateF = LocalDate.parse(resultado.getString("fechaFin"));
@@ -133,15 +148,74 @@ public class Envio {
                                 sqlDateF,
                                 resultado.getString("estado")
                         ));
-                System.out.println("");
+                System.out.println(sqlDateI+resultado.getString("estado"));
             }
         } catch (SQLException  ex) {
-            LOGGER.log(Level.SEVERE, ex.getMessage());
+            //LOGGER.log(Level.SEVERE, ex.getMessage());
         } finally {
             CONNECTION.desconectar();
         }
         return lista;
     }
-  
+    
+    public boolean registrarNovedadEnvio(String idEnvio,String novedad){
+        try {
+            CONNECTION.conectar();
+            CallableStatement sp = CONNECTION.getConnection().prepareCall(actualizar);
+            sp.setString(1, idEnvio);
+            sp.setString(2, novedad);
+            sp.execute();
+            sp.close();
+            return true;
+        } catch (SQLException  ex) {
+            //LOGGER.log(Level.SEVERE, ex.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return false;
+    }
+    
+    /**
+     * Actualiza el campo repartidor.Ruta a null en caso que haya una sola
+     * Ruta perteneciente a una sola entrega
+     * @param ruta Ruta a verificar y modificar
+     */
+    public void actualizarCampoRepartidorRuta(String ruta){
+        try {
+            CONNECTION.conectar();
+            CallableStatement sp = CONNECTION.getConnection().prepareCall(actualizarRuta);
+            sp.setString(1, ruta);
+            sp.execute();
+            sp.close();
+        } catch (SQLException  ex) {
+            //LOGGER.log(Level.SEVERE, ex.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+    }
+    
+    /**
+     * Obtenemos una ruta Especifica segun el IdEntrega
+     * @param idEntrega
+     * @return String Ruta
+     */
+    public String selectRutaEspecifica(String idEntrega){
+        String ruta="";
+        try {
+            CONNECTION.conectar();
+            String consulta = "{call obtenerRutaEspecifica (?)}";
+            CallableStatement ingreso = CONNECTION.getConnection().prepareCall(consulta);
+            ingreso.setString(1,idEntrega);
+            ResultSet resultado = ingreso.executeQuery(); 
+            ruta = resultado.getString("idRuta");
+            System.out.println(ruta);
+            
+        } catch (SQLException  ex) {
+            //LOGGER.log(Level.SEVERE, ex.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return ruta;
+    }
             
 }

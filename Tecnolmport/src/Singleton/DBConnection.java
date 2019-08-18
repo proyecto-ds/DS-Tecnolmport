@@ -24,7 +24,7 @@ public class DBConnection {
     private final String user = "root";
 
 
-    private final String pass = "betoelperro"; 
+    private final String pass = "1997ra"; 
 
 
     //betoelperro
