@@ -55,12 +55,16 @@ public class CtrlJBRegistrarNovedad implements Initializable {
     private TableColumn<Envio, String> CFechaFin;
     @FXML
     private TableColumn<Envio, String> CEstado;
-    
+    @FXML
+    private TableColumn<Envio, String> CIdEntregaE;
     private ControladorValidar control= new ControladorValidar();
     private ObservableList<Envio> enviosObs =null;
     private Envio e = new Envio();
     private ObservableList<Pedido> pedidosObs =null;
     private Pedido modeloPedido = new Pedido();
+    @FXML
+    private JFXButton btn_guardarNovedadPedido;
+    
     /**
      * Initializes the controller class.
      */
@@ -73,6 +77,7 @@ public class CtrlJBRegistrarNovedad implements Initializable {
         CFechaInicio.setCellValueFactory(new PropertyValueFactory<>("fechaInicio"));
         CFechaFin.setCellValueFactory(new PropertyValueFactory<>("fechaFin"));
         CEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        CIdEntregaE.setCellValueFactory(new PropertyValueFactory<>("idEntregaV"));
         llenarTableEnvio();
         
         CIdPedido.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -98,12 +103,12 @@ public class CtrlJBRegistrarNovedad implements Initializable {
 
      public void llenarTablePedido(){
         if(pedidosObs == null){
-            pedidosObs = modeloPedido.llenarTablePedidoNovedades();
+            pedidosObs = modeloPedido.llenarTablePedidoNovedades("1");
             tbl_pedido.setItems(pedidosObs);
         }
         else{
             pedidosObs.removeAll(pedidosObs);
-            pedidosObs = modeloPedido.llenarTablePedidoNovedades();
+            pedidosObs = modeloPedido.llenarTablePedidoNovedades("1");
             tbl_pedido.setItems(pedidosObs);
         }
     }
@@ -113,6 +118,17 @@ public class CtrlJBRegistrarNovedad implements Initializable {
         String txt = txt_ingresarNovedad.getText();
         if(envio==null || txt==null)
             control.mensajeSeleccionarCampos("Falta seleccionar una entrega o\nllenar el campo Novedad");
-        System.out.println(txt);
+        else if(e.registrarNovedadEnvio(envio.getId(), txt)){
+            String r = e.selectRutaEspecifica(envio.getIdEntregaV());
+            e.actualizarCampoRepartidorRuta(r);
+            control.mensajeRegistroExitosoNovedad("Actualizado novedad y Entrega-Envio con éxito!");
+            llenarTableEnvio();
+        }else{
+            control.mensajeSeleccionarCampos("Error en DB o query");
+        }
+    }
+
+    @FXML
+    private void validar_seleccionPedido(ActionEvent event) {
     }
 }

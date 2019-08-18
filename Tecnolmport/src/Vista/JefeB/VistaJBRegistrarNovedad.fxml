@@ -46,6 +46,7 @@
                   <TableColumn fx:id="CFechaInicio" prefWidth="75.0" text="FechaInicio" />
                   <TableColumn fx:id="CFechaFin" prefWidth="75.0" text="FechaFin" />
                   <TableColumn fx:id="CEstado" prefWidth="75.0" text="Estado" />
+                  <TableColumn fx:id="CIdEntregaE" prefWidth="75.0" text="IdEntrega" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -58,11 +59,12 @@
             </JFXTextField>
          </children>
       </VBox>
-      <JFXButton fx:id="btn_guardarNovedad" layoutX="308.0" layoutY="544.0" onAction="#validar_seleccion" stylesheets="@../../css/fullpackstyling.css" text="Guardar Novedades" textFill="WHITE" />
+      <JFXButton fx:id="btn_guardarNovedad" layoutX="167.0" layoutY="534.0" onAction="#validar_seleccion" stylesheets="@../../css/fullpackstyling.css" text="Guardar Novedades" textFill="WHITE" />
       <Label layoutX="36.0" layoutY="14.0" prefHeight="33.0" prefWidth="261.0" text="REGISTRAR NOVEDADES">
          <font>
             <Font name="Consolas" size="24.0" />
          </font>
       </Label>
+      <JFXButton fx:id="btn_guardarNovedadPedido" layoutX="471.0" layoutY="534.0" onAction="#validar_seleccionPedido" stylesheets="@../../css/fullpackstyling.css" text="Guardar Novedades Pedido" textFill="WHITE" />
    </children>
 </AnchorPane>

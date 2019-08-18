@@ -64,6 +64,14 @@ public class ControladorValidar {
             alert.showAndWait();
     }
     
+    public void mensajeRegistroExitosoNovedad(String mensaje){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Selección");
+            alert.setHeaderText(null);
+            alert.setContentText(mensaje);
+            alert.showAndWait();
+    }
+    
     public boolean validarCampoVacio(JFXTextField txt) {
         if (txt.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

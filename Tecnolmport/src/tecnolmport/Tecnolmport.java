@@ -11,9 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  *
@@ -32,7 +30,8 @@ public class Tecnolmport extends Application {
 
             ///Vista/VistaVendedor.fxml
             ///Vista/JefeB/VistaJB.fxml
-            Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaLogin.fxml"));///Vista/VistaGerente.fxml
+            ///Vista/VistaLogin.fxml
+            Parent root = FXMLLoader.load(getClass().getResource("/Vista/JefeB/VistaJB.fxml"));///Vista/VistaGerente.fxml
 
 
 
