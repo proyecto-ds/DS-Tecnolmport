@@ -46,7 +46,8 @@ public class Envio {
     private final String actualizar = "{call actualizarEntregaEnvioNovedad (? , ?)}";
     private final String actualizarRuta = "{call nullRutaRepartidor ( ? )}";
 
-    public Envio(String id, String vent, String direccion, String descripcion, LocalDate fechaInicio, LocalDate fechaFin, String estado) {
+    public Envio(String id, String vent, String direccion, String descripcion, 
+            LocalDate fechaInicio, LocalDate fechaFin, String estado, String idEntregaV) {
         this.id = id;
         this.vent = vent;
         this.direccion = direccion;
@@ -54,6 +55,7 @@ public class Envio {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.estado = estado;
+        this.idEntregaV=idEntregaV;
     }
 
     
@@ -146,7 +148,8 @@ public class Envio {
                                 resultado.getString("descripcion"),
                                 sqlDateI,
                                 sqlDateF,
-                                resultado.getString("estado")
+                                resultado.getString("estado"),
+                                resultado.getString("id_Entrega")
                         ));
                 System.out.println(sqlDateI+resultado.getString("estado"));
             }

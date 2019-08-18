@@ -30,6 +30,7 @@ public class Tecnolmport extends Application {
 
             ///Vista/VistaVendedor.fxml
             ///Vista/JefeB/VistaJB.fxml
+            ///Vista/VistaLogin.fxml
             Parent root = FXMLLoader.load(getClass().getResource("/Vista/JefeB/VistaJB.fxml"));///Vista/VistaGerente.fxml
 
 

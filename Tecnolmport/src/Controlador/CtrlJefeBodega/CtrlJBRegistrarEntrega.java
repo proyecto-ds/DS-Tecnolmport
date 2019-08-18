@@ -54,12 +54,14 @@ public class CtrlJBRegistrarEntrega implements Initializable {
     @FXML private TableColumn<Envio, String> CFechaInicio;
     @FXML private TableColumn<Envio, String> CFechaFin;
     @FXML private TableColumn<Envio, String> CEstado;
-    
+    @FXML
+    private TableColumn<Envio, String> CIdEntrega;
     private ObservableList<Envio> enviosObs =null;
     private ObservableList<Pedido> pedidosObs =null;
     private Envio modeloEnvio = new Envio();
     private Pedido modeloPedido = new Pedido();
     private ControladorValidar control= new ControladorValidar();
+    
     
     /**
      * Initializes the controller class.
@@ -73,6 +75,7 @@ public class CtrlJBRegistrarEntrega implements Initializable {
         CFechaInicio.setCellValueFactory(new PropertyValueFactory<>("fechaInicio"));
         CFechaFin.setCellValueFactory(new PropertyValueFactory<>("fechaFin"));
         CEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        CIdEntrega.setCellValueFactory(new PropertyValueFactory<>("idEntregaV"));
         llenarTableEnvio();
         
         CIdPedido.setCellValueFactory(new PropertyValueFactory<>("id"));
