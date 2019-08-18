@@ -30,8 +30,7 @@ public class GerenteGPedidoController implements Initializable {
 
     @FXML private TextArea Descripcion;
     @FXML private Label lblDescripcion;
-    @FXML private Label lblLocal;
-    @FXML private TextArea textDireccion;
+    
     @FXML private TableView<Producto> TableProductos;
     @FXML private TableColumn<Producto, String> CId;
     @FXML private TableColumn<Producto, String> CnombreProd;
@@ -42,6 +41,8 @@ public class GerenteGPedidoController implements Initializable {
     @FXML private TextField textCantidadProd;
     @FXML private Button btnFinalizar;
     @FXML private DatePicker FechaPedido;
+    @FXML
+    private TableColumn<?, ?> CPrecio;
 
     /**
      * Initializes the controller class.
@@ -59,7 +60,6 @@ public class GerenteGPedidoController implements Initializable {
     
     
     
-    @FXML
     public void getDireccion(){
         
         
@@ -67,8 +67,23 @@ public class GerenteGPedidoController implements Initializable {
     
     public void finalzar(ActionEvent event){
         
+        
+        
+        Pedido pedido = new Pedido();
+        
+//        protected String id;
+//    protected LocalTime fechaPedido;
+       String descripcion =Descripcion.getText();   
+       boolean estado =false;
+//    protected Local local;
+//    protected List<Producto> productos;
+//    protected Gerente gerent;
+
+        
+        
+        
         textCantidadProd.clear();
-        textDireccion.clear();
+        
         
         
         

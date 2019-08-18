@@ -115,31 +115,7 @@ public class Pedido {
       
       
       
-       public ObservableList<Pedido> llenarTableProducto(){
-        ObservableList <Pedido> lista = FXCollections.observableArrayList ();
-        try {
-            CONNECTION.conectar();
-            String consulta = "{call obtenerPedidos ()}";
-            PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
-            ResultSet resultado = ingreso.executeQuery();
-            while (resultado.next()) {
-//                lista.add(
-//                        new Producto(
-//                                resultado.getString("idProducto"),
-//                                resultado.getString("nombre"),
-//                                resultado.getFloat("precio"),
-//                                resultado.getString("categoria"),
-//                                resultado.getString("descripcion"),
-//                                resultado.getString("proveedor"),
-//                                resultado.getBoolean("estado")));
-            }
-        } catch (SQLException e) {
-            //LOGGER.log(Level.SEVERE, e.getMessage());
-        } finally {
-            CONNECTION.desconectar();
-        }
-        return lista;
-    }
+    
       
       
 
