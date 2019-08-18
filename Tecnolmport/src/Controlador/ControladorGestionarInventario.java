@@ -60,6 +60,7 @@ public class ControladorGestionarInventario implements Initializable {
     private Local modeloLocal = new Local();
     private ControladorValidar validar =  new ControladorValidar();
     private ObservableList<Producto> list = null;
+    private Producto producto;
     @FXML private JFXComboBox<String> cbxLocal;
     
     
@@ -139,7 +140,7 @@ public class ControladorGestionarInventario implements Initializable {
 
     @FXML
     private void seleccionarInventario(MouseEvent event) {
-        Producto producto = (Producto)table_inventario.getSelectionModel().getSelectedItem();
+        producto = (Producto)table_inventario.getSelectionModel().getSelectedItem();
         txt_id.setText(producto.getId());
         txt_idI.setText(producto.getIdI());
         txt_nom.setText(producto.getNombre());
