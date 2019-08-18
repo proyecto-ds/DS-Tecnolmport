@@ -82,7 +82,6 @@ public class Inventario {
     
     public boolean ingresarInventario(Producto modeloP){
         try {
-            System.out.println(modeloProducto.getIdI());
             CONNECTION.conectar();
             PreparedStatement sp = CONNECTION.getConnection().prepareStatement(ingresar);
             sp.setString(1, modeloP.getIdI());

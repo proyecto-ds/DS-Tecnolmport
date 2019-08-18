@@ -110,7 +110,7 @@ public class Envio {
         this.direccion = direccion;
     }
             
-    public ObservableList<Envio> cargarPedido(){
+    public ObservableList<Envio> cargarEnvio(){
         ObservableList <Envio> lista = FXCollections.observableArrayList ();
         try {
             CONNECTION.conectar();

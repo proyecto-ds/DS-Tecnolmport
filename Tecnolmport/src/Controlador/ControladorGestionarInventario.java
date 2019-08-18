@@ -127,7 +127,7 @@ public class ControladorGestionarInventario implements Initializable {
 
     @FXML
     private void eliminarInventario(ActionEvent event) {
-        modeloProducto.setId(txt_idI.getText());
+        modeloProducto.setIdI(txt_idI.getText());
         boolean resultado = modeloInventario.eliminarInventario(modeloProducto);
         if (resultado){
             validar.mensajeEliminadoCorrecto();
