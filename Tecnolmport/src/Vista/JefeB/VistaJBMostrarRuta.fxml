@@ -15,9 +15,10 @@
       </Label>
       <TableView fx:id="tbl_rutaYrepartidor" layoutX="27.0" layoutY="71.0" prefHeight="350.0" prefWidth="698.0" stylesheets="@../../css/fullpackstyling.css">
         <columns>
-            <TableColumn prefWidth="75.0" text="ID Ruta" />
-          <TableColumn prefWidth="75.0" text="Entrega" />
-          <TableColumn prefWidth="75.0" text="Repartidor" />
+            <TableColumn fx:id="CIdRuta" prefWidth="75.0" text="ID Ruta" />
+          <TableColumn fx:id="CZona" prefWidth="75.0" text="Zona" />
+            <TableColumn fx:id="CIdRepartidor" prefWidth="75.0" text="Id Repartidor" />
+          <TableColumn fx:id="CNombre" prefWidth="75.0" text="Nombre" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
