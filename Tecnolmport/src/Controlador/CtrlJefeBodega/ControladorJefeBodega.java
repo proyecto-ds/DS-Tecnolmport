@@ -33,7 +33,6 @@ public class ControladorJefeBodega implements Initializable {
     @FXML private JFXButton btn_asignarRuta;
     @FXML private JFXButton btn_mostrarRutas;
     @FXML private JFXButton btn_registrarEntrega;
-    @FXML private JFXButton btn_consultarEntrega;
     @FXML private JFXButton btn_registrarNovedad;
 
     /**
@@ -83,9 +82,6 @@ public class ControladorJefeBodega implements Initializable {
         parentRoot.getChildren().setAll(vistaMostrarRuta);
     }
 
-    @FXML
-    private void consultarEntrega(ActionEvent event) {
-    }
 
     @FXML
     private void registrarNovedad(ActionEvent event) throws IOException {

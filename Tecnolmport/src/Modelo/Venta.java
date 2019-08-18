@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author juanjimenez
  */
-class Venta {
+public class Venta {
     
     protected  String id;
     protected LocalTime date;
@@ -29,6 +29,10 @@ class Venta {
     protected Cliente cliente;
     protected Envio envio = null ;
 
+    public Venta() {
+    }
+
+    
     public Venta(String id, LocalTime date, String descripcion, boolean esCotizacion, Local local, float subtotal, float iva, float total, List<Producto> productos, Vendedor vendedor, Cliente cliente, Envio envio) {
         this.id = id;
         this.date = date;
