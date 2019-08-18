@@ -45,6 +45,18 @@ public class Pedido {
         
     }
 
+    public Pedido(String id, Date fechaPedido, String descripcion, boolean estado, Local local, List<Producto> productos, String gerente) {
+        this.id = id;
+        this.fechaPedido = fechaPedido;
+        this.descripcion = descripcion;
+        this.estado = estado;
+        this.local = local;
+        this.productos = productos;
+        this.gerent = gerente;
+    }
+
+    
+    
     public Pedido(String id, Date fechaPedido, boolean estado, String producto, String gerent, String observaciones, String loca) {
         this.id = id;
         this.fechaPedido = fechaPedido;
@@ -161,17 +173,6 @@ public class Pedido {
     }
       
       
-      
-    
-      
-      
-
-    
-
-    
-    
-    
-    
     
     
     public String getId() {

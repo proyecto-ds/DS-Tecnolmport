@@ -6,6 +6,8 @@
 package Controlador;
 
 import static Controlador.ControladorLogin.user;
+import Modelo.Empleado;
+import Modelo.Gerente;
 import Modelo.Inventario;
 import Modelo.Local;
 import Modelo.Pedido;
@@ -64,6 +66,8 @@ public class GerenteGPedidoController implements Initializable {
     private Usuario usuariomodel = new Usuario();
     private Local localmodel =  new Local();
     
+    private Pedido  pedidomodel= new Pedido();
+    
     
     /**
      * Initializes the controller class.
@@ -114,12 +118,23 @@ public class GerenteGPedidoController implements Initializable {
        for(Local us : localmodel.obtenerLocales()){
            if(usuariomodel.getLocal().equals(us)){
                localmodel =us;
-               System.out.println(us.toString());
+               //System.out.println(us.toString());
            }
                
        }               
     }
     
+     public String ObteneridPedido(){
+         
+        
+         int ultimo = pedidomodel.llenarTablePedido().size()-1;
+        String respuesta = pedidomodel.llenarTablePedido().get(ultimo).getId();
+        int temporal = Integer.valueOf(respuesta);
+        ++temporal;
+        respuesta = String.valueOf(temporal);
+         
+         return respuesta;
+     }
     
     
     public void finalzar(ActionEvent event){
@@ -128,26 +143,26 @@ public class GerenteGPedidoController implements Initializable {
     // protected String id;llenarTablePedido-> da lista de pedidos saco el ultimo y obtengo su id para aumentarle 1
         ObtenerUsuario();
         ObtenerLocal();
+        ObteneridPedido();
         
-     Pedido pedido = new Pedido(); 
+//public Pedido(String id, Date fechaPedido, String descripcion, boolean estado, Local local, List<Producto> productos, Gerente gerente)
+          
+
+       String descripcion = Descripcion.getText();  
+     
+     
+      
      
      System.out.println(productos.toString());
      
      if(FechaPedido.getValue()!=null){
          Date fechaPedido = java.sql.Date.valueOf(FechaPedido.getValue());
+         
+          Pedido pedido = new Pedido(ObteneridPedido(), (java.sql.Date) fechaPedido,descripcion,true,localmodel,productos,usuariomodel.getUsuario()); 
+         System.out.println(pedido.toString());
+     }else{
+         System.out.println("falta fecha");
      }
-      
-      String descripcion = Descripcion.getText();   
-      boolean estado =false;
-      
-
-//    protected Local local;
-
-
-        
-        System.out.println(productos.toString() + textCantidadProd.getText());
-        
-        
         
         
     }
@@ -156,9 +171,20 @@ public class GerenteGPedidoController implements Initializable {
     private void AddProduct(ActionEvent event) {
         lblCantidadPro.setVisible(true);
         textCantidadProd.setVisible(true);
-        productos.add(TableProductos.getSelectionModel().getSelectedItem());
+        
+        if(!textCantidadProd.getText().isEmpty()){
+           int cantidad =  Integer.valueOf( textCantidadProd.getText());
+           Producto p = TableProductos.getSelectionModel().getSelectedItem();
+                 p .setStock(cantidad);
+                productos.add(p);
         list.remove(TableProductos.getSelectionModel().getSelectedItem());
         TableProductos.setItems(list);
+        textCantidadProd.clear();
+            
+        }else{
+            System.out.println("falta llenar el campo de cantidad");
+        }
+       
         
     }
     
