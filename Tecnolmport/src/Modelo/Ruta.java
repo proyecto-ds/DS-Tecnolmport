@@ -5,7 +5,17 @@
  */
 package Modelo;
 
+import static Modelo.Envio.CONNECTION;
+import Singleton.DBConnection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -14,22 +24,35 @@ import java.util.List;
 public class Ruta {
     
     protected String idRuta;
-    protected List<Entrega> entregas;
+    protected String zona;
     protected Repartidor repartidor;
-
-    public Ruta(String idRuta, List<Entrega> entregas, Repartidor repartidor) {
+    protected String nombreRepartidor;
+    protected String apellidoRepartidor;
+    
+    protected static final Logger LOGGER = Logger.getLogger("Ruta Logger");
+    protected static final DBConnection CONNECTION = DBConnection.getInstance();
+    protected final String consultaRuta= "select r.idRuta, r.zona, e.nombre, e.apellido from ruta r, empleado e where r.id__Empleado = e.idEmpleado";
+    
+    public Ruta(String idRuta, String zona, Repartidor repartidor) {
         this.idRuta = idRuta;
-        this.entregas = entregas;
+        this.zona = zona;
         this.repartidor = repartidor;
     }
 
+    public Ruta(String idRuta, String zona,String nombreRepartidor, String apellidoRepartidor) {
+        this.idRuta = idRuta;
+        this.zona = zona;
+        this.nombreRepartidor=nombreRepartidor;
+        this.apellidoRepartidor= apellidoRepartidor;
+    }
+    
+    public Ruta(){}
+    
     
     public String ObtenerDirecciones(Entrega e){
         return "rutas";
         
     }
-  
-    
     
     public String getIdRuta() {
         return idRuta;
@@ -39,12 +62,12 @@ public class Ruta {
         this.idRuta = idRuta;
     }
 
-    public List<Entrega> getEntregas() {
-        return entregas;
+    public String getEntregas() {
+        return zona;
     }
 
-    public void setEntregas(List<Entrega> entregas) {
-        this.entregas = entregas;
+    public void setEntregas(String entregas) {
+        this.zona = entregas;
     }
 
     public Repartidor getRepartidor() {
@@ -53,6 +76,32 @@ public class Ruta {
 
     public void setRepartidor(Repartidor repartidor) {
         this.repartidor = repartidor;
+    }
+    
+    public ObservableList<Ruta> cargarRuta(){
+        ObservableList <Ruta> lista = FXCollections.observableArrayList ();
+        try {
+            CONNECTION.conectar();
+            String consulta ="{call   obtenerRutaEntrega()}";
+            PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
+            ResultSet resultado = ingreso.executeQuery(); 
+            while (resultado.next()) {
+                lista.add(
+                        new Ruta(
+                                resultado.getString("idRuta"),
+                                resultado.getString("zona"),
+                                resultado.getString("nombre"),
+                                resultado.getString("apellido")
+                        ));
+            System.out.println(resultado.getString("zona")+" "+resultado.getString("nombre")+" "+resultado.getString("apellido"));
+                
+            }
+        } catch (SQLException  ex) {
+            LOGGER.log(Level.SEVERE, ex.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return lista;
     }
     
 

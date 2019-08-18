@@ -55,6 +55,15 @@ public class ControladorValidar {
             alert.setContentText("Item No Actualizado!");
             alert.showAndWait();
     }
+    
+    public void mensajeSeleccionarCampos(String mensaje){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Selección");
+            alert.setHeaderText(null);
+            alert.setContentText(mensaje);
+            alert.showAndWait();
+    }
+    
     public boolean validarCampoVacio(JFXTextField txt) {
         if (txt.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -111,4 +120,6 @@ public class ControladorValidar {
             return false;
         }
     }
+    
+    
 }

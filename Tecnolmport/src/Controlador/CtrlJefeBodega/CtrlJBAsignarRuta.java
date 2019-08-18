@@ -5,9 +5,12 @@
  */
 package Controlador.CtrlJefeBodega;
 
+import Modelo.Repartidor;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,23 +24,33 @@ import javafx.scene.control.TableView;
  */
 public class CtrlJBAsignarRuta implements Initializable {
 
-    @FXML
-    private JFXComboBox<String> cb_repartidor;
-    @FXML
-    private JFXButton btn_asignarRuta;
-    @FXML
-    private TableView<?> tbl_rutaEntrega;
-
+    @FXML private JFXComboBox<String> cb_repartidor;
+    @FXML private JFXButton btn_asignarRuta;
+    @FXML private TableView<?> tbl_rutaEntrega;
+    protected Repartidor repartidor = new Repartidor();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cb_repartidor.getItems().addAll("Jhonny","Scarlett","Steve");
+        LinkedList<String> nombre =repartidor.obtenerRepartidorDisponible();
+        if(!comprobarNulidad(nombre))
+            cb_repartidor.getItems().addAll(nombre);
     }    
+    
+    /**
+     * Comprueba que la lista pasada no este vacia
+     * @param lista Lista
+     * @return True si esta llena
+     */
+    private boolean comprobarNulidad(List lista){
+        return lista.isEmpty();
+    }
+            
 
     @FXML
     private void seleccionarRepartidor(ActionEvent event) {
+        
     }
 
     @FXML

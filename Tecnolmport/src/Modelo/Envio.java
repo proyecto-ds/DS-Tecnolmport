@@ -122,6 +122,7 @@ public class Envio {
                 
                 Venta venta = new Venta();
                 venta.setId(resultado.getString("id_Venta"));
+                System.out.println(venta);
                 System.out.println(resultado.getString("idEnvio"));
                 lista.add(
                         new Envio(

@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author ROSA
+ * @author Rogencio
  */
 public class DBConnection {
     private static DBConnection dbConnection;
@@ -23,7 +23,7 @@ public class DBConnection {
     private final String user = "root";
 
 
-    private final String pass = "betoelperro"; 
+    private final String pass = "1997ra"; 
 
 
     //private final String pass = "toby"; 

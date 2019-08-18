@@ -6,19 +6,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="747.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.CtrlJefeBodega.CtrlJBMostrarRuta">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.CtrlJefeBodega.CtrlJBMostrarRuta">
    <children>
-      <Label layoutX="268.0" layoutY="14.0" text="SALA DE ESPERA">
+      <Label layoutX="247.0" layoutY="14.0" text="SALA DE ESPERA">
          <font>
             <Font name="Consolas" size="29.0" />
          </font>
       </Label>
-      <TableView fx:id="tbl_rutaYrepartidor" layoutX="27.0" layoutY="71.0" prefHeight="350.0" prefWidth="698.0" stylesheets="@../../css/fullpackstyling.css">
+      <TableView fx:id="tbl_ruta" layoutX="194.0" layoutY="81.0" prefHeight="182.0" prefWidth="330.0" stylesheets="@../../css/fullpackstyling.css">
         <columns>
-            <TableColumn fx:id="CIdRuta" prefWidth="75.0" text="ID Ruta" />
+          <TableColumn fx:id="CidRuta" prefWidth="75.0" text="IdRuta" />
           <TableColumn fx:id="CZona" prefWidth="75.0" text="Zona" />
-            <TableColumn fx:id="CIdRepartidor" prefWidth="75.0" text="Id Repartidor" />
-          <TableColumn fx:id="CNombre" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="CNombre" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="CApellido" prefWidth="75.0" text="Apellido" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TableView fx:id="tbl_entrega" layoutX="92.0" layoutY="300.0" prefHeight="200.0" prefWidth="534.0" stylesheets="@../../css/fullpackstyling.css">
+        <columns>
+          <TableColumn fx:id="CIdEntrega" prefWidth="75.0" text="idEntrega" />
+          <TableColumn fx:id="CFecha" prefWidth="75.0" text="Fecha" />
+            <TableColumn fx:id="CDireccion" prefWidth="75.0" text="Direccion" />
+            <TableColumn fx:id="CIdRuta" prefWidth="75.0" text="IdRuta" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

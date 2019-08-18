@@ -29,6 +29,11 @@ public class Empleado extends RecursiveTreeObject<Empleado>{
 
     public Empleado() {
     }
+    
+    public Empleado(String nombre, String apellido) {
+        this.nombre=nombre;
+        this.apellido=apellido;
+    }
 
     public Empleado(String id, String nombre, String apellido, String rol, int salario, String direccion, String email, String telefono, String local, boolean activo) {
         this.id = id;
