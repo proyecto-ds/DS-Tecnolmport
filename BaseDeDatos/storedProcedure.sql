@@ -254,14 +254,17 @@ create procedure actualizarPermiso(in id varchar(20), in perm varchar(20))
 delimiter ;
 //Ingresar Pedido
 delimiter $$
-create procedure ingresarPedido( in idPe varchar(20), in obse varchar(60), in fechaPe DateTime, in emple varchar(15))
+create procedure ingresarPedido( in idPe varchar(20), in obse varchar(60), in fechaPe DateTime, in emple varchar(15), out idPed varchar(20))
 	begin
+		DECLARE idP varchar(20);
 		DECLARE idEmple varchar(20);
+        set idP = (select lpad(conv(floor(rand()*pow(36,8)), 10, 36), 6, 0));
+        select idp into idPed;
         set idEmple = (select idEmpleado
 						from Empleado
 						where usuario = emple);
 		insert into Pedido(idPedido, observaciones,estado,fechaPedido,id_Empleado) 
-			values(idPe,obse,'1',fechaPe,idEmple);
+			values(idP,obse,'1',fechaPe,idEmple);
 	end $$
 delimiter ;
 
