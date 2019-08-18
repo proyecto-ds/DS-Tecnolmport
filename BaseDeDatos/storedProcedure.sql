@@ -107,6 +107,8 @@ create procedure obtenerInventarioLocal(in idlo varchar(20))
 	end $$
 delimiter ;
 
+
+
 delimiter $$
 create procedure ingresarInventario(in idI varchar(20), in idp varchar(20), in loc varchar(20), in stoc int, in est boolean)
 	begin
@@ -225,6 +227,17 @@ create procedure obtenerEntrega()
 	begin 
 		SELECT e.idEntrega, env.idEnvio ,e.fecha, e.direccion,env.descripcion 
         from Entrega e, Envio env where e.estado=4 and e.idEntrega=env.id_Entrega;
+	end $$
+delimiter ;
+
+
+#procedure para obtener el id del local y del id del usuario pasando el usuario del empleado
+delimiter $$
+create procedure obtenerLocalUserId(in usuario varchar(20))
+	begin
+		  select  e.idEmpleado,lo.nombre 
+			from Empleado e join Local lo on e.id_Local = lo.idLocal
+			where e.usuario= usuario;
 	end $$
 delimiter ;
 

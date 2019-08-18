@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorVistaGerenteVenta">
    <children>
@@ -18,5 +20,10 @@
             <TableColumn fx:id="CLocal" prefWidth="94.0" text="      Local" />
         </columns>
       </TableView>
+      <Label fx:id="lblTitulo" layoutX="326.0" layoutY="19.0" text="Lista Ventas">
+         <font>
+            <Font name="Verdana Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

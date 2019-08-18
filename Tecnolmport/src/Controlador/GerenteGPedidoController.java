@@ -7,12 +7,15 @@ package Controlador;
 
 import static Controlador.ControladorLogin.user;
 import Modelo.Inventario;
+import Modelo.Local;
 import Modelo.Pedido;
 import Modelo.Producto;
 import Modelo.Usuario;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -52,7 +55,16 @@ public class GerenteGPedidoController implements Initializable {
     
       private ObservableList<Producto> list = null;
       
+      
+      
     private Inventario modeloInventario = new Inventario();
+    
+    private List<Producto> productos = new ArrayList<>();
+    
+    private Usuario usuariomodel = new Usuario();
+    private Local localmodel =  new Local();
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -64,6 +76,7 @@ public class GerenteGPedidoController implements Initializable {
         CdescripProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("descripcion"));
         CcategoProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("categoria"));
         llenarTable();
+        System.out.println(user);
     }   
     
     
@@ -84,33 +97,68 @@ public class GerenteGPedidoController implements Initializable {
     }
 
     
-    public void getDireccion(){
+    public void  ObtenerUsuario(){
         
-        
+       for(Usuario us : usuariomodel.llenarTableEmpleado()){
+           //System.out.println(us.getUsuario());
+          if(user.equals(us.getUsuario())){
+              usuariomodel = us;
+              System.out.println(us.toString());
+           }
+               
+       }               
     }
     
+     public void  ObtenerLocal(){
+        
+       for(Local us : localmodel.obtenerLocales()){
+           if(usuariomodel.getLocal().equals(us)){
+               localmodel =us;
+               System.out.println(us.toString());
+           }
+               
+       }               
+    }
+    
+    
+    
     public void finalzar(ActionEvent event){
+       
+    //protected Gerente gerent; llenarTableEmpleado -> da una lista de empleados de donde sacas al gerente acutal 
+    // protected String id;llenarTablePedido-> da lista de pedidos saco el ultimo y obtengo su id para aumentarle 1
+        ObtenerUsuario();
+        ObtenerLocal();
         
-        
-        
-        Pedido pedido = new Pedido();
-        
-//    protected String id; //falta saber como ingresar esto
-      Date fechaPedido = java.sql.Date.valueOf(FechaPedido.getValue());
+     Pedido pedido = new Pedido(); 
+     
+     System.out.println(productos.toString());
+     
+     if(FechaPedido.getValue()!=null){
+         Date fechaPedido = java.sql.Date.valueOf(FechaPedido.getValue());
+     }
+      
       String descripcion = Descripcion.getText();   
       boolean estado =false;
       
+
 //    protected Local local;
-//    protected List<Producto> productos;
-//    protected Gerente gerent;
+
 
         
+        System.out.println(productos.toString() + textCantidadProd.getText());
         
         
-        textCantidadProd.clear();
         
         
-        
+    }
+
+    @FXML
+    private void AddProduct(ActionEvent event) {
+        lblCantidadPro.setVisible(true);
+        textCantidadProd.setVisible(true);
+        productos.add(TableProductos.getSelectionModel().getSelectedItem());
+        list.remove(TableProductos.getSelectionModel().getSelectedItem());
+        TableProductos.setItems(list);
         
     }
     

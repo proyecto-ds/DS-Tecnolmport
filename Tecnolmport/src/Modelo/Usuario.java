@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -300,6 +301,51 @@ public class Usuario extends Empleado{
         }
         return false;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (!Objects.equals(this.actualizar, other.actualizar)) {
+            return false;
+        }
+        if (!Objects.equals(this.ingresar, other.ingresar)) {
+            return false;
+        }
+        if (!Objects.equals(this.eliminar, other.eliminar)) {
+            return false;
+        }
+        if (!Objects.equals(this.usuario, other.usuario)) {
+            return false;
+        }
+        if (!Objects.equals(this.contraseña, other.contraseña)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "actualizar=" + actualizar + ", ingresar=" + ingresar + ", eliminar=" + eliminar + ", usuario=" + usuario + ", contrase\u00f1a=" + contraseña + '}';
+    }
+    
+    
+    
+    
     
     public boolean logout(){
         
