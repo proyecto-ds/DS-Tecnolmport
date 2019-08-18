@@ -114,7 +114,7 @@
             </Label>
             <VBox alignment="CENTER" layoutY="487.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="250.0">
                <children>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Permisos" textFill="#b8b1b1">
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#DarPermisos" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Permisos" textFill="#b8b1b1">
                      <font>
                         <Font name="Consolas" size="13.0" />
                      </font>
