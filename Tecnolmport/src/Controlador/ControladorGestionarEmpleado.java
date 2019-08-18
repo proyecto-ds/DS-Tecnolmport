@@ -5,13 +5,11 @@
  */
 package Controlador;
 
-import Modelo.Empleado;
 import Modelo.TipoLocal;
 import Modelo.Usuario;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
