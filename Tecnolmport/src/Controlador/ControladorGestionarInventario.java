@@ -7,11 +7,14 @@ package Controlador;
 
 
 import Modelo.Inventario;
+import Modelo.Local;
 import Modelo.Producto;
+import Modelo.TipoLocal;
 import Modelo.Usuario;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -54,8 +57,10 @@ public class ControladorGestionarInventario implements Initializable {
     @FXML private JFXComboBox<Boolean> cbxEstado;
     private Inventario modeloInventario = new Inventario();
     private Producto modeloProducto = new Producto();
+    private Local modeloLocal = new Local();
     private ControladorValidar validar =  new ControladorValidar();
     private ObservableList<Producto> list = null;
+    @FXML private JFXComboBox<String> cbxLocal;
     
     
     
@@ -64,7 +69,6 @@ public class ControladorGestionarInventario implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        modeloInventario.ObtenerIdLocal();
         table_idI.setCellValueFactory(new PropertyValueFactory<>("idI"));
         table_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         table_nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
@@ -75,7 +79,8 @@ public class ControladorGestionarInventario implements Initializable {
         table_prov.setCellValueFactory(new PropertyValueFactory<>("proveedor"));
         table_estado.setCellValueFactory(new PropertyValueFactory<>("estado"));
         cbxEstado.getItems().addAll(true,false);
-        llenarTable();
+        cbxLocal.getItems().addAll("bodega","sucursal","matriz");
+        
     }
     
     
@@ -135,8 +140,8 @@ public class ControladorGestionarInventario implements Initializable {
     @FXML
     private void seleccionarInventario(MouseEvent event) {
         Producto producto = (Producto)table_inventario.getSelectionModel().getSelectedItem();
-        txt_idI.setText(producto.getIdI());
         txt_id.setText(producto.getId());
+        txt_idI.setText(producto.getIdI());
         txt_nom.setText(producto.getNombre());
         txt_precioProd.setText(String.valueOf(producto.getPrecio()));
         txt_stock.setText(String.valueOf(producto.getStock()));
@@ -178,7 +183,15 @@ public class ControladorGestionarInventario implements Initializable {
         txt_estado.setText(seleccion.toLowerCase()); 
     }
 
-    
-    
-    
+    @FXML
+    private void obtenerLocal(ActionEvent event) {
+        ObservableList<Local> lista = modeloLocal.obtenerLocales();
+        String local = cbxLocal.getValue();
+        for(Local l: lista){
+            if(l.getTipo().equals(local)){
+                modeloInventario.setIdLocal(l.getId());
+                llenarTable();
+            }
+        }
+    }  
 }

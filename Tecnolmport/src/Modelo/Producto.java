@@ -39,7 +39,7 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(String idI,String id, String nombre, float precio, String descripcion, String categoria, String proveedor, boolean estado, int stock) {
+    public Producto(String idI, String id, String nombre, float precio, String descripcion, String categoria, String proveedor, boolean estado, int stock) {
         this.idI = idI;
         this.id = id;
         this.nombre = nombre;

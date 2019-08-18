@@ -25,7 +25,7 @@ import javafx.collections.ObservableList;
  */
 public class Inventario {
     protected String id;
-    protected List<Producto> producto;
+    protected ObservableList <Producto> producto;
     protected String idEmpleado;
     protected String idLocal;
     protected static final DBConnection CONNECTION = DBConnection.getInstance();
@@ -52,27 +52,8 @@ public class Inventario {
     }
     
     
-    
-    public void ObtenerIdLocal(){
-        try {
-            this.setIdEmpleado(user);
-            CONNECTION.conectar();
-            String consulta = "{call obtenerIdLocal(?,?)}";
-            CallableStatement sp = CONNECTION.getConnection().prepareCall(consulta);
-            sp.setString(1, this.getIdEmpleado());
-            sp.registerOutParameter(2, Types.VARCHAR);
-            sp.execute();
-            this.setIdLocal(sp.getString(2));
-            sp.close();
-        } catch (SQLException ex) {
-           Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            CONNECTION.desconectar();
-        }
-    }
-    
     public ObservableList<Producto> llenarTableInventario(){
-        ObservableList <Producto> lista = FXCollections.observableArrayList ();
+        producto = FXCollections.observableArrayList ();
         try {
             CONNECTION.conectar();
             String consulta = "{call  obtenerInventarioLocal (?)}";
@@ -80,7 +61,7 @@ public class Inventario {
             sp.setString(1, this.getIdLocal());
             ResultSet resultado = sp.executeQuery();
             while (resultado.next()) {
-                modeloProducto = new Producto(resultado.getString("idInventario"),
+                producto.add(new Producto(resultado.getString("idInventario"),
                                 resultado.getString("idProducto"),
                                 resultado.getString("nombre"),
                                 resultado.getFloat("precio"),
@@ -88,8 +69,7 @@ public class Inventario {
                                 resultado.getString("descripcion"),
                                 resultado.getString("proveedor"),
                                 resultado.getBoolean("estado"),
-                                resultado.getInt("stock"));
-                lista.add(modeloProducto);
+                                resultado.getInt("stock")));
             }
             
         } catch (SQLException e) {
@@ -97,7 +77,7 @@ public class Inventario {
         } finally {
             CONNECTION.desconectar();
         }
-        return lista;
+        return producto;
     }
     
     public boolean ingresarInventario(Producto modeloP){

@@ -5,6 +5,16 @@
  */
 package Modelo;
 
+import Singleton.DBConnection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 /**
  *
  * @author bryan
@@ -16,10 +26,22 @@ public class Local {
     protected String nombre;
     protected String direccion;
     protected TipoLocal tipoLocal;
+    protected String tipo;
     protected Inventario inventario;
+    
+    protected static final DBConnection CONNECTION = DBConnection.getInstance();
+    protected static final Logger LOGGER = Logger.getLogger("Usuario Logger");
     
     public Local() {
     }
+
+    public Local(String id, String nombre, String direccion, String tipoLocal) {
+        this.id = id;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.tipo = tipoLocal;
+    }
+    
     public Local(String id, String nombre, String direccion, TipoLocal tipoLocal, Inventario inventario) {
         this.id = id;
         this.nombre = nombre;
@@ -28,6 +50,14 @@ public class Local {
         this.inventario = inventario;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
     public String getId() {
         return id;
     }
@@ -68,7 +98,29 @@ public class Local {
         this.inventario = inventario;
     }
 
-    
+    public ObservableList<Local> obtenerLocales(){
+        ObservableList<Local> lista = FXCollections.observableArrayList ();
+        try {
+            CONNECTION.conectar();
+            String consulta = "{call  obtenerLocales ()}";
+            PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
+            ResultSet resultado = ingreso.executeQuery();
+            while (resultado.next()) {
+                lista.add(
+                        new Local(
+                                resultado.getString("idLocal"),
+                                resultado.getString("nombre"),
+                                resultado.getString("direccion"),
+                                resultado.getString("tipo")));
+            }
+            
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return lista;
+    }
 
     
     

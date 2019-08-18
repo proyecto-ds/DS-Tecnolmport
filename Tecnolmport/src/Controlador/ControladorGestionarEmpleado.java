@@ -78,7 +78,7 @@ public class ControladorGestionarEmpleado implements Initializable {
         table_tel.setCellValueFactory(new PropertyValueFactory<>("telefono"));
         table_estado.setCellValueFactory(new PropertyValueFactory<>("activo"));
         table_salario.setCellValueFactory(new PropertyValueFactory<>("salario"));
-        cbxLocal.getItems().addAll(TipoLocal.Bodega,TipoLocal.Matriz,TipoLocal.Sucursal);
+        cbxLocal.getItems().addAll(TipoLocal.bodega,TipoLocal.matriz,TipoLocal.sucursal);
         cbxRol.getItems().addAll("Gerentre","Vendedor","Jefe","Repartidor");
         cbxEstado.getItems().addAll(true,false);
         llenarTable();

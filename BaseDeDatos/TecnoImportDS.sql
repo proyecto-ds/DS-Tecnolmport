@@ -557,26 +557,17 @@ create procedure eliminarProducto(in id varchar(20))
 delimiter ;
 
 delimiter $$
-create procedure obtenerInventarioLocal(in idlocal varchar(20))
+create procedure obtenerInventarioLocal(in idlo varchar(20))
 	begin
-		select i.idInventario, p.idProducto, p.nombre, p.precio, p.categoria, p.descripcion, p.proveedor, p.estado, i.stock
+		select i.idInventario, p.idProducto, p.nombre, p.precio, p.categoria, p.descripcion, p.proveedor, i.estado, i.stock
         from Producto p, Inventario i
-        where i.id_Local = idLocal and p.idProducto = i.id_Producto;
+        where i.id_Local = idlo and p.idProducto = i.id_Producto;
 	end $$
 delimiter ;
 
-delimiter $$
-create procedure obtenerIdLocal(in usuar varchar(20), out idL varchar(20))
-	begin
-		set idL = null;
-		select e.id_Local into idL
-        from Empleado e
-        where e.usuario = usuar;
-	end $$
-delimiter ;
 
 delimiter $$
-create procedure ingresarInventario(in idI varchar(20), in stoc int, in est boolean)
+create procedure ingresarInventario(in idI varchar(20), in idp varchar(20), in loc varchar(20), in stoc int, in est boolean)
 	begin
         insert into Inventario() 
 			values(idI, idp, loc, stoc, est);
@@ -584,26 +575,33 @@ create procedure ingresarInventario(in idI varchar(20), in stoc int, in est bool
 delimiter ;
 
 delimiter $$
-create procedure actualizarProducto(in idI varchar(20), in stoc int, in est boolean)
+create procedure actualizarInventario(in idI varchar(20), in idp varchar(20), in loc varchar(20), in stoc int, in est boolean)
 	begin
         update Inventario i
         set
 			i.id_Producto = idp,
             i.id_Local = loc,
-            i.stock = stoc
+            i.stock = stoc,
+            i.estado = est
 		where i.idInventario = idI;
     end $$
 delimiter ;
 
 delimiter $$
-create procedure eliminarInventario(in id varchar(20))
+create procedure eliminarInventario(in ids varchar(20))
 	begin
-		update Inventario i
+		update Inventario
         set
-            i.estado = false
-		where p.idInventario = id;
+            estado = false
+		where idInventario = ids;
 	end $$
 delimiter ;
 
-select * from Producto;
-select * from Inventario;
+delimiter $$
+create procedure obtenerLocales()
+	begin
+		select l.idLocal, l.nombre, l.direccion, l.tipo
+        from Local l;
+	end $$
+delimiter ;
+
