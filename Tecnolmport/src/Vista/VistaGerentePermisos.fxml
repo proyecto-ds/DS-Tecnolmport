@@ -7,26 +7,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.VistaGerentePermisosController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorVistaGerentePermisos">
    <children>
       <Label fx:id="lblTitutlo" layoutX="222.0" layoutY="25.0" text="Lista de Empleados - Posibles Administradores">
          <font>
             <Font name="Verdana Bold" size="13.0" />
          </font>
       </Label>
-      <TableView fx:id="table_empleado" layoutX="20.0" layoutY="55.0" prefHeight="410.0" prefWidth="714.0" stylesheets="@../css/fullpackstyling.css">
+      <TableView fx:id="table_empleado" layoutX="20.0" layoutY="55.0" onMouseClicked="#seleccionarAdmin" prefHeight="410.0" prefWidth="714.0" stylesheets="@../css/fullpackstyling.css">
          <columns>
             <TableColumn fx:id="table_id" prefWidth="110.76934814453125" text="ID" />
             <TableColumn fx:id="table_nombre" prefWidth="75.23065185546875" text="Nombre" />
             <TableColumn fx:id="table_apel" prefWidth="74.85877990722656" text="Apellido" />
             <TableColumn fx:id="table_user" prefWidth="67.49977111816406" text="Usuario" />
             <TableColumn fx:id="table_rol" prefWidth="69.24365234375" text="   Rol" />
-            <TableColumn fx:id="table_email" prefWidth="104.80776977539062" text="     Email" />
+            <TableColumn fx:id="table_permiso" prefWidth="96.0" text="PermisoAdmin" />
+            <TableColumn fx:id="table_email" prefWidth="84.0" text="     Email" />
             <TableColumn fx:id="table_tel" prefWidth="63.192230224609375" text="Telefono" />
             <TableColumn fx:id="table_local" prefWidth="83.4613037109375" text="      Local" />
             <TableColumn fx:id="table_estado" prefWidth="71.19219970703125" text="Estado" />
          </columns>
       </TableView>
-      <Button fx:id="btnAsigPermisos" layoutX="312.0" layoutY="495.0" mnemonicParsing="false" onAction="#ObtenerUsuario" stylesheets="@../css/fullpackstyling.css" text="Asignar Permisos" textFill="WHITE" />
+      <Button fx:id="btnAsigPermisos" layoutX="231.0" layoutY="495.0" mnemonicParsing="false" onAction="#asingarPermi" stylesheets="@../css/fullpackstyling.css" text="Asignar Permisos" textFill="WHITE" />
+      <Button fx:id="btnQuitarPerm" layoutX="415.0" layoutY="495.0" mnemonicParsing="false" onAction="#quitarPermi" stylesheets="@../css/fullpackstyling.css" text="Quitar Permisos" textFill="WHITE" />
    </children>
 </AnchorPane>

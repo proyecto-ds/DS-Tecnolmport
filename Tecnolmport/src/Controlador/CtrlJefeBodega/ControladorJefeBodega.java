@@ -5,6 +5,7 @@
  */
 package Controlador.CtrlJefeBodega;
 
+import static Controlador.ControladorLogin.permi;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
@@ -36,15 +37,16 @@ public class ControladorJefeBodega implements Initializable {
     @FXML private JFXButton btn_mostrarRutas;
     @FXML private JFXButton btn_registrarEntrega;
     @FXML private JFXButton btn_registrarNovedad;
-    @FXML
-    private JFXButton btn_consultarArticulo;
+    @FXML private JFXButton btn_consultarArticulo;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        System.out.println(permi);
+        if (permi.equals("admin"))
+            btnAdmin.setDisable(false);
     }    
 
     @FXML

@@ -1,9 +1,11 @@
 USE `TecnolmportDS` ;
+
 delimiter $
-create procedure login (in nUsuario varchar(15), in pass varchar(20), out sRol varchar(30))
+create procedure login (in nUsuario varchar(15), in pass varchar(20), out sRol varchar(30), out perm varchar(20))
 	begin
 		set sRol = null;
-		select rol into sRol
+        set perm = null;
+		select rol, permisoA into sRol, perm
 		from Empleado e
 		where e.usuario = nUsuario  and e.clave = pass;
 	end $
@@ -12,13 +14,13 @@ delimiter ;
 delimiter $$
 create procedure obtenerEmpleados()
 	begin
-		select e.idEmpleado, e.nombre, e.apellido, e.usuario, e.clave, e.rol, e.salario, e.direccion, e.email, e.telefono, e.estado, l.tipo
+		select e.idEmpleado, e.nombre, e.apellido, e.permisoA, e.usuario, e.clave, e.rol, e.salario, e.direccion, e.email, e.telefono, e.estado, l.tipo
         from Empleado e, Local l
         where e.id_Local = l.idLocal
         order by e.nombre,e.apellido desc;
 	end $$
 delimiter ;
-
+call obtenerEmpleados
 delimiter $$
 create procedure actualizarEmpleado(in id varchar(20), in nom varchar(45), in ape varchar (45), in usu varchar(15), in pass varchar(20),in rl varchar(30), in sal int, in dir varchar(45), in mail varchar(45), in tel varchar(45), in est boolean, in tlocal varchar(20))
 	begin
@@ -230,6 +232,7 @@ create procedure obtenerEntrega()
 	end $$
 delimiter ;
 
+<<<<<<< HEAD
 
 #procedure para obtener el id del local y del id del usuario pasando el usuario del empleado
 delimiter $$
@@ -241,3 +244,14 @@ create procedure obtenerLocalUserId(in usuario varchar(20))
 	end $$
 delimiter ;
 
+=======
+delimiter $$
+create procedure actualizarPermiso(in id varchar(20), in perm varchar(20))
+	begin
+		update Empleado
+        set
+            permisoA = perm
+		where idEmpleado = id;
+	end $$
+delimiter ;
+>>>>>>> d279404e6c1a4ab08e72d48cc3c1bd4d664683f0
