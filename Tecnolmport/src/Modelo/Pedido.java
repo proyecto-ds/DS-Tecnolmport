@@ -35,6 +35,8 @@ public class Pedido {
     protected String producto;
     protected String gerent;
     protected String loc;
+    protected String observaciones;
+    protected int esta;
     
     
     protected Gerente gerente;
@@ -43,18 +45,49 @@ public class Pedido {
         
     }
 
-    public Pedido(String id, Date fechaPedido, boolean estado, String producto, String gerent, String loca) {
+    public Pedido(String id, Date fechaPedido, boolean estado, String producto, String gerent, String observaciones, String loca) {
         this.id = id;
         this.fechaPedido = fechaPedido;
         this.estado = estado;
         this.producto = producto;
         this.gerent = gerent;
+        this.observaciones = observaciones;
         this.loc = loca;
     }
-
     
+    public Pedido(String id, Date fechaPedido, int esta, String producto, String gerent, String observaciones, String loca) {
+        this.id = id;
+        this.fechaPedido = fechaPedido;
+        this.esta = esta;
+        this.producto = producto;
+        this.gerent = gerent;
+        this.observaciones = observaciones;
+        this.loc = loca;
+    }
+    public int getEsta() {
+        return esta;
+    }
 
-    
+    public void setEsta(int esta) {
+        this.esta = esta;
+    }
+
+    public String getLoc() {
+        return loc;
+    }
+
+    public void setLoc(String loc) {
+        this.loc = loc;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
 
     public String getProducto() {
         return producto;
@@ -72,21 +105,7 @@ public class Pedido {
         this.gerent = gerent;
     }
     
-    
-    
-    
-    
-    
-//    protected String id;
-//    protected String nombre;
-//    protected float precio;
-//    protected String descripcion;
-//    protected String categoria;
-//    protected String proveedor;
-//    protected boolean estado;
-//    
-    
-    
+  
       public ObservableList <Pedido> llenarTablePedido(){
         ObservableList <Pedido> lista = FXCollections.observableArrayList ();
         try {
@@ -102,7 +121,9 @@ public class Pedido {
                                 resultado.getBoolean("estado"),
                                 resultado.getString("Producto"),
                                 resultado.getString("Gerente"),
-                                String.valueOf(resultado.getString("Local"))));
+                                resultado.getString("observaciones"),
+                                String.valueOf(resultado.getString("Local")
+                                )));
             }
         } catch (SQLException e) {
             //LOGGER.log(Level.SEVERE, e.getMessage());
@@ -112,6 +133,32 @@ public class Pedido {
         return lista;
     }
       
+      public ObservableList <Pedido> llenarTablePedidoNovedades(){
+        ObservableList <Pedido> lista = FXCollections.observableArrayList ();
+        try {
+            CONNECTION.conectar();
+            String consulta = "{call obtenerPedidosNovedad()}";
+            PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
+            ResultSet resultado = ingreso.executeQuery();
+            while (resultado.next()) {
+                lista.add(
+                        new Pedido(
+                                resultado.getString("idPedido"),
+                                resultado.getDate("fechaPedido"),
+                                resultado.getInt("estado"),
+                                resultado.getString("Producto"),
+                                resultado.getString("Gerente"),
+                                resultado.getString("observaciones"),
+                                String.valueOf(resultado.getString("Local")
+                                )));
+            }
+        } catch (SQLException e) {
+            //LOGGER.log(Level.SEVERE, e.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return lista;
+    }
       
       
       

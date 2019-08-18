@@ -111,7 +111,8 @@ public class Envio {
         this.direccion = direccion;
     }
             
-    public ObservableList<Envio> cargarPedido(String estado){
+
+    public ObservableList<Envio> cargarEnvio(String estado){
         ObservableList <Envio> lista = FXCollections.observableArrayList ();
         try {
             CONNECTION.conectar();

@@ -7,6 +7,7 @@ package Controlador.CtrlJefeBodega;
 
 import Controlador.ControladorValidar;
 import Modelo.Envio;
+import Modelo.Pedido;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
@@ -29,14 +30,14 @@ public class CtrlJBRegistrarNovedad implements Initializable {
     @FXML private JFXTextField txt_ingresarNovedad;
     @FXML private JFXButton btn_guardarNovedad;
     
-    @FXML private TableView<?> tbl_pedido;
-    @FXML private TableColumn<?, ?> CIdPedido;
-    @FXML private TableColumn<?, ?> CFechaPedido;
-    @FXML private TableColumn<?, ?> CDescripcionPedido;
-    @FXML private TableColumn<?, ?> CEstadoPedido;
-    @FXML private TableColumn<?, ?> CLocalPedido;
-    @FXML private TableColumn<?, ?> CPProducto;
-    @FXML private TableColumn<?, ?> CGerentePedido;
+    @FXML private TableView<Pedido> tbl_pedido;
+    @FXML private TableColumn<Pedido, String> CIdPedido;
+    @FXML private TableColumn<Pedido, String> CFechaPedido;
+    @FXML private TableColumn<Pedido, String> CDescripcionPedido;
+    @FXML private TableColumn<Pedido, String> CEstadoPedido;
+    @FXML private TableColumn<Pedido, String> CLocalPedido;
+    @FXML private TableColumn<Pedido, String> CPProducto;
+    @FXML private TableColumn<Pedido, String> CGerentePedido;
     
     @FXML
     private TableView<Envio> tbl_envio;
@@ -56,8 +57,10 @@ public class CtrlJBRegistrarNovedad implements Initializable {
     private TableColumn<Envio, String> CEstado;
     
     private ControladorValidar control= new ControladorValidar();
-    protected ObservableList<Envio> enviosObs =null;
-    protected Envio e = new Envio();
+    private ObservableList<Envio> enviosObs =null;
+    private Envio e = new Envio();
+    private ObservableList<Pedido> pedidosObs =null;
+    private Pedido modeloPedido = new Pedido();
     /**
      * Initializes the controller class.
      */
@@ -71,19 +74,39 @@ public class CtrlJBRegistrarNovedad implements Initializable {
         CFechaFin.setCellValueFactory(new PropertyValueFactory<>("fechaFin"));
         CEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
         llenarTableEnvio();
+        
+        CIdPedido.setCellValueFactory(new PropertyValueFactory<>("id"));
+        CFechaPedido.setCellValueFactory(new PropertyValueFactory<Pedido,String>("fechaPedido"));
+        CEstadoPedido.setCellValueFactory(new PropertyValueFactory<Pedido,String>("esta"));
+        CLocalPedido.setCellValueFactory(new PropertyValueFactory<>("loc"));
+        CPProducto.setCellValueFactory(new PropertyValueFactory<Pedido,String>("producto"));
+        CGerentePedido.setCellValueFactory(new PropertyValueFactory<>("gerent"));
+        CDescripcionPedido.setCellValueFactory(new PropertyValueFactory<>("observaciones"));
+        llenarTablePedido();
     }    
     private void llenarTableEnvio(){
         if(enviosObs == null){
-            enviosObs = e.cargarPedido("1");
+            enviosObs = e.cargarEnvio("1");
             tbl_envio.setItems(enviosObs);
         }
         else{
             enviosObs.removeAll(enviosObs);
-            enviosObs = e.cargarPedido("1");
+            enviosObs = e.cargarEnvio("1");
             tbl_envio.setItems(enviosObs);
         }
     }
 
+     public void llenarTablePedido(){
+        if(pedidosObs == null){
+            pedidosObs = modeloPedido.llenarTablePedidoNovedades();
+            tbl_pedido.setItems(pedidosObs);
+        }
+        else{
+            pedidosObs.removeAll(pedidosObs);
+            pedidosObs = modeloPedido.llenarTablePedidoNovedades();
+            tbl_pedido.setItems(pedidosObs);
+        }
+    }
     @FXML
     private void validar_seleccion(ActionEvent event) {
         Envio envio = tbl_envio.getSelectionModel().getSelectedItem();

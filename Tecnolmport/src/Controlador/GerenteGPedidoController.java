@@ -5,10 +5,15 @@
  */
 package Controlador;
 
+import Modelo.Inventario;
 import Modelo.Pedido;
 import Modelo.Producto;
+import Modelo.Usuario;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -44,7 +49,9 @@ public class GerenteGPedidoController implements Initializable {
     @FXML
     private TableColumn<Producto, String> CPrecio;
     
-
+      private ObservableList<Producto> list = null;
+      
+    private Inventario modeloInventario = new Inventario();
     /**
      * Initializes the controller class.
      */
@@ -52,14 +59,29 @@ public class GerenteGPedidoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         CId.setCellValueFactory(new PropertyValueFactory<>("id"));
         CnombreProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("nombre"));
+        CPrecio.setCellValueFactory(new PropertyValueFactory<Producto,String>("precio"));
         CdescripProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("descripcion"));
         CcategoProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("categoria"));
+        llenarTable();
     }   
     
     
     
     
-    
+     public void llenarTable(){
+         modeloInventario.setIdLocal("3");
+        if(list == null){
+            list = modeloInventario.llenarTableInventario();
+            TableProductos.setItems(list);
+        }
+        else{
+            list.removeAll(list);
+            list = modeloInventario.llenarTableInventario();
+            TableProductos.setItems(list);
+        }
+        
+    }
+
     
     public void getDireccion(){
         
@@ -73,7 +95,7 @@ public class GerenteGPedidoController implements Initializable {
         Pedido pedido = new Pedido();
         
 //        protected String id;
-//    protected LocalTime fechaPedido;
+      Date fechaPedido =   java.sql.Date.valueOf(FechaPedido.getValue());
        String descripcion =Descripcion.getText();   
        boolean estado =false;
 //    protected Local local;

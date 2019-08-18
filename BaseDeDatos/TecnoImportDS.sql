@@ -605,6 +605,21 @@ create procedure obtenerLocales()
 	end $$
 delimiter ;
 
+<<<<<<< HEAD
+delimiter $$
+create procedure obtenerPedidos()
+	begin
+		 select pe.idPedido, pe.estado, pe.fechaPedido , e.nombre as Gerente, pr.nombre as Producto , lo.nombre as Local 
+ from Pedido pe join Empleado e on pe.id_Empleado = e.idEmpleado join
+							DetallePedido  dp on pe.idPedido = dp.id_Pedido  join Producto pr on dp.id_Producto =  pr.idProducto join local lo on e.id_Local = lo.idLocal 
+where    pe.id_Empleado = e.idEmpleado   ;
+	end $$
+delimiter ;
+
+drop procedure if exists obtenerPedidos;
+
+call obtenerPedidos();
+=======
 #Procedure Jefe Bodega
 delimiter $$
 create procedure obtenerRepartidorDisponible()
@@ -647,3 +662,4 @@ call obtenerEntrega();
 drop procedure obtenerEntrega;
 -- FIN de PROCEDURE JEFE BODEGA
 
+>>>>>>> 545bc5e88249890f55b7b05655ad1db0e96b3d54

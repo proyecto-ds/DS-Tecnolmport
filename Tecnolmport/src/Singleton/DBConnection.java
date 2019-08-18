@@ -26,13 +26,9 @@ public class DBConnection {
 
     private final String pass = "betoelperro"; 
 
+
     //betoelperro
     private static final Logger LOGGER = Logger.getLogger("DBConnection Logger");
-    
-    
-    // private final String url = "jdbc:mysql://localhost:3306/tecnolmport_schemaf?autoReconnect=true&useSSL=false";
-    //private final String user = "root";
-    //private final String pass = "root"; 
     
     
     
