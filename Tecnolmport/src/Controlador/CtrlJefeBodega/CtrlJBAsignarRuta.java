@@ -28,12 +28,15 @@ public class CtrlJBAsignarRuta implements Initializable {
     @FXML private JFXButton btn_asignarRuta;
     @FXML private TableView<?> tbl_rutaEntrega;
     protected Repartidor repartidor = new Repartidor();
+    @FXML
+    private JFXComboBox<String> cb_FiltrarRuta;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         LinkedList<String> nombre =repartidor.obtenerRepartidorDisponible();
+        cb_FiltrarRuta.getItems().addAll("Norte","Sur","Centro","Este","Oeste");
         if(!comprobarNulidad(nombre))
             cb_repartidor.getItems().addAll(nombre);
     }    
@@ -55,6 +58,10 @@ public class CtrlJBAsignarRuta implements Initializable {
 
     @FXML
     private void asignarRuta(ActionEvent event) {
+    }
+
+    @FXML
+    private void seleccionarRuta(ActionEvent event) {
     }
     
 }

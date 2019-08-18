@@ -31,7 +31,7 @@
                   <Insets left="5.0" top="5.0" />
                </padding>
             </VBox>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="19.0" layoutY="135.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="222.0" stylesheets="@../css/fullpackstyling.css" text="Consultar Artículos" textFill="#b8b1b1">
+            <JFXButton fx:id="btn_consultarArticulo" alignment="BASELINE_LEFT" layoutX="19.0" layoutY="135.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#act_consultarArticulo" prefHeight="40.0" prefWidth="222.0" stylesheets="@../css/fullpackstyling.css" text="Consultar Artículos" textFill="#b8b1b1">
                <font>
                   <Font name="Consolas" size="13.0" />
                </font>

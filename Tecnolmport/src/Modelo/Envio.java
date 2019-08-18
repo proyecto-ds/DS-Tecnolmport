@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import Modelo.Venta;
+import java.sql.CallableStatement;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -110,14 +111,15 @@ public class Envio {
         this.direccion = direccion;
     }
             
-    public ObservableList<Envio> cargarEnvio(){
+
+    public ObservableList<Envio> cargarEnvio(String estado){
         ObservableList <Envio> lista = FXCollections.observableArrayList ();
         try {
             CONNECTION.conectar();
-            String consulta = "{call obtenerEnvio ()}";
-            PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
+            String consulta = "{call obtenerEnvioEstado (?)}";
+            CallableStatement ingreso = CONNECTION.getConnection().prepareCall(consulta);
+            ingreso.setString(1,estado);
             ResultSet resultado = ingreso.executeQuery(); 
-            
             while (resultado.next()) {                
                 LocalDate sqlDateI = LocalDate.parse(resultado.getString("fechaInicio"));                
                 LocalDate sqlDateF = LocalDate.parse(resultado.getString("fechaFin"));
@@ -131,6 +133,7 @@ public class Envio {
                                 sqlDateF,
                                 resultado.getString("estado")
                         ));
+                System.out.println("");
             }
         } catch (SQLException  ex) {
             LOGGER.log(Level.SEVERE, ex.getMessage());

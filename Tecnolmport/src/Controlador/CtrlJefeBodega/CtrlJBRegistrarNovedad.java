@@ -86,12 +86,12 @@ public class CtrlJBRegistrarNovedad implements Initializable {
     }    
     private void llenarTableEnvio(){
         if(enviosObs == null){
-            enviosObs = e.cargarEnvio();
+            enviosObs = e.cargarEnvio("1");
             tbl_envio.setItems(enviosObs);
         }
         else{
             enviosObs.removeAll(enviosObs);
-            enviosObs = e.cargarEnvio();
+            enviosObs = e.cargarEnvio("1");
             tbl_envio.setItems(enviosObs);
         }
     }
@@ -113,5 +113,6 @@ public class CtrlJBRegistrarNovedad implements Initializable {
         String txt = txt_ingresarNovedad.getText();
         if(envio==null || txt==null)
             control.mensajeSeleccionarCampos("Falta seleccionar una entrega o\nllenar el campo Novedad");
+        System.out.println(txt);
     }
 }
