@@ -24,35 +24,27 @@ import javafx.scene.input.MouseEvent;
  *
  * @author juanjimenez
  */
-public class VistaGerentePermisosController implements Initializable {
+public class ControladorVistaGerentePermisos implements Initializable {
 
-    @FXML
-    private Label lblTitutlo;
-    @FXML
-    private TableView<Usuario> table_empleado;
-    @FXML
-    private TableColumn<Usuario, String> table_id;
-    @FXML
-    private TableColumn<Usuario, String> table_nombre;
-    @FXML
-    private TableColumn<Usuario, String> table_apel;
-    @FXML
-    private TableColumn<Usuario, String> table_user;
-    @FXML
-    private TableColumn<Usuario, String> table_rol;
-    @FXML
-    private TableColumn<Usuario, String> table_email;
-    @FXML
-    private TableColumn<Usuario, String> table_tel;
-    @FXML
-    private TableColumn<Usuario, String> table_local;
-    @FXML
-    private TableColumn<Usuario, String> table_estado;
-    @FXML
-    private Button btnAsigPermisos;
+    @FXML private Label lblTitutlo;
+    @FXML private TableView<Usuario> table_empleado;
+    @FXML private TableColumn<Usuario, String> table_id;
+    @FXML private TableColumn<Usuario, String> table_nombre;
+    @FXML private TableColumn<Usuario, String> table_apel;
+    @FXML private TableColumn<Usuario, String> table_user;
+    @FXML private TableColumn<Usuario, String> table_rol;
+    @FXML private TableColumn<Usuario, String> table_email;
+    @FXML private TableColumn<Usuario, String> table_tel;
+    @FXML private TableColumn<Usuario, String> table_local;
+    @FXML private TableColumn<Usuario, String> table_estado;
+    @FXML private TableColumn<Usuario, String> table_permiso;
+    @FXML private Button btnAsigPermisos;
     
     private Usuario modeloUsuario = new Usuario();
     private ObservableList<Usuario> list = null;
+    @FXML
+    private Button btnQuitarPerm;
+    
 
     /**
      * Initializes the controller class.
@@ -69,6 +61,7 @@ public class VistaGerentePermisosController implements Initializable {
         table_rol.setCellValueFactory(new PropertyValueFactory<>("rol"));
         table_user.setCellValueFactory(new PropertyValueFactory<>("usuario"));
         table_estado.setCellValueFactory(new PropertyValueFactory<>("activo"));
+        table_permiso.setCellValueFactory(new PropertyValueFactory<>("permisoAdmin"));
        
         llenarTable();
     }    
@@ -76,7 +69,6 @@ public class VistaGerentePermisosController implements Initializable {
       public void llenarTable(){
         if(list == null){
             list = modeloUsuario.llenarTableEmpleadoPAdmin();
-            //System.out.println(list.toString());
             table_empleado.setItems(list);
         }
         else{
@@ -84,17 +76,26 @@ public class VistaGerentePermisosController implements Initializable {
             list = modeloUsuario.llenarTableEmpleadoPAdmin();
             table_empleado.setItems(list);
         }
-        
     }
 
     @FXML
-    private void ObtenerUsuario(ActionEvent event) {
-        
-         Usuario us =  table_empleado.getSelectionModel().getSelectedItem();
-        
-        System.out.println(us.toString());
-        
-        
+    private void seleccionarAdmin(MouseEvent event) {
+        Usuario us =  table_empleado.getSelectionModel().getSelectedItem();
+        modeloUsuario.setId(us.getId());
+    }
+
+    @FXML
+    private void asingarPermi(ActionEvent event) {
+        modeloUsuario.setPermisoAdmin("admin");
+        modeloUsuario.actualizarPermiso();
+        llenarTable();
+    }
+
+    @FXML
+    private void quitarPermi(ActionEvent event) {
+        modeloUsuario.setPermisoAdmin("null");
+        modeloUsuario.actualizarPermiso();
+        llenarTable();
     }
 
     

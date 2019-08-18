@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import static Controlador.ControladorLogin.user;
 import Singleton.DBConnection;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
@@ -27,8 +28,10 @@ public class Usuario extends Empleado{
     private final String actualizar = "{call  actualizarEmpleado (?,?,?,?,?,?,?,?,?,?,?,?)}";
     private final String ingresar = "{call   ingresarEmpleado (?,?,?,?,?,?,?,?,?,?,?,?)}";
     private final String eliminar = "{call   eliminarEmpleado (?)}";
+    private final String permiso = "{call   actualizarPermiso (?,?)}";
     protected String usuario;
     protected String contraseña;
+    protected String permisoAdmin;
 
     public Usuario() {
     }
@@ -37,6 +40,22 @@ public class Usuario extends Empleado{
         super(id, nombre, apellido, rol, salario, direccion, email, telefono, local, activo);
         this.usuario = usuario;
         this.contraseña = contraseña;
+    }
+
+    public Usuario(String usuario, String contraseña, String permisoAdmin, String id, String nombre, String apellido, String rol, int salario, String direccion, String email, String telefono, String local, boolean activo) {
+        super(id, nombre, apellido, rol, salario, direccion, email, telefono, local, activo);
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+        this.permisoAdmin = permisoAdmin;
+    }
+
+    
+    public String getPermisoAdmin() {
+        return permisoAdmin;
+    }
+
+    public void setPermisoAdmin(String permisoAdmin) {
+        this.permisoAdmin = permisoAdmin;
     }
 
     public String getUsuario() {
@@ -140,14 +159,15 @@ public class Usuario extends Empleado{
     public String login(){
         try {
             CONNECTION.conectar();
-            String consulta = "{call  login (?,?,?)}";
+            String consulta = "{call  login (?,?,?,?)}";
             CallableStatement sp = CONNECTION.getConnection().prepareCall(consulta);
             sp.setString(1, this.getUsuario());
             sp.setString(2, this.getContraseña());
             sp.registerOutParameter(3, Types.VARCHAR);
+            sp.registerOutParameter(4, Types.VARCHAR);
             sp.execute();
             String rol = sp.getString(3);
-            System.out.println(rol);
+            this.setPermisoAdmin(sp.getString(4));
             sp.close();
             return rol;
         } catch (SQLException ex) {
@@ -199,11 +219,12 @@ public class Usuario extends Empleado{
             PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
             ResultSet resultado = ingreso.executeQuery();
             while (resultado.next()) {
-                if(!resultado.getString("rol").equals("repartidor") ){
+                if(!resultado.getString("rol").equals("repartidor") && resultado.getBoolean("estado")==true && !resultado.getString("usuario").equals(user)){
                 lista.add(
                         new Usuario(
                                 resultado.getString("usuario"),
                                 resultado.getString("clave"),
+                                resultado.getString("permisoA"),
                                 resultado.getString("idEmpleado"),
                                 resultado.getString("nombre"),
                                 resultado.getString("apellido"),
@@ -224,15 +245,7 @@ public class Usuario extends Empleado{
         return lista;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     public boolean actualizarEmpleado(){
         try {
             CONNECTION.conectar();
@@ -300,13 +313,25 @@ public class Usuario extends Empleado{
         }
         return false;
     }
+    public boolean actualizarPermiso(){
+        try {
+            CONNECTION.conectar();
+            CallableStatement sp = CONNECTION.getConnection().prepareCall(permiso);
+            sp.setString(1, this.getId());
+            sp.setString(2, this.getPermisoAdmin());
+            sp.execute();
+            sp.close();
+            return true;
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return false;
+    }
     
     public boolean logout(){
         
         return false;
-    }
-    
-    public String obtenerRol(){
-        return "jefedebodega";
     }
 }

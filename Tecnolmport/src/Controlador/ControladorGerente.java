@@ -94,12 +94,6 @@ public class ControladorGerente implements Initializable {
         AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaGerenteGPedido.fxml")));
         parent.getChildren().setAll(vistaBA);
     }
-    
-//     @FXML
-//    private void DarPermisos(ActionEvent event) throws IOException {
-//        AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaGerentePermisos.fxml")));
-//        parent.getChildren().setAll(vistaBA);
-//    }
 
     @FXML
     private void DarPermisos(ActionEvent event) throws IOException {

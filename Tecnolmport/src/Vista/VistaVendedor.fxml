@@ -42,7 +42,7 @@
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <JFXComboBox fx:id="cbxConsultar" layoutX="52.0" layoutY="329.0" prefHeight="33.0" prefWidth="163.0" stylesheets="@../css/comboBox.css" />
+            <JFXComboBox fx:id="cbxConsultar" layoutX="52.0" layoutY="329.0" onAction="#consultarItem" prefHeight="33.0" prefWidth="163.0" stylesheets="@../css/comboBox.css" />
             <Label layoutX="14.0" layoutY="435.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="156.0" text="Actualizar" textFill="#b8b1b1">
                <font>
                   <Font name="Calibri Bold" size="16.0" />

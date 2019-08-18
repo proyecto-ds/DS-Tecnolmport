@@ -57,9 +57,6 @@ public class ControladorVendedor implements Initializable {
         cbxConsultar.getItems().addAll("Cliente","Cotizacion","EnvioDomicilio","Producto","Venta","NotaDeCredito");
         cbxRegistrar.getItems().addAll("Cliente","Cotizacion","Venta","NotaDeCredito");
         cbxActualizar.getItems().addAll("Cliente","Venta");
-    }   
-    void consultarEmpleado(ActionEvent event) {
-        
     }
 
     @FXML
@@ -69,6 +66,15 @@ public class ControladorVendedor implements Initializable {
         Stage stage = (Stage) btnCerrarSesion.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void consultarItem(ActionEvent event) throws IOException {
+        String tipoConsulta = cbxConsultar.getValue();
+        if(tipoConsulta.toLowerCase().equals("producto")){
+            AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaBusquedaArticulo.fxml")));
+            parent.getChildren().setAll(vistaBA);
+        }
     }
     
 }
