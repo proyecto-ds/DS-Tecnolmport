@@ -59,6 +59,8 @@ public class ControladorGerentePedido implements Initializable {
     private TableView<Pedido> tablePedido;
     @FXML
     private Label lblTitulo;
+    
+    
     /**
      * Initializes the controller class.
      */

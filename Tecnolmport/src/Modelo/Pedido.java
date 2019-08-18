@@ -25,12 +25,14 @@ import javafx.scene.control.TableView;
 public class Pedido {
     
     protected String id;
-    protected LocalTime fechaPeido;
-    
+    protected LocalTime fechaPedido;
     protected String descripcion;
     protected boolean estado;
     protected Local local;
     protected List<Producto> productos;
+    protected String producto;
+    protected String gerent;
+    protected String loca;
     
     
     protected Gerente gerente;
@@ -39,9 +41,9 @@ public class Pedido {
    
     
 
-    public Pedido(String id, LocalTime fechaPeido, String descripcion, boolean estado, Local local, List<Producto> productos, Gerente gerente) {
+    public Pedido(String id, LocalTime fechaPedido, String descripcion, boolean estado, Local local, List<Producto> productos, Gerente gerente) {
         this.id = id;
-        this.fechaPeido = fechaPeido;
+        this.fechaPedido = fechaPedido;
         this.descripcion = descripcion;
         this.estado = estado;
         this.local = local;
@@ -54,11 +56,37 @@ public class Pedido {
     public Pedido() {
         
     }
-    
-    public Pedido(String id, LocalTime fechaPedido, boolean estado, String GerenteNom, String Productos) {
-        
-        
+
+    public Pedido(String id, LocalTime fechaPedido, boolean estado, String producto, String gerent, String loca) {
+        this.id = id;
+        this.fechaPedido = fechaPedido;
+        this.estado = estado;
+        this.producto = producto;
+        this.gerent = gerent;
+        this.loca = loca;
     }
+
+    
+
+    
+
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
+    public String getGerent() {
+        return gerent;
+    }
+
+    public void setGerent(String gerent) {
+        this.gerent = gerent;
+    }
+    
+    
     
     
     
@@ -75,15 +103,26 @@ public class Pedido {
     
       public ObservableList <Pedido> llenarTablePedido(TableView tablePedido){
         ObservableList <Pedido> lista = FXCollections.observableArrayList ();
-        
-        Producto p = new Producto("b","macbook", (float) 34.5,"Nada","sinCat","noHay",true);
-        
-        List<Producto> productos = new ArrayList<>();
-        productos.add(p);
-        
-        //lista.add(new Pedido("0926522703",LocalTime.now(),"tutiven",true,new Local(), productos,new Gerente(),new Button("Ver Productos")));
-        tablePedido.getItems().addAll(lista);
-        
+        try {
+            CONNECTION.conectar();
+            String consulta = "{call obtenerPedidos ()}";
+            PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
+            ResultSet resultado = ingreso.executeQuery();
+            while (resultado.next()) {
+                lista.add(
+                        new Pedido(
+                                resultado.getString("idPedido"),
+                                LocalTime.parse((CharSequence) resultado.getDate("fechaPedido")),
+                                resultado.getBoolean("estado"),
+                                resultado.getString("Producto"),
+                                resultado.getString("Gerente"),
+                                resultado.getString("Local")));
+            }
+        } catch (SQLException e) {
+            //LOGGER.log(Level.SEVERE, e.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
         return lista;
     }
       
@@ -134,12 +173,12 @@ public class Pedido {
         this.id = id;
     }
 
-    public LocalTime getFechaPeido() {
-        return fechaPeido;
+    public LocalTime getFechaPedido() {
+        return fechaPedido;
     }
 
-    public void setFechaPeido(LocalTime fechaPeido) {
-        this.fechaPeido = fechaPeido;
+    public void setFechaPeido(LocalTime fechaPedido) {
+        this.fechaPedido = fechaPedido;
     }
 
     public String getDescripcion() {
