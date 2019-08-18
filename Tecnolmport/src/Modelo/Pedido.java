@@ -6,9 +6,11 @@
 package Modelo;
 
 import static Modelo.Producto.CONNECTION;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,45 +27,29 @@ import javafx.scene.control.TableView;
 public class Pedido {
     
     protected String id;
-    protected LocalTime fechaPedido;
+    protected Date fechaPedido;
     protected String descripcion;
     protected boolean estado;
     protected Local local;
     protected List<Producto> productos;
     protected String producto;
     protected String gerent;
-    protected String loca;
+    protected String loc;
     
     
     protected Gerente gerente;
-   
-
-   
-    
-
-    public Pedido(String id, LocalTime fechaPedido, String descripcion, boolean estado, Local local, List<Producto> productos, Gerente gerente) {
-        this.id = id;
-        this.fechaPedido = fechaPedido;
-        this.descripcion = descripcion;
-        this.estado = estado;
-        this.local = local;
-        this.productos = productos;
-        this.gerente = gerente;
-    }
-    
-     
 
     public Pedido() {
         
     }
 
-    public Pedido(String id, LocalTime fechaPedido, boolean estado, String producto, String gerent, String loca) {
+    public Pedido(String id, Date fechaPedido, boolean estado, String producto, String gerent, String loca) {
         this.id = id;
         this.fechaPedido = fechaPedido;
         this.estado = estado;
         this.producto = producto;
         this.gerent = gerent;
-        this.loca = loca;
+        this.loc = loca;
     }
 
     
@@ -101,7 +87,7 @@ public class Pedido {
 //    
     
     
-      public ObservableList <Pedido> llenarTablePedido(TableView tablePedido){
+      public ObservableList <Pedido> llenarTablePedido(){
         ObservableList <Pedido> lista = FXCollections.observableArrayList ();
         try {
             CONNECTION.conectar();
@@ -112,11 +98,11 @@ public class Pedido {
                 lista.add(
                         new Pedido(
                                 resultado.getString("idPedido"),
-                                LocalTime.parse((CharSequence) resultado.getDate("fechaPedido")),
+                                resultado.getDate("fechaPedido"),
                                 resultado.getBoolean("estado"),
                                 resultado.getString("Producto"),
                                 resultado.getString("Gerente"),
-                                resultado.getString("Local")));
+                                String.valueOf(resultado.getString("Local"))));
             }
         } catch (SQLException e) {
             //LOGGER.log(Level.SEVERE, e.getMessage());
@@ -173,11 +159,11 @@ public class Pedido {
         this.id = id;
     }
 
-    public LocalTime getFechaPedido() {
+    public Date getFechaPedido() {
         return fechaPedido;
     }
 
-    public void setFechaPeido(LocalTime fechaPedido) {
+    public void setFechaPeido(Date fechaPedido) {
         this.fechaPedido = fechaPedido;
     }
 

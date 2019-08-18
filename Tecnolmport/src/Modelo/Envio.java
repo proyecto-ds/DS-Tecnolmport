@@ -27,31 +27,33 @@ import java.time.LocalDateTime;
  */
 public class Envio {
     protected String id;
-    protected Venta venta;
+    protected String vent;
     protected String direccion;
     protected String descripcion;
     protected LocalDate fechaInicio;
     protected LocalDate fechaFin;
     protected String estado;
     
+
+    
+    
     protected static final Logger LOGGER = Logger.getLogger("Envio Logger");
     protected static final DBConnection CONNECTION = DBConnection.getInstance();
-    
-    public Envio(String id, Venta venta, String direccion, String descripcion, LocalDate fechaInicio, LocalDate fechaFin, String estado) {
+
+    public Envio(String id, String vent, String direccion, String descripcion, LocalDate fechaInicio, LocalDate fechaFin, String estado) {
         this.id = id;
-        this.venta = venta;
-        this.direccion=direccion;
+        this.vent = vent;
+        this.direccion = direccion;
         this.descripcion = descripcion;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.estado = estado;
     }
 
+    
     public Envio() {
     }
     
-    
-
     public String getId() {
         return id;
     }
@@ -60,12 +62,12 @@ public class Envio {
         this.id = id;
     }
 
-    public Venta getVenta() {
-        return venta;
+    public String getVent() {
+        return vent;
     }
 
-    public void setVenta(Venta venta) {
-        this.venta = venta;
+    public void setVenta(String vent) {
+        this.vent = vent;
     }
 
     public String getDescripcion() {
@@ -112,22 +114,17 @@ public class Envio {
         ObservableList <Envio> lista = FXCollections.observableArrayList ();
         try {
             CONNECTION.conectar();
-            String consulta = "select * from envio where estado=3";
+            String consulta = "{call obtenerEnvio ()}";
             PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
             ResultSet resultado = ingreso.executeQuery(); 
             
             while (resultado.next()) {                
                 LocalDate sqlDateI = LocalDate.parse(resultado.getString("fechaInicio"));                
                 LocalDate sqlDateF = LocalDate.parse(resultado.getString("fechaFin"));
-                
-                Venta venta = new Venta();
-                venta.setId(resultado.getString("id_Venta"));
-                System.out.println(venta);
-                System.out.println(resultado.getString("idEnvio"));
                 lista.add(
                         new Envio(
                                 resultado.getString("idEnvio"),
-                                venta,
+                                resultado.getString("id_Venta"),
                                 resultado.getString("direccion"),
                                 resultado.getString("descripcion"),
                                 sqlDateI,
@@ -142,7 +139,6 @@ public class Envio {
         }
         return lista;
     }
-    
-    
+  
             
 }

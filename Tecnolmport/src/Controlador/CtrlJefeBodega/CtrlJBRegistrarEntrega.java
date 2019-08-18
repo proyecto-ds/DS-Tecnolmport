@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -53,23 +54,16 @@ public class CtrlJBRegistrarEntrega implements Initializable {
     private TableColumn<?, ?> CPProducto;
     @FXML
     private TableColumn<?, ?> CGerentePedido;
-    @FXML
-    private TableColumn<Envio, String> CIdEnvio;
-    @FXML
-    private TableColumn<Envio, Venta> CVenta;
-    @FXML
-    private TableColumn<Envio, String> CDireccion;
-    @FXML
-    private TableColumn<Envio, String> CDescripcion;
-    @FXML
-    private TableColumn<Envio, String> CFechaInicio;
-    @FXML
-    private TableColumn<Envio, String> CFechaFin;
-    @FXML
-    private TableColumn<Envio, String> CEstado;
+    @FXML private TableColumn<Envio, String> CIdEnvio;
+    @FXML private TableColumn<Envio, Venta> CVenta;
+    @FXML private TableColumn<Envio, String> CDireccion;
+    @FXML private TableColumn<Envio, String> CDescripcion;
+    @FXML private TableColumn<Envio, String> CFechaInicio;
+    @FXML private TableColumn<Envio, String> CFechaFin;
+    @FXML private TableColumn<Envio, String> CEstado;
     
     protected ObservableList<Envio> enviosObs =null;
-    protected Envio e = new Envio();
+    protected Envio modeloEnvio = new Envio();
     protected ControladorValidar control= new ControladorValidar();
     
     /**
@@ -77,8 +71,8 @@ public class CtrlJBRegistrarEntrega implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        CIdEnvio.setCellValueFactory(new PropertyValueFactory<>("idEnvio"));
-        CVenta.setCellValueFactory(new PropertyValueFactory<>("id_Venta"));
+        CIdEnvio.setCellValueFactory(new PropertyValueFactory<>("id"));
+        CVenta.setCellValueFactory(new PropertyValueFactory<>("vent"));
         CDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
         CDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         CFechaInicio.setCellValueFactory(new PropertyValueFactory<>("fechaInicio"));
@@ -90,12 +84,12 @@ public class CtrlJBRegistrarEntrega implements Initializable {
 
     private void llenarTableEnvio(){
         if(enviosObs == null){
-            enviosObs = e.cargarPedido();
+            enviosObs = modeloEnvio.cargarPedido();
             tbl_envio.setItems(enviosObs);
         }
         else{
             enviosObs.removeAll(enviosObs);
-            enviosObs = e.cargarPedido();
+            enviosObs = modeloEnvio.cargarPedido();
             tbl_envio.setItems(enviosObs);
         }
     }
@@ -137,6 +131,10 @@ public class CtrlJBRegistrarEntrega implements Initializable {
             return true;
         }
         return false;
+    }
+
+    @FXML
+    private void seleccionardato(MouseEvent event) {
     }
     
 }

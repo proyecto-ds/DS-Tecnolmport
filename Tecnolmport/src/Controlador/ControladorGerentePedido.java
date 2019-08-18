@@ -35,14 +35,6 @@ import javafx.scene.layout.AnchorPane;
  */
 public class ControladorGerentePedido implements Initializable {
 
-    
-    
-    private ObservableList <Pedido> lista ;
-    
-    private Pedido modeloPedido;
-    
-    private ObservableList<Pedido> listaPedido;
-    
     @FXML
     private TableColumn<Pedido, String> Cid;
     @FXML
@@ -59,28 +51,36 @@ public class ControladorGerentePedido implements Initializable {
     private TableView<Pedido> tablePedido;
     @FXML
     private Label lblTitulo;
-    
+    private Pedido modeloPedido = new Pedido();
+    private ObservableList<Pedido> list = null;
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
+
         Cid.setCellValueFactory(new PropertyValueFactory<>("id"));
-        CFecha.setCellValueFactory(new PropertyValueFactory<Pedido,String>("fechaPeido"));
+        CFecha.setCellValueFactory(new PropertyValueFactory<Pedido,String>("fechaPedido"));
         CEstado.setCellValueFactory(new PropertyValueFactory<Pedido,String>("estado"));
-        CLocal.setCellValueFactory(new PropertyValueFactory<Pedido,String>("local"));
-        CGerente.setCellValueFactory(new PropertyValueFactory<Pedido,String>("gerente"));
-        CProductos.setCellValueFactory(new PropertyValueFactory<>("botonP"));
-        //lista = FXCollections.observableArrayList ();
-        
-         Pedido e = new Pedido();
-        e.llenarTablePedido(tablePedido);
+        CLocal.setCellValueFactory(new PropertyValueFactory<>("loc"));
+        CGerente.setCellValueFactory(new PropertyValueFactory<Pedido,String>("gerent"));
+        CProductos.setCellValueFactory(new PropertyValueFactory<>("producto"));
+       llenarTable();
         
     }
-    
+    public void llenarTable(){
+        if(list == null){
+            list = modeloPedido.llenarTablePedido();
+            tablePedido.setItems(list);
+        }
+        else{
+            list.removeAll(list);
+            list = modeloPedido.llenarTablePedido();
+            tablePedido.setItems(list);
+        }
+        
+    }
     
     void consultarEmpleado(ActionEvent event) {
         //tableEmpleado.setVisible(true);

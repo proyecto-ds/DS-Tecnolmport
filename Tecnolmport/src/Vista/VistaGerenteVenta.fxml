@@ -4,20 +4,18 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="750.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controlador.ControladorVistaGerenteVenta">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorVistaGerenteVenta">
    <children>
-      <TableView layoutX="27.0" layoutY="49.0" prefHeight="516.0" prefWidth="696.0" stylesheets="@../css/fullpackstyling.css">
+      <TableView fx:id="tableVenta" layoutX="27.0" layoutY="49.0" prefHeight="516.0" prefWidth="696.0" stylesheets="@../css/fullpackstyling.css">
         <columns>
           <TableColumn fx:id="CidVenta" prefWidth="75.0" text="   id" />
           <TableColumn fx:id="CFechaVenta" prefWidth="82.46366882324219" text="Fecha" />
             <TableColumn fx:id="CCotizacion" prefWidth="74.21971130371094" text="Cotizacion" />
-            <TableColumn fx:id="CLocal" prefWidth="76.46368408203125" text="      Local" />
-            <TableColumn fx:id="CPago" prefWidth="67.53631591796875" text="Pago" />
             <TableColumn fx:id="CTotal" prefWidth="75.0" text="    Total" />
             <TableColumn fx:id="CVendedor" prefWidth="91.70761108398438" text="  Vendedor" />
-            <TableColumn fx:id="CidEnvio" prefWidth="68.29241943359375" text="  idEnvio" />
-            <TableColumn fx:id="CProductos" prefWidth="78.19549560546875" text=" Productos" />
+            <TableColumn fx:id="CProductos" prefWidth="78.19549560546875" text=" Producto" />
+            <TableColumn fx:id="CidEnvio" prefWidth="122.0" text="Direccion de Envio" />
+            <TableColumn fx:id="CLocal" prefWidth="94.0" text="      Local" />
         </columns>
       </TableView>
    </children>

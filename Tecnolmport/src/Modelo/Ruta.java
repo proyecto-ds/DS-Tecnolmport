@@ -33,11 +33,6 @@ public class Ruta {
     protected static final DBConnection CONNECTION = DBConnection.getInstance();
     protected final String consultaRuta= "select r.idRuta, r.zona, e.nombre, e.apellido from ruta r, empleado e where r.id__Empleado = e.idEmpleado";
     
-    public Ruta(String idRuta, String zona, Repartidor repartidor) {
-        this.idRuta = idRuta;
-        this.zona = zona;
-        this.repartidor = repartidor;
-    }
 
     public Ruta(String idRuta, String zona,String nombreRepartidor, String apellidoRepartidor) {
         this.idRuta = idRuta;
@@ -47,6 +42,30 @@ public class Ruta {
     }
     
     public Ruta(){}
+
+    public String getZona() {
+        return zona;
+    }
+
+    public void setZona(String zona) {
+        this.zona = zona;
+    }
+
+    public String getNombreRepartidor() {
+        return nombreRepartidor;
+    }
+
+    public void setNombreRepartidor(String nombreRepartidor) {
+        this.nombreRepartidor = nombreRepartidor;
+    }
+
+    public String getApellidoRepartidor() {
+        return apellidoRepartidor;
+    }
+
+    public void setApellidoRepartidor(String apellidoRepartidor) {
+        this.apellidoRepartidor = apellidoRepartidor;
+    }
     
     
     public String ObtenerDirecciones(Entrega e){
@@ -82,14 +101,14 @@ public class Ruta {
         ObservableList <Ruta> lista = FXCollections.observableArrayList ();
         try {
             CONNECTION.conectar();
-            String consulta ="{call   obtenerRutaEntrega()}";
+            String consulta ="{call  obtenerRutas()}";
             PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
             ResultSet resultado = ingreso.executeQuery(); 
             while (resultado.next()) {
                 lista.add(
                         new Ruta(
                                 resultado.getString("idRuta"),
-                                resultado.getString("zona"),
+                                resultado.getString("Zona"),
                                 resultado.getString("nombre"),
                                 resultado.getString("apellido")
                         ));

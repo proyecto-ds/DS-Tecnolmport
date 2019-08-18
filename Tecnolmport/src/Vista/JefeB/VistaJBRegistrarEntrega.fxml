@@ -39,7 +39,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TableView fx:id="tbl_envio" layoutX="38.0" layoutY="352.0" prefHeight="180.0" prefWidth="690.0" stylesheets="@../../css/fullpackstyling.css">
+      <TableView fx:id="tbl_envio" layoutX="38.0" layoutY="352.0" onMouseClicked="#seleccionardato" prefHeight="180.0" prefWidth="690.0" stylesheets="@../../css/fullpackstyling.css">
          <columns>
             <TableColumn fx:id="CIdEnvio" prefWidth="75.0" text="Id Envio" />
             <TableColumn fx:id="CVenta" prefWidth="98.0" text="Venta" />

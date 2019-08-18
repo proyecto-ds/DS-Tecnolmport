@@ -5,9 +5,18 @@
  */
 package Modelo;
 
+import static Modelo.Envio.CONNECTION;
+import static Modelo.Producto.LOGGER;
 import Modelo.Strategy.Pago;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.logging.Level;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -16,38 +25,34 @@ import java.util.List;
 public class Venta {
     
     protected  String id;
-    protected LocalTime date;
+    protected LocalDate date;
     protected String descripcion;
-    protected boolean esCotizacion ;
-    protected  Local local;
+    protected int esCotizacion ;
+    protected  String local;
     protected  Pago formaPago;
     protected  float subtotal;
     protected  float iva;
     protected float total;
-    protected  List<Producto> productos;
-    protected Vendedor vendedor;
+    protected String producto;
+    protected String vendedor;
     protected Cliente cliente;
     protected Envio envio = null ;
 
     public Venta() {
     }
 
-    
-    public Venta(String id, LocalTime date, String descripcion, boolean esCotizacion, Local local, float subtotal, float iva, float total, List<Producto> productos, Vendedor vendedor, Cliente cliente, Envio envio) {
+    public Venta(String id, LocalDate date, String descripcion, int esCotizacion, String local, float total, String producto, String vendedor) {
         this.id = id;
         this.date = date;
         this.descripcion = descripcion;
         this.esCotizacion = esCotizacion;
         this.local = local;
-        this.subtotal = subtotal;
-        this.iva = iva;
         this.total = total;
-        this.productos = productos;
+        this.producto = producto;
         this.vendedor = vendedor;
-        this.cliente = cliente;
-        this.envio = envio;
     }
-
+    
+    
     public String getId() {
         return id;
     }
@@ -56,11 +61,11 @@ public class Venta {
         this.id = id;
     }
 
-    public LocalTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalTime date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -72,19 +77,19 @@ public class Venta {
         this.descripcion = descripcion;
     }
 
-    public boolean isEsCotizacion() {
+    public int isEsCotizacion() {
         return esCotizacion;
     }
 
-    public void setEsCotizacion(boolean esCotizacion) {
+    public void setEsCotizacion(int esCotizacion) {
         this.esCotizacion = esCotizacion;
     }
 
-    public Local getLocal() {
+    public String getLocal() {
         return local;
     }
 
-    public void setLocal(Local local) {
+    public void setLocal(String local) {
         this.local = local;
     }
 
@@ -112,22 +117,23 @@ public class Venta {
         this.total = total;
     }
 
-    public List<Producto> getProductos() {
-        return productos;
+    public String getProducto() {
+        return producto;
     }
 
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
+    public void setProducto(String producto) {
+        this.producto = producto;
     }
 
-    public Vendedor getVendedor() {
+    public String getVendedor() {
         return vendedor;
     }
 
-    public void setVendedor(Vendedor vendedor) {
+    public void setVendedor(String vendedor) {
         this.vendedor = vendedor;
     }
 
+    
     public Cliente getCliente() {
         return cliente;
     }
@@ -149,6 +155,33 @@ public class Venta {
         return "Venta{" + "id=" + id + ", descripcion=" + descripcion + ", esCotizacion=" + esCotizacion + ", local=" + local + ", formaPago=" + formaPago + ", total=" + total + '}';
     }
     
+    public ObservableList<Venta> cargarVenta(){
+       ObservableList <Venta> lista = FXCollections.observableArrayList ();
+        try {
+            CONNECTION.conectar();
+            String consulta = "{call obtenerVentas ()}";
+            PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
+            ResultSet resultado = ingreso.executeQuery(); 
+            
+            while (resultado.next()) {                
+                LocalDate sqlDateI = LocalDate.parse(resultado.getString("fechaVenta"));
+                lista.add(new Venta(
+                            resultado.getString("idVenta"),
+                            sqlDateI,
+                            resultado.getString("DireccionEnvio"),
+                            resultado.getInt("esCotizacion"),
+                            resultado.getString("Local"),
+                            resultado.getFloat("total"),
+                            resultado.getString("Producto"),
+                            resultado.getString("Vendedor")));
+            }
+        } catch (SQLException  ex) {
+            LOGGER.log(Level.SEVERE, ex.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return lista;
+    }
             
     
     

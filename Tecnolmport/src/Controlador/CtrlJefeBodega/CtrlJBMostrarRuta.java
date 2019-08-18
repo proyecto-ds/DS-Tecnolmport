@@ -47,8 +47,8 @@ public class CtrlJBMostrarRuta implements Initializable {
     @FXML
     private TableColumn<?, ?> CIdRuta;
     
-    protected ObservableList<Ruta> rutaObs =null;
-    protected Ruta ruta = new Ruta();
+    private ObservableList<Ruta> rutaObs =null;
+    protected Ruta modeloRuta = new Ruta();
     /**
      * Initializes the controller class.
      */
@@ -56,19 +56,19 @@ public class CtrlJBMostrarRuta implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         CidRuta.setCellValueFactory(new PropertyValueFactory<>("idRuta"));
         CZona.setCellValueFactory(new PropertyValueFactory<>("zona"));
-        CNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        CApellido.setCellValueFactory(new PropertyValueFactory<>("apellido"));
+        CNombre.setCellValueFactory(new PropertyValueFactory<>("nombreRepartidor"));
+        CApellido.setCellValueFactory(new PropertyValueFactory<>("apellidoRepartidor"));
         llenarTableRuta();
     }    
     
     private void llenarTableRuta(){
         if(rutaObs == null){
-            rutaObs = ruta.cargarRuta();
+            rutaObs = modeloRuta.cargarRuta();
             tbl_ruta.setItems(rutaObs);
         }
         else{
             rutaObs.removeAll(rutaObs);
-            rutaObs = ruta.cargarRuta();
+            rutaObs = modeloRuta.cargarRuta();
             tbl_ruta.setItems(rutaObs);
         }
     }

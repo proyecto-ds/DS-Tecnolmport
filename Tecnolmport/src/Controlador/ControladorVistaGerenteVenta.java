@@ -5,11 +5,15 @@
  */
 package Controlador;
 
+import Modelo.Venta;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -19,30 +23,52 @@ import javafx.scene.control.TableColumn;
 public class ControladorVistaGerenteVenta implements Initializable {
 
     @FXML
-    private TableColumn<?, ?> CidVenta;
+    private TableColumn<Venta, String> CidVenta;
     @FXML
-    private TableColumn<?, ?> CFechaVenta;
+    private TableColumn<Venta, String> CFechaVenta;
     @FXML
-    private TableColumn<?, ?> CCotizacion;
+    private TableColumn<Venta, String> CCotizacion;
     @FXML
-    private TableColumn<?, ?> CLocal;
+    private TableColumn<Venta, String> CLocal;
     @FXML
-    private TableColumn<?, ?> CPago;
+    private TableColumn<Venta, String> CTotal;
     @FXML
-    private TableColumn<?, ?> CTotal;
+    private TableColumn<Venta, String> CVendedor;
     @FXML
-    private TableColumn<?, ?> CVendedor;
+    private TableColumn<Venta, String> CidEnvio;
     @FXML
-    private TableColumn<?, ?> CidEnvio;
+    private TableColumn<Venta, String> CProductos;
+    private ObservableList<Venta> list = null;
+    private Venta modeloVenta = new Venta();
     @FXML
-    private TableColumn<?, ?> CProductos;
+    private TableView<Venta> tableVenta;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        CidVenta.setCellValueFactory(new PropertyValueFactory<>("id"));
+        CFechaVenta.setCellValueFactory(new PropertyValueFactory<>("date"));
+        CCotizacion.setCellValueFactory(new PropertyValueFactory<>("esCotizacion"));
+        CLocal.setCellValueFactory(new PropertyValueFactory<>("local"));
+        CTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        CVendedor.setCellValueFactory(new PropertyValueFactory<>("vendedor"));
+        CProductos.setCellValueFactory(new PropertyValueFactory<>("producto"));
+        CidEnvio.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        llenarTable();
+    }
+    public void llenarTable(){
+        if(list == null){
+            list = modeloVenta.cargarVenta();
+            tableVenta.setItems(list);
+        }
+        else{
+            list.removeAll(list);
+            list = modeloVenta.cargarVenta();
+            tableVenta.setItems(list);
+        }
+        
+    }
     
 }
