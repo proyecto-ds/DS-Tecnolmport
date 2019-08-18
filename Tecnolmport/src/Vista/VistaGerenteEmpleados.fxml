@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" style="-fx-background-insets: #1E346D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorGerenteEmpleados">
    <children>
-      <TableView fx:id="tableEmpleado" layoutX="16.0" layoutY="32.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="718.0" stylesheets="@../css/fullpackstyling.css">
+      <Label layoutX="313.0" layoutY="20.0" text="Lista Empleados">
+         <font>
+            <Font name="Verdana Bold" size="13.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table_empleado" layoutX="19.0" layoutY="54.0" onMouseClicked="#seleccionarEmpleado" prefHeight="524.0" prefWidth="714.0" stylesheets="@../css/fullpackstyling.css">
          <columns>
-            <TableColumn fx:id="cid" prefWidth="85.0" text="ID" />
-            <TableColumn fx:id="cnombre" prefWidth="99.00251007080078" text="Nombre" />
-            <TableColumn fx:id="capellido" prefWidth="104.99000549316406" text="Apellido" />
-            <TableColumn fx:id="ctelefono" prefWidth="96.010009765625" text="Telefono" />
-            <TableColumn fx:id="cdireccion" prefWidth="150.0" text="Direccion" />
-            <TableColumn fx:id="cemail" prefWidth="115.0" text="Correo" />
-            <TableColumn fx:id="clocal" minWidth="0.0" prefWidth="101.0" text="Local" />
+            <TableColumn fx:id="table_id" prefWidth="64.0" text="ID" />
+            <TableColumn fx:id="table_nombre" prefWidth="66.0" text="Nombre" />
+            <TableColumn fx:id="table_apel" prefWidth="77.0" text="Apellido" />
+            <TableColumn fx:id="table_user" prefWidth="68.0" text="Usuario" />
+            <TableColumn fx:id="table_rol" prefWidth="70.0" text="   Rol" />
+            <TableColumn fx:id="table_salario" prefWidth="60.0" text="Salario" />
+            <TableColumn fx:id="table_email" prefWidth="101.0" text="     Email" />
+            <TableColumn fx:id="table_tel" prefWidth="66.0" text="Telefono" />
+            <TableColumn fx:id="table_local" prefWidth="74.0" text="      Local" />
+            <TableColumn fx:id="table_estado" prefWidth="69.5618896484375" text="Estado" />
          </columns>
       </TableView>
    </children>

@@ -120,7 +120,7 @@
         </columns>
       </TableView>
       <JFXButton layoutX="432.0" layoutY="446.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#ingresarEmpelado" prefHeight="30.0" prefWidth="85.0" stylesheets="@../css/fullpackstyling.css" text="Ingresar" textFill="#b8b1b1" />
-      <JFXButton layoutX="250.0" layoutY="446.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#actualizarEmpleado" prefHeight="30.0" prefWidth="85.0" stylesheets="@../css/fullpackstyling.css" text="Actualizar" textFill="#b8b1b1" />
+      <JFXButton layoutX="250.0" layoutY="446.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#actualizarEmpleado" prefHeight="30.0" prefWidth="97.0" stylesheets="@../css/fullpackstyling.css" text="Actualizar" textFill="#b8b1b1" />
       <JFXButton layoutX="610.0" layoutY="446.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#eliminarEmpleado" prefHeight="30.0" prefWidth="85.0" stylesheets="@../css/fullpackstyling.css" text="Eliminar" textFill="#b8b1b1" />
       <Label layoutX="408.0" layoutY="29.0" text="Lista Empleado">
          <font>

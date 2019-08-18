@@ -43,6 +43,7 @@ public class ControladorGestionarEmpleado implements Initializable {
     @FXML private JFXTextField txt_rol;
     @FXML private JFXTextField txt_estado;
     @FXML private JFXTextField txt_salario;
+    
     @FXML private TableView<Usuario> table_empleado;
     @FXML private TableColumn<Usuario, String> table_id;
     @FXML private TableColumn<Usuario, String> table_nombre;

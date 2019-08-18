@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="750.0" style="-fx-background-insets: #1E346D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorGerentePedido">
    <children>
@@ -16,5 +18,10 @@
             <TableColumn fx:id="CProductos" prefWidth="153.15521240234375" text="    Productos" />
         </columns>
       </TableView>
+      <Label fx:id="lblTitulo" layoutX="316.0" layoutY="12.0" text="Listado de  Pedidos">
+         <font>
+            <Font name="Verdana Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

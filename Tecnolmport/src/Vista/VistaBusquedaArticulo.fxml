@@ -16,14 +16,13 @@
          <children>
             <TableView fx:id="tableBuscarArticulo" layoutX="38.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="674.0" stylesheets="@../css/fullpackstyling.css">
               <columns>
-                <TableColumn fx:id="cid" prefWidth="60.57954406738281" text="ID" />
-                <TableColumn fx:id="cnombre" prefWidth="106.42047119140625" text="Nombre" />
-                  <TableColumn fx:id="cdescripcion" prefWidth="143.09542846679688" text="Descripción" />
-                  <TableColumn fx:id="ccantidad" prefWidth="63.22259521484375" text="Cantidad" />
-                  <TableColumn fx:id="cprecio" prefWidth="53.579620361328125" text="Precio" />
-                  <TableColumn fx:id="ccategoria" prefWidth="95.42041015625" text="Categoría" />
-                  <TableColumn fx:id="cproveedor" prefWidth="79.0" text="Proveedor" />
-                  <TableColumn fx:id="CEstado" prefWidth="75.0" text="Estado" />
+                <TableColumn fx:id="cid" prefWidth="80.52394485473633" text="ID" />
+                <TableColumn fx:id="cnombre" prefWidth="102.47605895996094" text="Nombre" />
+                  <TableColumn fx:id="cdescripcion" prefWidth="136.06996154785156" text="Descripción" />
+                  <TableColumn fx:id="cprecio" prefWidth="75.10919189453125" text="Precio" />
+                  <TableColumn fx:id="ccategoria" prefWidth="98.436767578125" text="Categoría" />
+                  <TableColumn fx:id="cproveedor" prefWidth="98.13986206054688" text="Proveedor" />
+                  <TableColumn fx:id="CEstado" prefWidth="83.0" text="Estado" />
               </columns>
             </TableView>
             <HBox alignment="CENTER" layoutX="75.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="600.0" spacing="70.0">
@@ -34,7 +33,7 @@
                      </font>
                   </Label>
                   <JFXComboBox fx:id="cbxBuscar" focusColor="#1e346d" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" unFocusColor="#6a6fbf" />
-                  <JFXTextField fx:id="textBuscar" focusColor="#1e346d" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText=" Buscar" unFocusColor="#6f85b5">
+                  <JFXTextField fx:id="textBuscar" focusColor="#1e346d" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#buscar" prefHeight="30.0" prefWidth="150.0" promptText=" Buscar" unFocusColor="#6f85b5">
                      <font>
                         <Font name="Consolas Italic" size="13.0" />
                      </font>

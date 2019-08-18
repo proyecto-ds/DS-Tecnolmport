@@ -75,6 +75,10 @@ public class GerenteGPedidoController implements Initializable {
     }   
     
     
+    
+    
+    
+    
     @FXML
     public void getDireccion(){
         

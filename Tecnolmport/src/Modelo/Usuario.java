@@ -191,6 +191,48 @@ public class Usuario extends Empleado{
         return lista;
     }
     
+      public ObservableList<Usuario> llenarTableEmpleadoPAdmin(){
+        ObservableList <Usuario> lista = FXCollections.observableArrayList ();
+        try {
+            CONNECTION.conectar();
+            String consulta = "{call  obtenerEmpleados ()}";
+            PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consulta);
+            ResultSet resultado = ingreso.executeQuery();
+            while (resultado.next()) {
+                if(!resultado.getString("rol").equals("repartidor") ){
+                lista.add(
+                        new Usuario(
+                                resultado.getString("usuario"),
+                                resultado.getString("clave"),
+                                resultado.getString("idEmpleado"),
+                                resultado.getString("nombre"),
+                                resultado.getString("apellido"),
+                                resultado.getString("rol"),
+                                resultado.getInt("salario"),
+                                resultado.getString("direccion"),
+                                resultado.getString("email"),
+                                resultado.getString("telefono"),
+                                resultado.getString("tipo"),
+                               resultado.getBoolean("estado")));
+                }
+            }
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return lista;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public boolean actualizarEmpleado(){
         try {
             CONNECTION.conectar();
