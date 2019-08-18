@@ -232,8 +232,6 @@ create procedure obtenerEntrega()
 	end $$
 delimiter ;
 
-<<<<<<< HEAD
-
 #procedure para obtener el id del local y del id del usuario pasando el usuario del empleado
 delimiter $$
 create procedure obtenerLocalUserId(in usuario varchar(20))
@@ -244,7 +242,7 @@ create procedure obtenerLocalUserId(in usuario varchar(20))
 	end $$
 delimiter ;
 
-=======
+
 delimiter $$
 create procedure actualizarPermiso(in id varchar(20), in perm varchar(20))
 	begin
@@ -254,4 +252,27 @@ create procedure actualizarPermiso(in id varchar(20), in perm varchar(20))
 		where idEmpleado = id;
 	end $$
 delimiter ;
->>>>>>> d279404e6c1a4ab08e72d48cc3c1bd4d664683f0
+//Ingresar Pedido
+delimiter $$
+create procedure ingresarPedido( in idPe varchar(20), in obse varchar(60), in fechaPe DateTime, in emple varchar(15))
+	begin
+		DECLARE idEmple varchar(20);
+        set idEmple = (select idEmpleado
+						from Empleado
+						where usuario = emple);
+		insert into Pedido(idPedido, observaciones,estado,fechaPedido,id_Empleado) 
+			values(idPe,obse,'1',fechaPe,idEmple);
+	end $$
+delimiter ;
+
+//Ingresar detallePedido
+delimiter $$
+create procedure ingresarDetallePedido(in idPe varchar(20), in idPr varchar(20), in cant int)
+	begin
+		DECLARE idDe varchar(20);
+        set idDe = (select lpad(conv(floor(rand()*pow(36,8)), 10, 36), 6, 0));
+		insert into DetallePedido() 
+			values(idDe,idPe,idPr,cant);
+	end $$
+delimiter ;
+

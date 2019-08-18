@@ -139,17 +139,10 @@ public class GerenteGPedidoController implements Initializable {
       
       String descripcion = Descripcion.getText();   
       boolean estado =false;
-      
 
 //    protected Local local;
 
-
-        
         System.out.println(productos.toString() + textCantidadProd.getText());
-        
-        
-        
-        
     }
 
     @FXML
