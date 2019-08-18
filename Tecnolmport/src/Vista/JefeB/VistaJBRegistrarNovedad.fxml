@@ -9,37 +9,57 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.CtrlJefeBodega.CtrlJBRegistrarNovedad">
    <children>
-      <VBox layoutX="36.0" layoutY="105.0" prefHeight="350.0" prefWidth="688.0" spacing="30.0">
+      <VBox layoutX="36.0" layoutY="64.0" prefHeight="416.0" prefWidth="688.0" spacing="10.0">
          <children>
-            <TableView fx:id="tbl_novedad" prefHeight="336.0" prefWidth="392.0" stylesheets="@../../css/fullpackstyling.css">
-              <columns>
-                <TableColumn prefWidth="75.0" text="Id_Entrega" />
-                <TableColumn prefWidth="75.0" text="Entrega" />
-                  <TableColumn prefWidth="75.0" text="Repartidor" />
-                  <TableColumn prefWidth="75.0" text="Direccion" />
-                  <TableColumn prefWidth="75.0" text="Ruta" />
-              </columns>
+            <Label text="Seleccione entrega-pedido  para registrar novedad ">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tbl_pedido" prefHeight="180.0" prefWidth="690.0" stylesheets="@../../css/fullpackstyling.css">
+               <columns>
+                  <TableColumn fx:id="CIdPedido" prefWidth="75.0" text="Id Pedido" />
+                  <TableColumn fx:id="CFechaPedido" prefWidth="98.0" text="Fecha Pedido" />
+                  <TableColumn fx:id="CDescripcionPedido" prefWidth="75.0" text="Descripción" />
+                  <TableColumn fx:id="CEstadoPedido" prefWidth="75.0" text="Estado" />
+                  <TableColumn fx:id="CLocalPedido" prefWidth="75.0" text="Local" />
+                  <TableColumn fx:id="CPProducto" prefWidth="75.0" text="Producto" />
+                  <TableColumn fx:id="CGerentePedido" prefWidth="75.0" text="Gerente" />
+               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <JFXTextField fx:id="txt_ingresarNovedad" prefHeight="35.0" prefWidth="706.0" promptText="Ingrese novedad" stylesheets="@../../css/fullpackstyling.css">
+            <Label text="Seleccione entrega-envio  para registrar novedad ">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tbl_envio" prefHeight="180.0" prefWidth="690.0" stylesheets="@../../css/fullpackstyling.css">
+               <columns>
+                  <TableColumn fx:id="CIdEnvio" prefWidth="75.0" text="Id Envio" />
+                  <TableColumn fx:id="CVenta" prefWidth="98.0" text="Venta" />
+                  <TableColumn fx:id="CDireccion" prefWidth="75.0" text="Direccion" />
+                  <TableColumn fx:id="CDescripcion" prefWidth="75.0" text="Descripción" />
+                  <TableColumn fx:id="CFechaInicio" prefWidth="75.0" text="FechaInicio" />
+                  <TableColumn fx:id="CFechaFin" prefWidth="75.0" text="FechaFin" />
+                  <TableColumn fx:id="CEstado" prefWidth="75.0" text="Estado" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <JFXTextField fx:id="txt_ingresarNovedad" prefHeight="65.0" prefWidth="688.0" promptText="Ingrese novedad" stylesheets="@../../css/fullpackstyling.css">
                <font>
                   <Font name="Verdana Bold Italic" size="17.0" />
                </font>
             </JFXTextField>
          </children>
       </VBox>
-      <JFXButton fx:id="btn_guardarNovedad" layoutX="308.0" layoutY="486.0" stylesheets="@../../css/fullpackstyling.css" text="Guardar Novedades" textFill="WHITE" />
-      <Label layoutX="36.0" layoutY="77.0" text="Seleccione entrega para registrar novedad ">
-         <font>
-            <Font name="Verdana" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="36.0" layoutY="31.0" prefHeight="33.0" prefWidth="261.0" text="REGISTRAR NOVEDADES">
+      <JFXButton fx:id="btn_guardarNovedad" layoutX="308.0" layoutY="544.0" onAction="#validar_seleccion" stylesheets="@../../css/fullpackstyling.css" text="Guardar Novedades" textFill="WHITE" />
+      <Label layoutX="36.0" layoutY="14.0" prefHeight="33.0" prefWidth="261.0" text="REGISTRAR NOVEDADES">
          <font>
             <Font name="Consolas" size="24.0" />
          </font>

@@ -143,9 +143,14 @@ public class Venta {
     public void setEnvio(Envio envio) {
         this.envio = envio;
     }
+
+    @Override
+    public String toString() {
+        return "Venta{" + "id=" + id + ", descripcion=" + descripcion + ", esCotizacion=" + esCotizacion + ", local=" + local + ", formaPago=" + formaPago + ", total=" + total + '}';
+    }
     
             
-
+    
     
     
 }

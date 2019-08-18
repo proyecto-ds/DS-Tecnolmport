@@ -5,7 +5,9 @@
  */
 package Controlador.CtrlJefeBodega;
 
+import Controlador.ControladorValidar;
 import Modelo.Envio;
+import Modelo.Pedido;
 import Modelo.Venta;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
@@ -26,7 +28,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class CtrlJBRegistrarEntrega implements Initializable {
 
     @FXML
-    private TableView<?> tbl_pedido;
+    private TableView<Pedido> tbl_pedido;
     @FXML
     private TableView<Envio> tbl_envio;
     @FXML
@@ -68,13 +70,15 @@ public class CtrlJBRegistrarEntrega implements Initializable {
     
     protected ObservableList<Envio> enviosObs =null;
     protected Envio e = new Envio();
+    protected ControladorValidar control= new ControladorValidar();
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         CIdEnvio.setCellValueFactory(new PropertyValueFactory<>("idEnvio"));
-        //CVenta.setCellValueFactory(new PropertyValueFactory<>("id_Venta"));
+        CVenta.setCellValueFactory(new PropertyValueFactory<>("id_Venta"));
         CDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
         CDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         CFechaInicio.setCellValueFactory(new PropertyValueFactory<>("fechaInicio"));
@@ -98,18 +102,41 @@ public class CtrlJBRegistrarEntrega implements Initializable {
     
     @FXML
     private void act_registrarPedido(ActionEvent event) {
+        if(mensajeErrorPedido(tbl_pedido,"Falta seleccionar un Pedido"));
     }
 
     @FXML
     private void act_negarPedido(ActionEvent event) {
+        if(mensajeErrorPedido(tbl_pedido,"Falta seleccionar un Pedido"));
+        
     }
 
     @FXML
     private void act_registrarEnvio(ActionEvent event) {
+        if(mensajeError(tbl_envio,"Falta seleccionar un Envio"));
     }
 
     @FXML
     private void act_negarEnvio(ActionEvent event) {
+        if(mensajeError(tbl_envio,"Falta seleccionar un Envio"));
+    }
+    
+    private boolean mensajeError(TableView<Envio> tbl_envio, String mensaje){
+        Envio envio= tbl_envio.getSelectionModel().getSelectedItem();
+        if(envio==null){
+            control.mensajeSeleccionarCampos(mensaje);
+            return true;
+        }
+        return false;
+    }
+    
+    private boolean mensajeErrorPedido(TableView<Pedido> tbl_pedido, String mensaje){
+        Pedido envio= tbl_pedido.getSelectionModel().getSelectedItem();
+        if(envio==null){
+            control.mensajeSeleccionarCampos(mensaje);
+            return true;
+        }
+        return false;
     }
     
 }
