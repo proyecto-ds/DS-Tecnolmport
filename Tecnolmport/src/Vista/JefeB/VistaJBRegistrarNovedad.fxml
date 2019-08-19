@@ -27,6 +27,7 @@
                   <TableColumn fx:id="CLocalPedido" prefWidth="75.0" text="Local" />
                   <TableColumn fx:id="CPProducto" prefWidth="75.0" text="Producto" />
                   <TableColumn fx:id="CGerentePedido" prefWidth="75.0" text="Gerente" />
+                  <TableColumn fx:id="CIdEntregaP" prefWidth="75.0" text="IdEntrega" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

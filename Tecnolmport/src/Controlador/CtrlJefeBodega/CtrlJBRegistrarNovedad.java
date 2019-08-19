@@ -38,6 +38,7 @@ public class CtrlJBRegistrarNovedad implements Initializable {
     @FXML private TableColumn<Pedido, String> CLocalPedido;
     @FXML private TableColumn<Pedido, String> CPProducto;
     @FXML private TableColumn<Pedido, String> CGerentePedido;
+    @FXML private TableColumn<Pedido, String> CIdEntregaP;
     
     @FXML
     private TableView<Envio> tbl_envio;
@@ -65,6 +66,7 @@ public class CtrlJBRegistrarNovedad implements Initializable {
     @FXML
     private JFXButton btn_guardarNovedadPedido;
     
+    
     /**
      * Initializes the controller class.
      */
@@ -87,6 +89,7 @@ public class CtrlJBRegistrarNovedad implements Initializable {
         CPProducto.setCellValueFactory(new PropertyValueFactory<Pedido,String>("producto"));
         CGerentePedido.setCellValueFactory(new PropertyValueFactory<>("gerent"));
         CDescripcionPedido.setCellValueFactory(new PropertyValueFactory<>("observaciones"));
+        CIdEntregaP.setCellValueFactory(new PropertyValueFactory<>("idEntrega"));
         llenarTablePedido();
     }    
     private void llenarTableEnvio(){
@@ -130,5 +133,9 @@ public class CtrlJBRegistrarNovedad implements Initializable {
 
     @FXML
     private void validar_seleccionPedido(ActionEvent event) {
+        Pedido pedido = tbl_pedido.getSelectionModel().getSelectedItem();
+        String txt = txt_ingresarNovedad.getText();
+        if(pedido==null || txt==null)
+            control.mensajeSeleccionarCampos("Falta seleccionar una entrega o\nllenar el campo Novedad");
     }
 }
