@@ -44,9 +44,8 @@ public class ControladorJefeBodega implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        /*System.out.println(permi);
         if (permi.equals("admin"))
-            btnAdmin.setDisable(false);*/
+            btnAdmin.setDisable(false);
     }    
 
     @FXML

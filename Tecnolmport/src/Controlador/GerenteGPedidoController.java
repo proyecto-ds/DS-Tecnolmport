@@ -65,7 +65,7 @@ public class GerenteGPedidoController implements Initializable {
     
     private Usuario usuariomodel = new Usuario();
     private Local localmodel =  new Local();
-    
+    private ControladorValidar validar = new ControladorValidar();
     private Pedido  pedidomodel= new Pedido();
     
     
@@ -138,20 +138,12 @@ public class GerenteGPedidoController implements Initializable {
     
     
     public void finalzar(ActionEvent event){
-       
-    //protected Gerente gerent; llenarTableEmpleado -> da una lista de empleados de donde sacas al gerente acutal 
-    // protected String id;llenarTablePedido-> da lista de pedidos saco el ultimo y obtengo su id para aumentarle 1
+ 
         ObtenerUsuario();
         ObtenerLocal();
         ObteneridPedido();
         
-//public Pedido(String id, Date fechaPedido, String descripcion, boolean estado, Local local, List<Producto> productos, Gerente gerente)
-          
-
        String descripcion = Descripcion.getText();  
-     
-     
-      
      
      System.out.println(productos.toString());
      
@@ -159,12 +151,23 @@ public class GerenteGPedidoController implements Initializable {
          Date fechaPedido = java.sql.Date.valueOf(FechaPedido.getValue());
          
           Pedido pedido = new Pedido(ObteneridPedido(), (java.sql.Date) fechaPedido,descripcion,true,localmodel,productos,usuariomodel.getUsuario()); 
-         System.out.println(pedido.toString());
+          
+          System.out.println(pedido.toString());
+          boolean valid = pedidomodel.registroPedido(pedido);
+          if(valid==true){
+              validar.mensajeIngresadoCorrecto();
+              pedido = null;
+          }
+          else{
+              validar.mensajeIngresadoIncorrecto();
+          }
+          
      }else{
          System.out.println("falta fecha");
      }
-        
-        
+     
+     
+
     }
 
     @FXML

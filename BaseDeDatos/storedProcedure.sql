@@ -232,8 +232,11 @@ create procedure obtenerEntrega()
 	end $$
 delimiter ;
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 88d551ea35d7bdf2f631a66e124ffd459e2bbd62
 #procedure para obtener el id del local y del id del usuario pasando el usuario del empleado
 delimiter $$
 create procedure obtenerLocalUserId(in usuario varchar(20))
@@ -254,6 +257,35 @@ create procedure actualizarPermiso(in id varchar(20), in perm varchar(20))
 		where idEmpleado = id;
 	end $$
 delimiter ;
+<<<<<<< HEAD
+//Ingresar Pedido
+delimiter $$
+create procedure ingresarPedido( in idPe varchar(20), in obse varchar(60), in fechaPe DateTime, in emple varchar(15), out idPed varchar(20))
+	begin
+		DECLARE idP varchar(20);
+		DECLARE idEmple varchar(20);
+        set idP = (select lpad(conv(floor(rand()*pow(36,8)), 10, 36), 6, 0));
+        select idp into idPed;
+        set idEmple = (select idEmpleado
+						from Empleado
+						where usuario = emple);
+		insert into Pedido(idPedido, observaciones,estado,fechaPedido,id_Empleado) 
+			values(idP,obse,'1',fechaPe,idEmple);
+	end $$
+delimiter ;
+
+//Ingresar detallePedido
+delimiter $$
+create procedure ingresarDetallePedido(in idPe varchar(20), in idPr varchar(20), in cant int)
+	begin
+		DECLARE idDe varchar(20);
+        set idDe = (select lpad(conv(floor(rand()*pow(36,8)), 10, 36), 6, 0));
+		insert into DetallePedido() 
+			values(idDe,idPe,idPr,cant);
+	end $$
+delimiter ;
+
+=======
 
 #Actualiza los datos de los envios ya entregados
 #drop procedure actualizarEntregaEnvioNovedad;
@@ -302,3 +334,4 @@ create procedure obtenerRutaEspecifica(in idEntrega varchar(20))
 delimiter ;
 
 
+>>>>>>> 88d551ea35d7bdf2f631a66e124ffd459e2bbd62

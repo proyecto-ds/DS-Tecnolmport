@@ -11,6 +11,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -39,6 +40,9 @@ public class Pedido {
     protected String observaciones;
     protected int esta;
     
+    
+    private final String guardarPedido = "{call   ingresarPedido (?,?,?,?,?)}";
+    private final String guardarDPedido = "{call  ingresarDetallePedido (?,?,?)}";
     
     protected Gerente gerente;
 
@@ -173,10 +177,56 @@ public class Pedido {
         }
         return lista;
     }
+    public boolean registroPedido(Pedido p){
+        if (guardarPedido(p)){
+            return gDetallePedido(p);
+        }
+        else{
+            return false;
+        }  
+    }
+      public boolean guardarPedido(Pedido p){
+        try {
+            CONNECTION.conectar();
+            CallableStatement sp = CONNECTION.getConnection().prepareCall(guardarPedido);
+            sp.setString(1, p.getId());
+            sp.setString(2, p.getDescripcion());
+            sp.setDate(3, p.getFechaPedido());
+            sp.setString(4, p.getGerent());
+            sp.registerOutParameter(5, Types.VARCHAR);
+            sp.execute();
+            this.setId(sp.getString(5));
+            sp.close();
+            return true;
+        } catch (SQLException e) {
+            //LOGGER.log(Level.SEVERE, e.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return false;
+    }
       
-      
-    
-    
+     public boolean gDetallePedido(Pedido p){
+         try {
+            CONNECTION.conectar();
+            for(Producto listp : p.getProductos()){
+                CallableStatement sp = CONNECTION.getConnection().prepareCall(guardarDPedido);
+                sp.setString(1, this.getId());
+                sp.setString(2, listp.getId());
+                sp.setInt(3, listp.getStock());
+                sp.execute();
+                sp.close();
+            }
+            
+            return true;
+        } catch (SQLException e) {
+            //LOGGER.log(Level.SEVERE, e.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+         return false;
+     }
+ 
     public String getId() {
         return id;
     }
