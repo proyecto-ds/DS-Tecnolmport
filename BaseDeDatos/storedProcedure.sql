@@ -337,3 +337,25 @@ create procedure datosRutaEntrega1()
         where e.id_Ruta=r.idRuta and e.estado=1;
     end $$
 delimiter ;
+
+#Procedure para Vista Registrar Entrega
+delimiter $$
+create procedure actualizarNegarPedido(in idPedido varchar(20))
+	begin
+			update Pedido p set p.estado=2 where p.idPedido=idPedido;
+    end $$
+delimiter ;
+
+delimiter $$
+create procedure actualizarNegarEnvio(in idEnvio varchar(20))
+	begin
+			update  Envio e set e.estado=2 where e.idEnvio=idEnvio;
+    end $$
+delimiter ;
+#`idEntrega`, `fecha` , `direccion`, `estado` , `id_Ruta`, `novedades`
+#delimiter $$
+#create procedure registrarEntregaPedido(in idPedido varchar(20))
+#	begin
+#			update  Envio e set e.idEnvio where e.idEnvio=idEnvio;
+#    end $$
+#delimiter ;

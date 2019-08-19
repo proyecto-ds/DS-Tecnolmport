@@ -57,7 +57,6 @@
       </TableView>
       <Label layoutX="34.0" layoutY="53.0" text="Seleccione el pedido a autorizar" />
       <Label layoutX="36.0" layoutY="328.0" text="Seleccione el envio a autorizar" />
-      <Label layoutX="523.0" layoutY="20.0" text="Consultar productos ()" />
       <HBox layoutX="383.0" layoutY="256.0" prefHeight="30.0" prefWidth="343.0" spacing="5.0">
          <children>
             <JFXButton fx:id="btn_registrarPedido" onAction="#act_registrarPedido" prefWidth="179.0" stylesheets="@../../css/fullpackstyling.css" text="Registrar Entrega-Pedido" textFill="WHITE" />

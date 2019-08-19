@@ -96,11 +96,11 @@ public class CtrlJBRegistrarEntrega implements Initializable {
             enviosObs = modeloEnvio.cargarEnvio("3");
             tbl_envio.setItems(enviosObs);
         }
-        /*else{
+        else{
             enviosObs.removeAll(enviosObs);
-            enviosObs = modeloEnvio.cargarEnvio();
+            enviosObs = modeloEnvio.cargarEnvio("3");
             tbl_envio.setItems(enviosObs);
-        }*/
+        }
     }
     
     public void llenarTablePedido(){
@@ -123,7 +123,10 @@ public class CtrlJBRegistrarEntrega implements Initializable {
     @FXML
     private void act_negarPedido(ActionEvent event) {
         if(mensajeErrorPedido(tbl_pedido,"Falta seleccionar un Pedido"));
-        
+        else{
+            negarPedido();
+            control.mensajeRegistroExitosoNovedad("Negado Pedido Exitoso"); 
+        }
     }
 
     @FXML
@@ -134,6 +137,22 @@ public class CtrlJBRegistrarEntrega implements Initializable {
     @FXML
     private void act_negarEnvio(ActionEvent event) {
         if(mensajeError(tbl_envio,"Falta seleccionar un Envio"));
+        else{
+            negarEnvio();
+            control.mensajeRegistroExitosoNovedad("Negado Envio Exitoso"); 
+        }
+        
+    }
+    private void negarEnvio(){
+        Envio envio= tbl_envio.getSelectionModel().getSelectedItem();
+        modeloEnvio.actualizarNegarEnvio(envio.getId());
+        llenarTableEnvio();
+    }
+    
+    private void negarPedido(){
+        Pedido pedido= tbl_pedido.getSelectionModel().getSelectedItem();
+        modeloPedido.actualizarNegarPedido(pedido.getId());
+        llenarTablePedido();
     }
     
     private boolean mensajeError(TableView<Envio> tbl_envio, String mensaje){
@@ -144,6 +163,8 @@ public class CtrlJBRegistrarEntrega implements Initializable {
         }
         return false;
     }
+    
+    
     
     private boolean mensajeErrorPedido(TableView<Pedido> tbl_pedido, String mensaje){
         Pedido envio= tbl_pedido.getSelectionModel().getSelectedItem();

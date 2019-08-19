@@ -45,6 +45,8 @@ public class Envio {
     
     private final String actualizar = "{call actualizarEntregaEnvioNovedad (? , ?)}";
     private final String actualizarRuta = "{call nullRutaRepartidor ( ? )}";
+    
+    private final String actualizarNegarEnvio = "{call actualizarNegarEnvio ( ? )}";
 
     public Envio(String id, String vent, String direccion, String descripcion, 
             LocalDate fechaInicio, LocalDate fechaFin, String estado, String idEntregaV) {
@@ -220,5 +222,20 @@ public class Envio {
         }
         return ruta;
     }
+    
+    public void actualizarNegarEnvio(String idEnvio){
+        try {
+            CONNECTION.conectar();
+            CallableStatement sp = CONNECTION.getConnection().prepareCall(actualizarNegarEnvio);
+            sp.setString(1, idEnvio);
+            sp.execute();
+            sp.close();
+        } catch (SQLException  ex) {
+            //LOGGER.log(Level.SEVERE, ex.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+    }
+    
             
 }
