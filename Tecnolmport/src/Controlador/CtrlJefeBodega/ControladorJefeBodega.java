@@ -38,14 +38,24 @@ public class ControladorJefeBodega implements Initializable {
     @FXML private JFXButton btn_registrarEntrega;
     @FXML private JFXButton btn_registrarNovedad;
     @FXML private JFXButton btn_consultarArticulo;
-
+    private String permis = " ";
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if (permi.equals("admin"))
+        if(permi == null){
+            btnAdmin.setDisable(true);
+        }
+        else if(permi.equals("admin")){
             btnAdmin.setDisable(false);
+        }
+        else if(permi.equals("null")){
+            btnAdmin.setDisable(true);
+        }
+        else{
+            btnAdmin.setDisable(true);
+        }
     }    
 
     @FXML

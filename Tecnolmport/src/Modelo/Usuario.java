@@ -32,7 +32,7 @@ public class Usuario extends Empleado{
     private final String permiso = "{call   actualizarPermiso (?,?)}";
     protected String usuario;
     protected String contraseña;
-    protected String permisoAdmin;
+    protected String permisoAdmin = null;
 
     public Usuario() {
     }

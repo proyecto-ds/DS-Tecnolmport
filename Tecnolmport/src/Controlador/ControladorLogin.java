@@ -40,11 +40,7 @@ public class ControladorLogin implements Initializable {
     @FXML private JFXButton btn_login;
     
     public static String user;
-    public static String permi;
-
-    
-    
-    
+    public static String permi = null;
     private ControladorValidar controladorValidar = new ControladorValidar();
     private Usuario modeloUsuario = new Usuario();
     
@@ -63,7 +59,8 @@ public class ControladorLogin implements Initializable {
             String rol = modeloUsuario.login();
             if(rol !=null){
                 user = usuario;
-                permi = modeloUsuario.getPermisoAdmin();
+                if(modeloUsuario.getPermisoAdmin()!=null)
+                    permi = modeloUsuario.getPermisoAdmin();
                 asignarVistaRol(rol, event);
             }
                 
