@@ -138,20 +138,12 @@ public class GerenteGPedidoController implements Initializable {
     
     
     public void finalzar(ActionEvent event){
-       
-    //protected Gerente gerent; llenarTableEmpleado -> da una lista de empleados de donde sacas al gerente acutal 
-    // protected String id;llenarTablePedido-> da lista de pedidos saco el ultimo y obtengo su id para aumentarle 1
+ 
         ObtenerUsuario();
         ObtenerLocal();
         ObteneridPedido();
         
-//public Pedido(String id, Date fechaPedido, String descripcion, boolean estado, Local local, List<Producto> productos, Gerente gerente)
-          
-
        String descripcion = Descripcion.getText();  
-     
-     
-      
      
      System.out.println(productos.toString());
      
