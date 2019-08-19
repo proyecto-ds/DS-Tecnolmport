@@ -43,7 +43,7 @@ public class Pedido {
     
     private final String guardarPedido = "{call   ingresarPedido (?,?,?,?,?)}";
     private final String guardarDPedido = "{call  ingresarDetallePedido (?,?,?)}";
-    
+    private final String actualizarNegarPedido = "{call actualizarNegarPedido ( ? )}";
     protected Gerente gerente;
 
     public Pedido() {
@@ -236,6 +236,20 @@ public class Pedido {
         }
          return false;
      }
+     
+     public void actualizarNegarPedido(String idPedido){
+        try {
+            CONNECTION.conectar();
+            CallableStatement sp = CONNECTION.getConnection().prepareCall(actualizarNegarPedido);
+            sp.setString(1, idPedido);
+            sp.execute();
+            sp.close();
+        } catch (SQLException  ex) {
+            //LOGGER.log(Level.SEVERE, ex.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+    }
  
     public String getId() {
         return id;

@@ -60,7 +60,7 @@
             </JFXTextField>
          </children>
       </VBox>
-      <JFXButton fx:id="btn_guardarNovedad" layoutX="167.0" layoutY="534.0" onAction="#validar_seleccion" stylesheets="@../../css/fullpackstyling.css" text="Guardar Novedades" textFill="WHITE" />
+      <JFXButton fx:id="btn_guardarNovedad" layoutX="167.0" layoutY="534.0" onAction="#validar_seleccion" stylesheets="@../../css/fullpackstyling.css" text="Guardar Novedades Envio" textFill="WHITE" />
       <Label layoutX="36.0" layoutY="14.0" prefHeight="33.0" prefWidth="261.0" text="REGISTRAR NOVEDADES">
          <font>
             <Font name="Consolas" size="24.0" />
