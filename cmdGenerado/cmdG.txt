@@ -1,0 +1,114 @@
+C:\Users\bryan\Documents\Bryan\7mo Semestre\Diseño de software\Proyecto\Tecnolmport>sonar-scanner
+INFO: Scanner configuration file: C:\Program Files\sonar\bin\..\conf\sonar-scanner.properties
+INFO: Project root configuration file: C:\Users\bryan\Documents\Bryan\7mo Semestre\Diseño de software\Proyecto\Tecnolmport\sonar-project.properties
+INFO: SonarQube Scanner 4.0.0.1744
+INFO: Java 11.0.3 AdoptOpenJDK (64-bit)
+INFO: Windows 10 10.0 amd64
+INFO: User cache: C:\Users\bryan\.sonar\cache
+INFO: SonarQube server 6.7.6
+INFO: Default locale: "es_EC", source code encoding: "UTF-8"
+INFO: Publish mode
+INFO: Load global settings
+INFO: Load global settings (done) | time=136ms
+INFO: Server id: A7EE8CF2-AWtmz9pnmaj65Z_tQ1Yd
+INFO: User cache: C:\Users\bryan\.sonar\cache
+INFO: Load plugins index
+INFO: Load plugins index (done) | time=106ms
+INFO: Process project properties
+INFO: Load project repositories
+INFO: Load project repositories (done) | time=125ms
+INFO: Execute project builders
+INFO: Execute project builders (done) | time=1ms
+INFO: Load quality profiles
+INFO: Load quality profiles (done) | time=56ms
+INFO: Load active rules
+INFO: Load active rules (done) | time=931ms
+INFO: Load metrics repository
+INFO: Load metrics repository (done) | time=63ms
+INFO: Project key: P02G04
+INFO: -------------  Scan TecnoImport
+INFO: Load server rules
+INFO: Load server rules (done) | time=399ms
+INFO: Base dir: C:\Users\bryan\Documents\Bryan\7mo Semestre\Diseño de software\Proyecto\Tecnolmport
+INFO: Working dir: C:\Users\bryan\Documents\Bryan\7mo Semestre\Diseño de software\Proyecto\Tecnolmport\.scannerwork
+INFO: Source paths: .
+INFO: Source encoding: UTF-8, default locale: es_EC
+INFO: Index files
+INFO: 190 files indexed
+INFO: Quality profile for java: Sonar way
+INFO: Quality profile for js: Sonar way
+INFO: Quality profile for xml: Sonar way
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by net.sf.cglib.core.ReflectUtils$1 (file:/C:/Users/bryan/.sonar/cache/3c43ca34b48e025530485308ddac54a2/sonar-javascript-plugin-3.2.0.5506.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of net.sf.cglib.core.ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+INFO: Sensor JavaSquidSensor [java]
+INFO: Configured Java source version (sonar.java.source): none
+INFO: JavaClasspath initialization
+WARN: Bytecode of dependencies was not provided for analysis of source files, you might end up with less precise results. Bytecode can be provided using sonar.java.libraries property.
+INFO: JavaClasspath initialization (done) | time=29ms
+INFO: JavaTestClasspath initialization
+INFO: JavaTestClasspath initialization (done) | time=3ms
+INFO: Java Main Files AST scan
+INFO: 47 source files to be analyzed
+INFO: 19/47 files analyzed, current file: src/Controlador/GerenteGPedidoController.java
+INFO: 47/47 source files have been analyzed
+INFO: Java Main Files AST scan (done) | time=18497ms
+INFO: Java Test Files AST scan
+INFO: 0 source files to be analyzed
+INFO: Java Test Files AST scan (done) | time=9ms
+INFO: Sensor JavaSquidSensor [java] (done) | time=20177ms
+INFO: 0/0 source files have been analyzed
+INFO: Sensor SmellMeasuresSensor [smells]
+INFO: Sensor SmellMeasuresSensor [smells] (done) | time=2085ms
+INFO: Sensor JavaScript Squid Sensor [javascript]
+INFO: 1 source files to be analyzed
+INFO: 1/1 source files have been analyzed
+INFO: Unit Test Coverage Sensor is started
+INFO: Integration Test Coverage Sensor is started
+INFO: Overall Coverage Sensor is started
+INFO: Sensor JavaScript Squid Sensor [javascript] (done) | time=5186ms
+INFO: Sensor SurefireSensor [java]
+INFO: parsing [C:\Users\bryan\Documents\Bryan\7mo Semestre\Diseño de software\Proyecto\Tecnolmport\target\surefire-reports]
+INFO: Sensor SurefireSensor [java] (done) | time=7ms
+INFO: Sensor JaCoCoSensor [java]
+INFO: Sensor JaCoCoSensor [java] (done) | time=9ms
+INFO: Sensor JavaXmlSensor [java]
+INFO: 6 source files to be analyzed
+INFO: Sensor JavaXmlSensor [java] (done) | time=1579ms
+INFO: 6/6 source files have been analyzed
+INFO: Sensor XML Sensor [xml]
+WARN: Unable to parse file C:/Users/bryan/Documents/Bryan/7mo Semestre/Diseño de software/Proyecto/Tecnolmport/nbproject/private/retriever/catalog.xml
+WARN: Cause: org.xml.sax.SAXParseException; Premature end of file.
+INFO: Sensor XML Sensor [xml] (done) | time=1172ms
+INFO: Sensor Analyzer for "php.ini" files [php]
+INFO: Sensor Analyzer for "php.ini" files [php] (done) | time=15ms
+INFO: Sensor Zero Coverage Sensor
+INFO: Sensor Zero Coverage Sensor (done) | time=190ms
+INFO: Sensor CPD Block Indexer
+INFO: Sensor CPD Block Indexer (done) | time=872ms
+INFO: SCM provider for this project is: git
+INFO: 53 files to be analyzed
+INFO: 50/53 files analyzed
+WARN: Missing blame information for the following files:
+WARN:   * dist/web-files/dtjava.js
+WARN:   * nbproject/private/private.xml
+WARN:   * src/Singleton/DBConnection.java
+WARN: This may lead to missing/broken features in SonarQube
+INFO: 6 files had no CPD blocks
+INFO: Calculating CPD for 42 files
+INFO: CPD calculation finished
+INFO: Analysis report generated in 2596ms, dir size=1 MB
+INFO: Analysis reports compressed in 1182ms, zip size=422 KB
+INFO: Analysis report uploaded in 767ms
+INFO: ANALYSIS SUCCESSFUL, you can browse http://200.126.12.164/dashboard/index/P02G04
+INFO: Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+INFO: More about the report processing at http://200.126.12.164/api/ce/task?id=AWyn2A21Lm5p6v1cuI0q
+INFO: Task total time: 48.199 s
+INFO: ------------------------------------------------------------------------
+INFO: EXECUTION SUCCESS
+INFO: ------------------------------------------------------------------------
+INFO: Total time: 52.232s
+INFO: Final Memory: 14M/54M
+INFO: ------------------------------------------------------------------------
