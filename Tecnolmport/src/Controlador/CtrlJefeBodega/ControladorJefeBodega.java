@@ -38,7 +38,7 @@ public class ControladorJefeBodega implements Initializable {
     @FXML private JFXButton btn_registrarEntrega;
     @FXML private JFXButton btn_registrarNovedad;
     @FXML private JFXButton btn_consultarArticulo;
-    private String permis = " ";
+    //private String permis = " ";
     /**
      * Initializes the controller class.
      */

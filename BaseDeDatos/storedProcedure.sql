@@ -208,12 +208,12 @@ create procedure obtenerVentas()
 delimiter ;
 
 delimiter $$
-create procedure obtenerPedidosNovedad(in ids varchar(20))
+create procedure obtenerPedidosNovedad(in estado varchar(20))
 	begin
-		 select pe.idPedido, pe.observaciones, pe.estado, pe.fechaPedido , e.nombre as Gerente, pr.nombre as Producto , lo.nombre as Local 
- from Pedido pe join Empleado e on pe.id_Empleado = e.idEmpleado join
-							DetallePedido  dp on pe.idPedido = dp.id_Pedido  join Producto pr on dp.id_Producto =  pr.idProducto join local lo on e.id_Local = lo.idLocal 
-where    pe.id_Empleado = e.idEmpleado  and pe.estado=ids ;
+		select pe.idPedido, pe.observaciones, pe.estado, pe.fechaPedido , e.nombre as Gerente, pr.nombre as Producto , lo.nombre as Local, pe.id_Entrega as idEntrega
+		from Pedido pe join Empleado e on pe.id_Empleado = e.idEmpleado join
+		DetallePedido  dp on pe.idPedido = dp.id_Pedido  join Producto pr on dp.id_Producto =  pr.idProducto join local lo on e.id_Local = lo.idLocal 
+		where pe.id_Empleado = e.idEmpleado  and pe.estado=estado;
 	end $$
 delimiter ;
 
@@ -232,11 +232,7 @@ create procedure obtenerEntrega()
 	end $$
 delimiter ;
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 88d551ea35d7bdf2f631a66e124ffd459e2bbd62
 #procedure para obtener el id del local y del id del usuario pasando el usuario del empleado
 delimiter $$
 create procedure obtenerLocalUserId(in usuario varchar(20))
@@ -257,7 +253,7 @@ create procedure actualizarPermiso(in id varchar(20), in perm varchar(20))
 		where idEmpleado = id;
 	end $$
 delimiter ;
-<<<<<<< HEAD
+
 //Ingresar Pedido
 delimiter $$
 create procedure ingresarPedido( in idPe varchar(20), in obse varchar(60), in fechaPe DateTime, in emple varchar(15), out idPed varchar(20))
@@ -285,7 +281,7 @@ create procedure ingresarDetallePedido(in idPe varchar(20), in idPr varchar(20),
 	end $$
 delimiter ;
 
-=======
+
 
 #Actualiza los datos de los envios ya entregados
 #drop procedure actualizarEntregaEnvioNovedad;
@@ -332,6 +328,12 @@ create procedure obtenerRutaEspecifica(in idEntrega varchar(20))
 		select r.idRuta from Ruta r, Entrega e where e.idEntrega=idEntrega and r.idRuta=e.id_Ruta;
     end $$
 delimiter ;
-
-
->>>>>>> 88d551ea35d7bdf2f631a66e124ffd459e2bbd62
+#Usado para obtener entregas en envio (estado 1)
+delimiter $$
+create procedure datosRutaEntrega1()
+	begin
+		select e.idEntrega, e.fecha, e.direccion, e.estado, r.idRuta 
+        from Entrega e, Ruta r 
+        where e.id_Ruta=r.idRuta and e.estado=1;
+    end $$
+delimiter ;

@@ -5,15 +5,10 @@
  */
 package Modelo;
 
-import static Modelo.Envio.CONNECTION;
 import Singleton.DBConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -29,9 +24,13 @@ public class Ruta {
     protected String nombreRepartidor;
     protected String apellidoRepartidor;
     
-    protected static final Logger LOGGER = Logger.getLogger("Ruta Logger");
+    protected String idEntrega;
+    protected String fecha;
+    protected String direccion;
+    protected String estado;
+    
+    //protected static final Logger LOGGER = Logger.getLogger("Ruta Logger");
     protected static final DBConnection CONNECTION = DBConnection.getInstance();
-    protected final String consultaRuta= "select r.idRuta, r.zona, e.nombre, e.apellido from ruta r, empleado e where r.id__Empleado = e.idEmpleado";
     
 
     public Ruta(String idRuta, String zona,String nombreRepartidor, String apellidoRepartidor) {
@@ -41,7 +40,15 @@ public class Ruta {
         this.apellidoRepartidor= apellidoRepartidor;
     }
     
-    public Ruta(){}
+    public Ruta(){ }
+    
+    public Ruta(String idEntrega, String fecha, String direccion, String estado, String idRuta){
+        this.idEntrega = idEntrega;
+        this.fecha = fecha;
+        this.direccion=direccion;
+        this.estado= estado;    
+        this.idRuta= idRuta;    
+    }
 
     public String getZona() {
         return zona;
@@ -112,16 +119,76 @@ public class Ruta {
                                 resultado.getString("nombre"),
                                 resultado.getString("apellido")
                         ));
-            System.out.println(resultado.getString("zona")+" "+resultado.getString("nombre")+" "+resultado.getString("apellido"));
+            //System.out.println(resultado.getString("zona")+" "+resultado.getString("nombre")+" "+resultado.getString("apellido"));
                 
             }
         } catch (SQLException  ex) {
-            LOGGER.log(Level.SEVERE, ex.getMessage());
+            //LOGGER.log(Level.SEVERE, ex.getMessage());
         } finally {
             CONNECTION.desconectar();
         }
         return lista;
     }
+    
+    //"select e.idEntrega, e.fecha, e.direccion, e.estado, r.idRuta from Entrega e, Ruta r where e.id_Ruta=r.idRuta and e.estado=1";
+    
+    public ObservableList<Ruta> cargarDatosRutaEntrega(){
+        ObservableList <Ruta> lista = FXCollections.observableArrayList ();
+        try {
+            CONNECTION.conectar();
+            String consultaRuta ="{call datosRutaEntrega1()}";
+            PreparedStatement ingreso = CONNECTION.getConnection().prepareStatement(consultaRuta);
+            ResultSet resultado = ingreso.executeQuery(); 
+            while (resultado.next()) {
+                lista.add(
+                        new Ruta(
+                                resultado.getString("idEntrega"),
+                                resultado.getString("fecha"),
+                                resultado.getString("direccion"),
+                                resultado.getString("estado"),
+                                resultado.getString("idRuta")
+                        ));
+            }
+        } catch (SQLException  ex) {
+            //LOGGER.log(Level.SEVERE, ex.getMessage());
+        } finally {
+            CONNECTION.desconectar();
+        }
+        return lista;
+    }
+
+    public String getIdEntrega() {
+        return idEntrega;
+    }
+
+    public void setIdEntrega(String idEntrega) {
+        this.idEntrega = idEntrega;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
     
 
 }

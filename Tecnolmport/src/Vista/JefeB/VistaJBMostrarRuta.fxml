@@ -29,7 +29,8 @@
           <TableColumn fx:id="CIdEntrega" prefWidth="75.0" text="idEntrega" />
           <TableColumn fx:id="CFecha" prefWidth="75.0" text="Fecha" />
             <TableColumn fx:id="CDireccion" prefWidth="75.0" text="Direccion" />
-            <TableColumn fx:id="CIdRuta" prefWidth="75.0" text="IdRuta" />
+            <TableColumn fx:id="CEstado" prefWidth="75.0" text="Estado" />
+            <TableColumn fx:id="CIdRutaE" prefWidth="75.0" text="IdRuta" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

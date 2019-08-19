@@ -47,6 +47,8 @@ public class CtrlJBRegistrarEntrega implements Initializable {
     @FXML private TableColumn<Pedido, String> CLocalPedido;
     @FXML private TableColumn<Pedido, String> CPProducto;
     @FXML private TableColumn<Pedido, String> CGerentePedido;
+    @FXML private TableColumn<Pedido, String> CIdEntregaP;
+    
     @FXML private TableColumn<Envio, String> CIdEnvio;
     @FXML private TableColumn<Envio, Venta> CVenta;
     @FXML private TableColumn<Envio, String> CDireccion;
@@ -54,13 +56,13 @@ public class CtrlJBRegistrarEntrega implements Initializable {
     @FXML private TableColumn<Envio, String> CFechaInicio;
     @FXML private TableColumn<Envio, String> CFechaFin;
     @FXML private TableColumn<Envio, String> CEstado;
-    @FXML
-    private TableColumn<Envio, String> CIdEntrega;
+    @FXML private TableColumn<Envio, String> CIdEntrega;
     private ObservableList<Envio> enviosObs =null;
     private ObservableList<Pedido> pedidosObs =null;
     private Envio modeloEnvio = new Envio();
     private Pedido modeloPedido = new Pedido();
     private ControladorValidar control= new ControladorValidar();
+    
     
     
     /**
@@ -85,6 +87,7 @@ public class CtrlJBRegistrarEntrega implements Initializable {
         CPProducto.setCellValueFactory(new PropertyValueFactory<Pedido,String>("gerent"));
         CGerentePedido.setCellValueFactory(new PropertyValueFactory<>("producto"));
         CDescripcionPedido.setCellValueFactory(new PropertyValueFactory<>("observaciones"));
+        CIdEntregaP.setCellValueFactory(new PropertyValueFactory<>("idEntrega"));
         llenarTablePedido();
     }    
 

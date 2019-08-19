@@ -39,7 +39,7 @@ public class Pedido {
     protected String loc;
     protected String observaciones;
     protected int esta;
-    
+    protected String idEntrega;
     
     private final String guardarPedido = "{call   ingresarPedido (?,?,?,?,?)}";
     private final String guardarDPedido = "{call  ingresarDetallePedido (?,?,?)}";
@@ -72,7 +72,7 @@ public class Pedido {
         this.loc = loca;
     }
     
-    public Pedido(String id, Date fechaPedido, int esta, String producto, String gerent, String observaciones, String loca) {
+    public Pedido(String id, Date fechaPedido, int esta, String producto, String gerent, String observaciones, String loca, String idEntrega) {
         this.id = id;
         this.fechaPedido = fechaPedido;
         this.esta = esta;
@@ -80,6 +80,7 @@ public class Pedido {
         this.gerent = gerent;
         this.observaciones = observaciones;
         this.loc = loca;
+        this.idEntrega=idEntrega; 
     }
     public int getEsta() {
         return esta;
@@ -89,6 +90,14 @@ public class Pedido {
         this.esta = esta;
     }
 
+    public String getIdEntrega() {
+        return idEntrega;
+    }
+
+    public void setIdEntrega(String idEntrega) {
+        this.idEntrega = idEntrega;
+    }
+    
     public String getLoc() {
         return loc;
     }
@@ -167,8 +176,9 @@ public class Pedido {
                                 resultado.getString("Producto"),
                                 resultado.getString("Gerente"),
                                 resultado.getString("observaciones"),
-                                String.valueOf(resultado.getString("Local")
-                                )));
+                                String.valueOf(resultado.getString("Local")),
+                                resultado.getString("idEntrega")
+                        ));
             }
         } catch (SQLException e) {
             //LOGGER.log(Level.SEVERE, e.getMessage());
