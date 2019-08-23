@@ -175,8 +175,5 @@ public class CtrlJBRegistrarEntrega implements Initializable {
         return false;
     }
 
-    @FXML
-    private void seleccionardato(MouseEvent event) {
-    }
     
 }

@@ -12,15 +12,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
 
 /**
  *
@@ -152,7 +146,6 @@ public class Pedido {
                                 )));
             }
         } catch (SQLException e) {
-            //LOGGER.log(Level.SEVERE, e.getMessage());
         } finally {
             CONNECTION.desconectar();
         }
@@ -181,7 +174,7 @@ public class Pedido {
                         ));
             }
         } catch (SQLException e) {
-            //LOGGER.log(Level.SEVERE, e.getMessage());
+            System.out.println(e.getMessage());
         } finally {
             CONNECTION.desconectar();
         }
@@ -209,7 +202,7 @@ public class Pedido {
             sp.close();
             return true;
         } catch (SQLException e) {
-            //LOGGER.log(Level.SEVERE, e.getMessage());
+            e.getMessage();
         } finally {
             CONNECTION.desconectar();
         }
@@ -230,7 +223,7 @@ public class Pedido {
             
             return true;
         } catch (SQLException e) {
-            //LOGGER.log(Level.SEVERE, e.getMessage());
+            e.getMessage();
         } finally {
             CONNECTION.desconectar();
         }
@@ -245,7 +238,7 @@ public class Pedido {
             sp.execute();
             sp.close();
         } catch (SQLException  ex) {
-            //LOGGER.log(Level.SEVERE, ex.getMessage());
+            ex.getMessage();
         } finally {
             CONNECTION.desconectar();
         }

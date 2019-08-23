@@ -5,15 +5,12 @@
  */
 package Controlador.CtrlJefeBodega;
 
-import Modelo.Envio;
-import Modelo.Repartidor;
 import Modelo.Ruta;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;

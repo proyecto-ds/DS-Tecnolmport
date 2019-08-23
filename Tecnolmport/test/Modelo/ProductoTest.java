@@ -16,7 +16,7 @@ public class ProductoTest {
     Producto producto = new Producto("007", "cargador", 0, "Muy bueno", "Smartphone", "Panasonic", true);
     Producto pPrueba = new Producto("008", "cargador", 0, "Muy bueno", "Smartphone", "Panasonic", true);
     
-    Producto producto2 = new Producto("008", "cargador", 0, "Muy bueno", "Smartphone", "Panasonic", true);
+    Producto producto2 = new Producto("008", "cargador Portatil", 0, "Muy bueno", "Smartphone", "Panasonic", true);
     
     /**
      * No agrega el producto en caso que exista.

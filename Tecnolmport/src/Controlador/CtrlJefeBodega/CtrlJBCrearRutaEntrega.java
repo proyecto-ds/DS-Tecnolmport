@@ -6,7 +6,6 @@
 package Controlador.CtrlJefeBodega;
 
 import Modelo.Entrega;
-import Modelo.Envio;
 import com.jfoenix.controls.JFXComboBox;
 import java.net.URL;
 import java.util.ResourceBundle;

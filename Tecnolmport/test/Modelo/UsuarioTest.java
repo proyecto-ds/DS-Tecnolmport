@@ -14,7 +14,9 @@ import static org.junit.Assert.*;
  */
 public class UsuarioTest {
     
-    Usuario user = new Usuario("rogera", "123", "1", "Roger", "Aviles", "vendedor", 0, "Cuenca", "r@.com", "456215", "bodega", true);
+    Usuario user = new Usuario("rogera", "123", "0912345678", "Roger", "Aviles", "vendedor", 0, "Cuenca", "r@.com", "456215", "bodega", true);
+    Usuario repartidor = new Usuario(null, null, "0909082010", "Thanos", "Celestial", "repartidor", 0, "Titan", "thunas@gmail.com", "09841254008", "3", true);
+    Usuario vendedor = new Usuario("pat49", "4mor", null, "Patty", null, "vendedor", 0, "Pastaza 5524 y la A", "pat@hotmail.com", "0987452", "1", true);
     
     /**
      * Comprueba que el Usuario ingresado sea igual al rol a comparar.
@@ -34,6 +36,22 @@ public class UsuarioTest {
     public void testLoginNotRol() {
         String log = user.login();
         assertNotSame("vendedor",log);
+    }
+    
+    /**
+     * No agrega al empleado en caso de existir en la base.
+     */
+    @Test
+    public void testIngresarEmpleadoExistente() {
+        assertFalse(repartidor.ingresarEmpleado());
+    }
+    
+    /**
+     * No agrega al empleado en caso de no escribir datos de vital importancia.
+     */
+    @Test
+    public void testIngresarEmpleadoIncompleto() {
+        assertFalse(vendedor.ingresarEmpleado());
     }
     
 }
