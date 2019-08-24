@@ -16,6 +16,9 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.logging.Level;
 
 /**
  *
@@ -151,7 +154,7 @@ public class Envio {
                 System.out.println(sqlDateI+resultado.getString("estado"));
             }
         } catch (SQLException  ex) {
-            //LOGGER.log(Level.SEVERE, ex.getMessage());
+            LOGGER.log(Level.SEVERE, ex.getMessage());
         } finally {
             CONNECTION.desconectar();
         }
@@ -168,7 +171,7 @@ public class Envio {
             sp.close();
             return true;
         } catch (SQLException  ex) {
-            //LOGGER.log(Level.SEVERE, ex.getMessage());
+            LOGGER.log(Level.SEVERE, ex.getMessage());
         } finally {
             CONNECTION.desconectar();
         }
@@ -188,7 +191,7 @@ public class Envio {
             sp.execute();
             sp.close();
         } catch (SQLException  ex) {
-            //LOGGER.log(Level.SEVERE, ex.getMessage());
+            LOGGER.log(Level.SEVERE, ex.getMessage());
         } finally {
             CONNECTION.desconectar();
         }
@@ -208,28 +211,42 @@ public class Envio {
             ingreso.setString(1,idEntrega);
             ResultSet resultado = ingreso.executeQuery(); 
             ruta = resultado.getString("idRuta");
-            System.out.println(ruta);
+            return ruta;
             
         } catch (SQLException  ex) {
-            //LOGGER.log(Level.SEVERE, ex.getMessage());
         } finally {
             CONNECTION.desconectar();
         }
         return ruta;
     }
     
-    public void actualizarNegarEnvio(String idEnvio){
+    public boolean actualizarNegarEnvio(String idEnvio){
         try {
             CONNECTION.conectar();
             CallableStatement sp = CONNECTION.getConnection().prepareCall(actualizarNegarEnvio);
             sp.setString(1, idEnvio);
             sp.execute();
             sp.close();
+            return true;
         } catch (SQLException  ex) {
-            //LOGGER.log(Level.SEVERE, ex.getMessage());
+            LOGGER.log(Level.SEVERE, ex.getMessage());
         } finally {
             CONNECTION.desconectar();
         }
+        return false;
+    }
+    
+    /**
+     * Para JUnitTest 
+     * @param lista Tipo Envio
+     * @param id Id Envio
+     * @return True si el idEnvio existe.
+     */
+    public boolean buscarExistenciaEnvio(List<Envio> lista, String id){
+        for(Envio e: lista)
+            if(e.getId().equals(id))
+                return true;
+        return false;
     }
     
             

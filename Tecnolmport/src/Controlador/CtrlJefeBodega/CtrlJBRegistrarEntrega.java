@@ -174,5 +174,4 @@ public class CtrlJBRegistrarEntrega implements Initializable {
         }
         return false;
     }
-    
 }
