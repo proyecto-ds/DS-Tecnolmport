@@ -12,7 +12,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,22 +30,23 @@ public class Usuario extends Empleado{
     private final String eliminar = "{call   eliminarEmpleado (?)}";
     private final String permiso = "{call   actualizarPermiso (?,?)}";
     protected String usuario;
-    protected String contraseña;
+    protected String contrasena;
     protected String permisoAdmin = null;
+    private final String usu ="usuario",est ="estado";
 
     public Usuario() {
     }
 
-    public Usuario(String usuario, String contraseña, String id, String nombre, String apellido, String rol, int salario, String direccion, String email, String telefono, String local, boolean activo) {
+    public Usuario(String usuario, String contrasena, String id, String nombre, String apellido, String rol, int salario, String direccion, String email, String telefono, String local, boolean activo) {
         super(id, nombre, apellido, rol, salario, direccion, email, telefono, local, activo);
         this.usuario = usuario;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
     }
 
-    public Usuario(String usuario, String contraseña, String permisoAdmin, String id, String nombre, String apellido, String rol, int salario, String direccion, String email, String telefono, String local, boolean activo) {
+    public Usuario(String usuario, String contrasena, String permisoAdmin, String id, String nombre, String apellido, String rol, int salario, String direccion, String email, String telefono, String local, boolean activo) {
         super(id, nombre, apellido, rol, salario, direccion, email, telefono, local, activo);
         this.usuario = usuario;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
         this.permisoAdmin = permisoAdmin;
     }
 
@@ -67,12 +67,12 @@ public class Usuario extends Empleado{
         this.usuario = usuario;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public String getId() {
@@ -163,7 +163,7 @@ public class Usuario extends Empleado{
             String consulta = "{call  login (?,?,?,?)}";
             CallableStatement sp = CONNECTION.getConnection().prepareCall(consulta);
             sp.setString(1, this.getUsuario());
-            sp.setString(2, this.getContraseña());
+            sp.setString(2, this.getContrasena());
             sp.registerOutParameter(3, Types.VARCHAR);
             sp.registerOutParameter(4, Types.VARCHAR);
             sp.execute();
@@ -191,7 +191,7 @@ public class Usuario extends Empleado{
             while (resultado.next()) {
                 lista.add(
                         new Usuario(
-                                resultado.getString("usuario"),
+                                resultado.getString(usu),
                                 resultado.getString("clave"),
                                 resultado.getString("idEmpleado"),
                                 resultado.getString("nombre"),
@@ -202,7 +202,7 @@ public class Usuario extends Empleado{
                                 resultado.getString("email"),
                                 resultado.getString("telefono"),
                                 resultado.getString("tipo"),
-                               resultado.getBoolean("estado")));
+                               resultado.getBoolean(est)));
             }
         } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, e.getMessage());
@@ -223,7 +223,7 @@ public class Usuario extends Empleado{
                 if(!resultado.getString("rol").equals("repartidor") && resultado.getBoolean("estado")==true && !resultado.getString("usuario").equals(user)){
                 lista.add(
                         new Usuario(
-                                resultado.getString("usuario"),
+                                resultado.getString(usu),
                                 resultado.getString("clave"),
                                 resultado.getString("permisoA"),
                                 resultado.getString("idEmpleado"),
@@ -235,7 +235,7 @@ public class Usuario extends Empleado{
                                 resultado.getString("email"),
                                 resultado.getString("telefono"),
                                 resultado.getString("tipo"),
-                               resultado.getBoolean("estado")));
+                               resultado.getBoolean(est)));
                 }
             }
         } catch (SQLException e) {
@@ -255,7 +255,7 @@ public class Usuario extends Empleado{
             sp.setString(2, this.getNombre());
             sp.setString(3, this.getApellido());
             sp.setString(4, this.getUsuario());
-            sp.setString(5, this.getContraseña());
+            sp.setString(5, this.getContrasena());
             sp.setString(6, this.getRol());
             sp.setInt(7, this.getSalario());
             sp.setString(8, this.getDireccion());
@@ -281,7 +281,7 @@ public class Usuario extends Empleado{
             sp.setString(2, this.getNombre());
             sp.setString(3, this.getApellido());
             sp.setString(4, this.getUsuario());
-            sp.setString(5, this.getContraseña());
+            sp.setString(5, this.getContrasena());
             sp.setString(6, this.getRol());
             sp.setInt(7, this.getSalario());
             sp.setString(8, this.getDireccion());
@@ -345,7 +345,7 @@ public class Usuario extends Empleado{
         if (!Objects.equals(this.usuario, other.usuario)) {
             return false;
         }
-        if (!Objects.equals(this.contraseña, other.contraseña)) {
+        if (!Objects.equals(this.contrasena, other.contrasena)) {
             return false;
         }
         return true;
@@ -353,7 +353,7 @@ public class Usuario extends Empleado{
 
     @Override
     public String toString() {
-        return "Usuario{" + "actualizar=" + actualizar + ", ingresar=" + ingresar + ", eliminar=" + eliminar + ", usuario=" + usuario + ", contrase\u00f1a=" + contraseña + '}';
+        return "Usuario{" + "actualizar=" + actualizar + ", ingresar=" + ingresar + ", eliminar=" + eliminar + ", usuario=" + usuario + ", contrase\u00f1a=" + contrasena + '}';
     }
     
     

@@ -13,21 +13,12 @@ import java.util.logging.Logger;
 public class DBConnection {
     private static DBConnection dbConnection;
     private Connection connection;
-    //private final String driver = "com.mysql.jdbc.Driver";
-
 //    private final String url = "jdbc:mysql://127.0.0.1:32768/TecnolmportDS?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-//    private final String user = "root";
-//    private final String pass = "beto"; 
-//    private final String pass = "1997ra"; 
 
     private final String url = "jdbc:mysql://localhost:3306/TecnolmportDS?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private final String user = "root";
 
     private final String pass = "toby"; 
-
-
-
-    //betoelperro
     private static final Logger LOGGER = Logger.getLogger("DBConnection Logger");
     
     
@@ -62,7 +53,6 @@ public class DBConnection {
         LOGGER.log(Level.INFO, "Establishing the database connection...");
         
         try{
-           // Class.forName(driver);
             this.connection = DriverManager.getConnection(url, user, pass);
             LOGGER.log(Level.INFO, "¡The database connection was established successfully!");
             

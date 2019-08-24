@@ -22,7 +22,7 @@
                   <TableColumn fx:id="cprecio" prefWidth="75.10919189453125" text="Precio" />
                   <TableColumn fx:id="ccategoria" prefWidth="98.436767578125" text="Categoría" />
                   <TableColumn fx:id="cproveedor" prefWidth="98.13986206054688" text="Proveedor" />
-                  <TableColumn fx:id="CEstado" prefWidth="83.0" text="Estado" />
+                  <TableColumn fx:id="cestado" prefWidth="83.0" text="Estado" />
               </columns>
             </TableView>
             <HBox alignment="CENTER" layoutX="75.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="600.0" spacing="70.0">

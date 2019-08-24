@@ -6,6 +6,8 @@
 package tecnolmport;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,6 +21,7 @@ import javafx.stage.Stage;
  */
 public class Tecnolmport extends Application {
     private Stage stagePrincipal;
+    protected static final Logger LOGGER = Logger.getLogger("TecnoImport Logger");
     @Override
     public void start(Stage stage) throws Exception {
         this.stagePrincipal= stage;
@@ -27,28 +30,15 @@ public class Tecnolmport extends Application {
     
     public void SceneLogin() throws IOException{
         try{
-
-            ///Vista/VistaVendedor.fxml
-            ///Vista/JefeB/VistaJB.fxml
-            ///Vista/VistaLogin.fxml
-            Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaLogin.fxml"));///Vista/VistaGerente.fxml
-
-
-
-
-
+            Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaLogin.fxml"));
             Scene scene = new Scene(root);
             stagePrincipal.setScene(scene);
             Image image = new Image("/Imagen/logo1.png");
             stagePrincipal.getIcons().add(image);
-            //stagePrincipal.initStyle(StageStyle.UNDECORATED);
             stagePrincipal.show();
-            
-            //para obtener el stage en otro metodo diferente a esta clase
-            //-->Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         }
         catch(IOException e){
-            System.out.println(e.getMessage());
+             LOGGER.log(Level.SEVERE, e.getMessage());
         }
     }
     

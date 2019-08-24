@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 import Modelo.Producto;
@@ -11,11 +7,9 @@ import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -32,49 +26,36 @@ import javafx.scene.layout.Pane;
 public class ControladorBusquedaArticulo implements Initializable {
 
     @FXML private Pane parent1;
-    
     @FXML private TableView<Producto> tableBuscarArticulo;
     @FXML private JFXComboBox<String> cbxBuscar;
     @FXML private JFXTextField textBuscar;
-    
     @FXML private TableColumn<Producto, String> cid;
     @FXML private TableColumn<Producto, String> cnombre;
     @FXML private TableColumn<Producto, String> cdescripcion;
-   
     @FXML private TableColumn<Producto, String> cprecio;
     @FXML private TableColumn<Producto, String> ccategoria;
     @FXML private TableColumn<Producto, String> cproveedor;
-    @FXML private TableColumn<Producto, String> CEstado;
+    @FXML private TableColumn<Producto, String> cestado;
 
-    private  Producto producto = new Producto();
-    
+    private final  Producto producto = new Producto();
     private ObservableList<Producto> list =  producto.llenarTableProducto();
-    
-    
-    private FilteredList filtrado = new FilteredList(list, e->true);
-    
+    private final FilteredList filtrado = new FilteredList(list, e->true);
+    private final String nomT = "Nombre";
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cbxBuscar.getItems().addAll("Nombre","Descripcion","Categoria");
-        cbxBuscar.setValue("Nombre");
-
+        cbxBuscar.getItems().addAll(nomT,"Descripcion","Categoria");
+        cbxBuscar.setValue(nomT);
         cid.setCellValueFactory(new PropertyValueFactory<>("id"));
         cnombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         cdescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
-        
         cprecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         ccategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
         cproveedor.setCellValueFactory(new PropertyValueFactory<>("proveedor"));
-        CEstado.setCellValueFactory(new PropertyValueFactory<>("Estado"));
+        cestado.setCellValueFactory(new PropertyValueFactory<>("Estado"));
         tableBuscarArticulo.setItems(list);
-        
-       //llenarTable();
-       
-       
-       
        
     }    
      
@@ -83,13 +64,7 @@ public class ControladorBusquedaArticulo implements Initializable {
         if(list == null){
             list = producto.llenarTableProducto();
             tableBuscarArticulo.setItems(list);
-        }
-//        else{
-//            list.removeAll(list);
-//            list = producto.llenarTableProducto();
-//            tableBuscarArticulo.setItems(list);
-//        }
-        
+        }  
     }
     
      
@@ -97,39 +72,31 @@ public class ControladorBusquedaArticulo implements Initializable {
 
     @FXML
     private void buscar(KeyEvent event) {
-        
-        textBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
-            
-             filtrado.setPredicate( (Predicate <? super Producto>) (Producto p)->{
-                 
-                 if(newValue.isEmpty() || newValue==null){
-                     return true;
-                 }else if(cbxBuscar.getValue().equals("Categoria") ){
-                     if(p.getCategoria().contains(newValue))
-                          return true;
-                 }else if(cbxBuscar.getValue().equals("Nombre")) {
-                     if(p.getNombre().contains(newValue))
-                          return true;
-                    
-                 }else if(cbxBuscar.getValue().equals("Descripcion")){
-                      if(p.getDescripcion().contains(newValue))
-                          return true;
-                     
-                 }
-                 
-                 return false;
-                 
-             }  );
-            
-        });
-            
-          SortedList sort = new SortedList(filtrado);
-          sort.comparatorProperty().bind(tableBuscarArticulo.comparatorProperty());
-          tableBuscarArticulo.setItems(sort);
-        
-        
-        
+        mBuscar();
+        SortedList sort = new SortedList(filtrado);
+        sort.comparatorProperty().bind(tableBuscarArticulo.comparatorProperty());
+        tableBuscarArticulo.setItems(sort);   
     }
+    
+    public void mBuscar(){
+        textBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
+            filtrado.setPredicate( (Predicate <? super Producto>) (Producto p)->{
+                if(newValue.isEmpty() || newValue==null){
+                    return true;
+                }else if(cbxBuscar.getValue().equals("Categoria") ){
+                    if(p.getCategoria().contains(newValue))
+                         return true;
+                }else if(cbxBuscar.getValue().equals(nomT)) {
+                    if(p.getNombre().contains(newValue))
+                         return true;
+                }else if(cbxBuscar.getValue().equals("Descripcion")){
+                     if(p.getDescripcion().contains(newValue))
+                         return true;  
+                }
+                return false;
+             }  );    
+        });
+}
 
    
     

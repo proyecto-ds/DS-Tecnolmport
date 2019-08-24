@@ -6,6 +6,7 @@
 package Modelo;
 
 import static Modelo.Producto.CONNECTION;
+import static Modelo.Producto.LOGGER;
 import java.sql.CallableStatement;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -181,7 +182,7 @@ public class Pedido {
                         ));
             }
         } catch (SQLException e) {
-            //LOGGER.log(Level.SEVERE, e.getMessage());
+            LOGGER.log(Level.SEVERE, e.getMessage());
         } finally {
             CONNECTION.desconectar();
         }
@@ -209,7 +210,7 @@ public class Pedido {
             sp.close();
             return true;
         } catch (SQLException e) {
-            //LOGGER.log(Level.SEVERE, e.getMessage());
+            LOGGER.log(Level.SEVERE, e.getMessage());
         } finally {
             CONNECTION.desconectar();
         }
@@ -230,7 +231,7 @@ public class Pedido {
             
             return true;
         } catch (SQLException e) {
-            //LOGGER.log(Level.SEVERE, e.getMessage());
+            LOGGER.log(Level.SEVERE, e.getMessage());
         } finally {
             CONNECTION.desconectar();
         }
@@ -245,7 +246,7 @@ public class Pedido {
             sp.execute();
             sp.close();
         } catch (SQLException  ex) {
-            //LOGGER.log(Level.SEVERE, ex.getMessage());
+            LOGGER.log(Level.SEVERE, ex.getMessage());
         } finally {
             CONNECTION.desconectar();
         }

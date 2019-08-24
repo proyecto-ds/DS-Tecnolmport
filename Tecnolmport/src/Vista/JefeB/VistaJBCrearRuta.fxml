@@ -20,7 +20,7 @@
             <Font name="Verdana" size="13.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="cb_seleccionarRuta" layoutX="198.0" layoutY="57.0" onAction="#seleccionarRuta" stylesheets="@../../css/comboBox.css" />
+      <JFXComboBox fx:id="cbseleccionarRuta" layoutX="198.0" layoutY="57.0" stylesheets="@../../css/comboBox.css" />
       <Label layoutX="327.0" layoutY="101.0" text="Lista de Entrega">
          <font>
             <Font name="Verdana" size="13.0" />
@@ -31,13 +31,13 @@
             <Font name="Verdana" size="13.0" />
          </font>
       </Label>
-      <TableView fx:id="tbl_rutaEntrega" layoutX="136.0" layoutY="220.0" prefHeight="271.0" prefWidth="517.0" stylesheets="@../../css/fullpackstyling.css">
+      <TableView fx:id="tblrutaEntrega" layoutX="136.0" layoutY="220.0" prefHeight="271.0" prefWidth="517.0" stylesheets="@../../css/fullpackstyling.css">
          <columns>
-            <TableColumn fx:id="CIdEntrega" prefWidth="75.0" text="Id_Entrega" />
-            <TableColumn fx:id="CIdEnvio" prefWidth="75.0" text="Envio" />
-            <TableColumn fx:id="CFecha" prefWidth="75.0" text="Fecha" />
-            <TableColumn fx:id="CDireccion" prefWidth="75.0" text="Direccion" />
-            <TableColumn fx:id="CDescripcion" prefWidth="75.0" text="Descripcion" />
+            <TableColumn fx:id="cIdEntrega" prefWidth="75.0" text="Id_Entrega" />
+            <TableColumn fx:id="cIdEnvio" prefWidth="75.0" text="Envio" />
+            <TableColumn fx:id="cFecha" prefWidth="75.0" text="Fecha" />
+            <TableColumn fx:id="cDireccion" prefWidth="75.0" text="Direccion" />
+            <TableColumn fx:id="cDescripcion" prefWidth="75.0" text="Descripcion" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

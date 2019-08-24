@@ -6,10 +6,6 @@
 package Modelo;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  *

@@ -22,34 +22,34 @@
       </Label>
       <VBox alignment="CENTER" layoutX="11.0" layoutY="72.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="171.0" spacing="12.0" style="-fx-border-color: #1e346d;">
          <children>
-            <JFXTextField fx:id="txt_idEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="ID" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="idEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="ID" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_nomEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="NOMBRE" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="nomEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="NOMBRE" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_apeEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="APELLIDO" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="apeEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="APELLIDO" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_usuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="USUARIO" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="usuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="USUARIO" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_clave" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="CLAVE" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="clave" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="CLAVE" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" spacing="10.0">
                <children>
-                  <JFXTextField fx:id="txt_rol" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" promptText="ROL" unFocusColor="#b8b1b1">
+                  <JFXTextField fx:id="rol" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" promptText="ROL" unFocusColor="#b8b1b1">
                      <font>
                         <Font name="Consolas Bold Italic" size="12.0" />
                      </font>
@@ -57,19 +57,19 @@
                   <JFXComboBox fx:id="cbxRol" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#obtenerRol" prefHeight="25.0" prefWidth="70.0" unFocusColor="#6485da" />
                </children>
             </HBox>
-            <JFXTextField fx:id="txt_salario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="SALARIO" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="salario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="SALARIO" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_teleEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="TELEFONO" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="teleEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="TELEFONO" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" spacing="10.0">
                <children>
-                  <JFXTextField fx:id="txt_localEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" promptText="LOCAL" unFocusColor="#b8b1b1">
+                  <JFXTextField fx:id="localEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" promptText="LOCAL" unFocusColor="#b8b1b1">
                      <font>
                         <Font name="Consolas Bold Italic" size="12.0" />
                      </font>
@@ -77,19 +77,19 @@
                   <JFXComboBox fx:id="cbxLocal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#obtenerLocal" prefHeight="25.0" prefWidth="70.0" unFocusColor="#6485da" />
                </children>
             </HBox>
-            <JFXTextField fx:id="txt_dirEmpelado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="DIRECCION" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="dirEmpelado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="DIRECCION" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_emailEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="EMAIL" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="emailEmpleado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="EMAIL" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" spacing="10.0">
                <children>
-                  <JFXTextField fx:id="txt_estado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" promptText="ESTADO" unFocusColor="#b8b1b1">
+                  <JFXTextField fx:id="estado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" promptText="ESTADO" unFocusColor="#b8b1b1">
                      <font>
                         <Font name="Consolas Bold Italic" size="12.0" />
                      </font>
@@ -103,20 +103,20 @@
          </padding>
       </VBox>
       <Line endX="-9.0" endY="511.0" layoutX="203.0" layoutY="14.0" startX="-9.0" startY="-14.0" style="-fx-stroke: #1e346d;" />
-      <TableView fx:id="table_empleado" layoutX="204.0" layoutY="73.0" onMouseClicked="#seleccionarEmpleado" prefHeight="349.0" prefWidth="539.0" stylesheets="@../css/fullpackstyling.css">
+      <TableView fx:id="tableEmpleado" layoutX="204.0" layoutY="73.0" onMouseClicked="#seleccionarEmpleado" prefHeight="349.0" prefWidth="539.0" stylesheets="@../css/fullpackstyling.css">
         <columns>
-          <TableColumn fx:id="table_id" prefWidth="36.0" text="ID" />
-          <TableColumn fx:id="table_nombre" prefWidth="63.0" text="Nombre" />
-            <TableColumn fx:id="table_apel" prefWidth="72.0" text="Apellido" />
-            <TableColumn fx:id="table_user" prefWidth="58.0" text="Usuario" />
-            <TableColumn fx:id="table_clave" prefWidth="45.0" text="Clave" />
-            <TableColumn fx:id="table_rol" prefWidth="36.0" text="Rol" />
-            <TableColumn fx:id="table_salario" prefWidth="58.0" text="Salario" />
-            <TableColumn fx:id="table_dir" prefWidth="71.0" text="Dirección" />
-            <TableColumn fx:id="table_email" prefWidth="49.0" text="Email" />
-            <TableColumn fx:id="table_tel" prefWidth="71.0" text="Telefono" />
-            <TableColumn fx:id="table_local" prefWidth="61.0" text="Local" />
-            <TableColumn fx:id="table_estado" prefWidth="100.0" text="Estado" />
+          <TableColumn fx:id="tableId" prefWidth="36.0" text="ID" />
+          <TableColumn fx:id="tableNombre" prefWidth="63.0" text="Nombre" />
+            <TableColumn fx:id="tableApel" prefWidth="72.0" text="Apellido" />
+            <TableColumn fx:id="tableUser" prefWidth="58.0" text="Usuario" />
+            <TableColumn fx:id="tableClave" prefWidth="45.0" text="Clave" />
+            <TableColumn fx:id="tableRol" prefWidth="36.0" text="Rol" />
+            <TableColumn fx:id="tableSalario" prefWidth="58.0" text="Salario" />
+            <TableColumn fx:id="tableDir" prefWidth="71.0" text="Dirección" />
+            <TableColumn fx:id="tableEmail" prefWidth="49.0" text="Email" />
+            <TableColumn fx:id="tableTel" prefWidth="71.0" text="Telefono" />
+            <TableColumn fx:id="tableLocal" prefWidth="61.0" text="Local" />
+            <TableColumn fx:id="tableEstado" prefWidth="100.0" text="Estado" />
         </columns>
       </TableView>
       <JFXButton layoutX="432.0" layoutY="446.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#ingresarEmpelado" prefHeight="30.0" prefWidth="85.0" stylesheets="@../css/fullpackstyling.css" text="Ingresar" textFill="#b8b1b1" />

@@ -10,12 +10,12 @@
    <children>
       <TableView fx:id="tablePedido" editable="true" layoutX="16.0" layoutY="37.0" prefHeight="538.0" prefWidth="718.0" stylesheets="@../css/fullpackstyling.css">
         <columns>
-            <TableColumn fx:id="Cid" prefWidth="110.30746358633041" text="      id" />
-          <TableColumn fx:id="CFecha" prefWidth="128.07144165039062" text="         Fecha " />
-          <TableColumn fx:id="CEstado" prefWidth="94.10252380371094" text="     Estado" />
-            <TableColumn fx:id="CLocal" prefWidth="133.8974609375" text="            Local" />
-            <TableColumn fx:id="CGerente" prefWidth="135.84478759765625" text="          Gerente" />
-            <TableColumn fx:id="CProductos" prefWidth="153.15521240234375" text="    Productos" />
+            <TableColumn fx:id="cId" prefWidth="110.30746358633041" text="      id" />
+          <TableColumn fx:id="cFecha" prefWidth="128.07144165039062" text="         Fecha " />
+          <TableColumn fx:id="cEstado" prefWidth="94.10252380371094" text="     Estado" />
+            <TableColumn fx:id="cLocal" prefWidth="133.8974609375" text="            Local" />
+            <TableColumn fx:id="cGerente" prefWidth="135.84478759765625" text="          Gerente" />
+            <TableColumn fx:id="cProductos" prefWidth="153.15521240234375" text="    Productos" />
         </columns>
       </TableView>
       <Label fx:id="lblTitulo" layoutX="316.0" layoutY="12.0" text="Listado de  Pedidos">

@@ -6,15 +6,12 @@
 package Controlador;
 
 import static Controlador.ControladorLogin.user;
-import Modelo.Empleado;
-import Modelo.Gerente;
 import Modelo.Inventario;
 import Modelo.Local;
 import Modelo.Pedido;
 import Modelo.Producto;
 import Modelo.Usuario;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -39,34 +36,29 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class GerenteGPedidoController implements Initializable {
 
-    @FXML private TextArea Descripcion;
+    @FXML private TextArea descripcionTf;
     @FXML private Label lblDescripcion;
     
-    @FXML private TableView<Producto> TableProductos;
-    @FXML private TableColumn<Producto, String> CId;
-    @FXML private TableColumn<Producto, String> CnombreProd;
-    @FXML private TableColumn<Producto, String> CdescripProd;
-    @FXML private TableColumn<Producto, String> CcategoProd;
+    @FXML private TableView<Producto> tableProductos;
+    @FXML private TableColumn<Producto, String> cId;
+    @FXML private TableColumn<Producto, String> cnombreProd;
+    @FXML private TableColumn<Producto, String> cdescripProd;
+    @FXML private TableColumn<Producto, String> ccategoProd;
     @FXML private Button btnAnadir;
     @FXML private Label lblCantidadPro;
     @FXML private TextField textCantidadProd;
     @FXML private Button btnFinalizar;
-    @FXML private DatePicker FechaPedido;
+    @FXML private DatePicker fechapedido;
     @FXML
-    private TableColumn<Producto, String> CPrecio;
-    
-      private ObservableList<Producto> list = null;
-      
-      
-      
+    private TableColumn<Producto, String> cPrecio;
+    private ObservableList<Producto> list = null;
+  
     private Inventario modeloInventario = new Inventario();
-    
     private List<Producto> productos = new ArrayList<>();
-    
     private Usuario usuariomodel = new Usuario();
     private Local localmodel =  new Local();
-    private ControladorValidar validar = new ControladorValidar();
-    private Pedido  pedidomodel= new Pedido();
+    private final ControladorValidar validar = new ControladorValidar();
+    private final Pedido  pedidomodel= new Pedido();
     
     
     /**
@@ -74,13 +66,12 @@ public class GerenteGPedidoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        CId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        CnombreProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("nombre"));
-        CPrecio.setCellValueFactory(new PropertyValueFactory<Producto,String>("precio"));
-        CdescripProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("descripcion"));
-        CcategoProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("categoria"));
+        cId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        cnombreProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("nombre"));
+        cPrecio.setCellValueFactory(new PropertyValueFactory<Producto,String>("precio"));
+        cdescripProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("descripcion"));
+        ccategoProd.setCellValueFactory(new PropertyValueFactory<Producto,String>("categoria"));
         llenarTable();
-        System.out.println(user);
     }   
     
     
@@ -90,12 +81,12 @@ public class GerenteGPedidoController implements Initializable {
          modeloInventario.setIdLocal("3");
         if(list == null){
             list = modeloInventario.llenarTableInventario();
-            TableProductos.setItems(list);
+            tableProductos.setItems(list);
         }
         else{
             list.removeAll(list);
             list = modeloInventario.llenarTableInventario();
-            TableProductos.setItems(list);
+            tableProductos.setItems(list);
         }
         
     }
@@ -104,10 +95,8 @@ public class GerenteGPedidoController implements Initializable {
     public void  ObtenerUsuario(){
         
        for(Usuario us : usuariomodel.llenarTableEmpleado()){
-           //System.out.println(us.getUsuario());
           if(user.equals(us.getUsuario())){
               usuariomodel = us;
-              System.out.println(us.toString());
            }
                
        }               
@@ -118,39 +107,26 @@ public class GerenteGPedidoController implements Initializable {
        for(Local us : localmodel.obtenerLocales()){
            if(usuariomodel.getLocal().equals(us)){
                localmodel =us;
-               //System.out.println(us.toString());
            }
                
        }               
     }
-    
-     public String ObteneridPedido(){
-         
-        
-         int ultimo = pedidomodel.llenarTablePedido().size()-1;
-        String respuesta = pedidomodel.llenarTablePedido().get(ultimo).getId();
-        int temporal = Integer.valueOf(respuesta);
-        ++temporal;
-        respuesta = String.valueOf(temporal);
-         
-         return respuesta;
-     }
     
     
     public void finalzar(ActionEvent event){
  
         ObtenerUsuario();
         ObtenerLocal();
-        ObteneridPedido();
+        //ObteneridPedido();
         
-       String descripcion = Descripcion.getText();  
+       String descripcion = descripcionTf.getText();  
      
      System.out.println(productos.toString());
      
-     if(FechaPedido.getValue()!=null){
-         Date fechaPedido = java.sql.Date.valueOf(FechaPedido.getValue());
+     if(fechapedido.getValue()!=null){
+         Date fechaPedido = java.sql.Date.valueOf(fechapedido.getValue());
          
-          Pedido pedido = new Pedido(ObteneridPedido(), (java.sql.Date) fechaPedido,descripcion,true,localmodel,productos,usuariomodel.getUsuario()); 
+          Pedido pedido = new Pedido("0", (java.sql.Date) fechaPedido,descripcion,true,localmodel,productos,usuariomodel.getUsuario()); 
           
           System.out.println(pedido.toString());
           boolean valid = pedidomodel.registroPedido(pedido);
@@ -162,33 +138,25 @@ public class GerenteGPedidoController implements Initializable {
               validar.mensajeIngresadoIncorrecto();
           }
           
-     }else{
-         System.out.println("falta fecha");
      }
-     
-     
 
     }
 
     @FXML
-    private void AddProduct(ActionEvent event) {
+    private void addProduct(ActionEvent event) {
         lblCantidadPro.setVisible(true);
         textCantidadProd.setVisible(true);
         
         if(!textCantidadProd.getText().isEmpty()){
            int cantidad =  Integer.valueOf( textCantidadProd.getText());
-           Producto p = TableProductos.getSelectionModel().getSelectedItem();
+           Producto p = tableProductos.getSelectionModel().getSelectedItem();
                  p .setStock(cantidad);
                 productos.add(p);
-        list.remove(TableProductos.getSelectionModel().getSelectedItem());
-        TableProductos.setItems(list);
+        list.remove(tableProductos.getSelectionModel().getSelectedItem());
+        tableProductos.setItems(list);
         textCantidadProd.clear();
             
-        }else{
-            System.out.println("falta llenar el campo de cantidad");
         }
-       
-        
     }
     
 }

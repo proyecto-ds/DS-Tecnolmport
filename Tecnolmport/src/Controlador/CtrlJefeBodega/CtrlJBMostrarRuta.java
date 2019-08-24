@@ -1,19 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador.CtrlJefeBodega;
 
-import Modelo.Envio;
-import Modelo.Repartidor;
 import Modelo.Ruta;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -26,22 +19,22 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class CtrlJBMostrarRuta implements Initializable {
 
     @FXML
-    private TableView<Ruta> tbl_ruta;
+    private TableView<Ruta> tblruta;
     @FXML
-    private TableColumn<Ruta, String> CidRuta;
+    private TableColumn<Ruta, String> cidRuta;
     @FXML
-    private TableColumn<Ruta, String> CZona;
+    private TableColumn<Ruta, String> cZona;
     @FXML
-    private TableColumn<Ruta, String> CNombre;
+    private TableColumn<Ruta, String> cNombre;
     @FXML
-    private TableColumn<Ruta, String> CApellido;
+    private TableColumn<Ruta, String> cApellido;
     
-    @FXML private TableView<Ruta> tbl_entrega;
-    @FXML private TableColumn<Ruta, String> CIdEntrega;
-    @FXML private TableColumn<Ruta, String> CFecha;
-    @FXML private TableColumn<Ruta, String> CDireccion;
-    @FXML  private TableColumn<Ruta, String> CEstado;
-    @FXML private TableColumn<Ruta, String> CIdRutaE;
+    @FXML private TableView<Ruta> tblentrega;
+    @FXML private TableColumn<Ruta, String> cIdEntrega;
+    @FXML private TableColumn<Ruta, String> cFecha;
+    @FXML private TableColumn<Ruta, String> cDireccion;
+    @FXML  private TableColumn<Ruta, String> cEstado;
+    @FXML private TableColumn<Ruta, String> cIdRutaE;
     
     private ObservableList<Ruta> rutaObs =null;
     private ObservableList<Ruta> rutaEntrega1 =null;
@@ -52,16 +45,16 @@ public class CtrlJBMostrarRuta implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        CidRuta.setCellValueFactory(new PropertyValueFactory<>("idRuta"));
-        CZona.setCellValueFactory(new PropertyValueFactory<>("zona"));
-        CNombre.setCellValueFactory(new PropertyValueFactory<>("nombreRepartidor"));
-        CApellido.setCellValueFactory(new PropertyValueFactory<>("apellidoRepartidor"));
+        cidRuta.setCellValueFactory(new PropertyValueFactory<>("idRuta"));
+        cZona.setCellValueFactory(new PropertyValueFactory<>("zona"));
+        cNombre.setCellValueFactory(new PropertyValueFactory<>("nombreRepartidor"));
+        cApellido.setCellValueFactory(new PropertyValueFactory<>("apellidoRepartidor"));
         
-        CIdEntrega.setCellValueFactory(new PropertyValueFactory<>("idEntrega"));
-        CFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
-        CDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
-        CEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
-        CIdRutaE.setCellValueFactory(new PropertyValueFactory<>("idRuta"));
+        cIdEntrega.setCellValueFactory(new PropertyValueFactory<>("idEntrega"));
+        cFecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        cDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
+        cEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        cIdRutaE.setCellValueFactory(new PropertyValueFactory<>("idRuta"));
         
         llenarTableRuta();
         llenarTableRutaEntrega();
@@ -70,24 +63,24 @@ public class CtrlJBMostrarRuta implements Initializable {
     private void llenarTableRuta(){
         if(rutaObs == null){
             rutaObs = modeloRuta.cargarRuta();
-            tbl_ruta.setItems(rutaObs);
+            tblruta.setItems(rutaObs);
         }
         else{
             rutaObs.removeAll(rutaObs);
             rutaObs = modeloRuta.cargarRuta();
-            tbl_ruta.setItems(rutaObs);
+            tblruta.setItems(rutaObs);
         }
     }
     
     private void llenarTableRutaEntrega(){
         if(rutaEntrega1 == null){
             rutaEntrega1 = modeloRuta.cargarDatosRutaEntrega();
-            tbl_entrega.setItems(rutaEntrega1);
+            tblentrega.setItems(rutaEntrega1);
         }
         else{
             rutaEntrega1.removeAll(rutaEntrega1);
             rutaEntrega1 = modeloRuta.cargarDatosRutaEntrega();
-            tbl_entrega.setItems(rutaEntrega1);
+            tblentrega.setItems(rutaEntrega1);
         }
     }
     

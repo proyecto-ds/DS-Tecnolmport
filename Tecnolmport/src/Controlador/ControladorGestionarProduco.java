@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 
 import Modelo.Producto;
-import Modelo.Usuario;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
@@ -19,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
@@ -31,26 +25,26 @@ import javafx.scene.input.MouseEvent;
 public class ControladorGestionarProduco implements Initializable {
 
     
-    @FXML private JFXTextField txt_estado;
-    @FXML private JFXTextField txt_id;
-    @FXML private JFXTextField txt_nom;
-    @FXML private JFXTextField txt_precioProd;
-    @FXML private JFXTextField txt_categ;
-    @FXML private JFXTextField txt_descrip;
-    @FXML private JFXTextField txt_prove;
-    @FXML private TableColumn<Producto, String> table_id;
-    @FXML private TableColumn<Producto, String> table_nombre;
-    @FXML private TableColumn<Producto, String> table_estado;
-    @FXML private TableColumn<Producto, String> table_precio;
-    @FXML private TableColumn<Producto, String> table_categoria;
-    @FXML private TableColumn<Producto, String> table_descrip;
-    @FXML private TableColumn<Producto, String> table_prov;
-    @FXML private TableView<Producto> table_producto;
+    @FXML private JFXTextField txtEstado;
+    @FXML private JFXTextField txtId;
+    @FXML private JFXTextField txtNom;
+    @FXML private JFXTextField txtPrecioProd;
+    @FXML private JFXTextField txtCateg;
+    @FXML private JFXTextField txtDescrip;
+    @FXML private JFXTextField txtProve;
+    @FXML private TableColumn<Producto, String> tableId;
+    @FXML private TableColumn<Producto, String> tableNombre;
+    @FXML private TableColumn<Producto, String> tableEstado;
+    @FXML private TableColumn<Producto, String> tablePrecio;
+    @FXML private TableColumn<Producto, String> tableCategoria;
+    @FXML private TableColumn<Producto, String> tableDescrip;
+    @FXML private TableColumn<Producto, String> tableProv;
+    @FXML private TableView<Producto> tableProducto;
     @FXML private JFXComboBox<Boolean> cbxEstado;
-    private Producto modeloProducto = new Producto();
-    private ControladorValidar validar =  new ControladorValidar();
+    private final Producto modeloProducto = new Producto();
+    private final ControladorValidar validar =  new ControladorValidar();
     private ObservableList<Producto> list = null;
-    private Producto producto;
+    private Producto producto  = null;
     
     
     /**
@@ -58,13 +52,13 @@ public class ControladorGestionarProduco implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        table_id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        table_nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        table_precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
-        table_categoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
-        table_descrip.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
-        table_prov.setCellValueFactory(new PropertyValueFactory<>("proveedor"));
-        table_estado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        tableId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tableNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        tablePrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        tableCategoria.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+        tableDescrip.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        tableProv.setCellValueFactory(new PropertyValueFactory<>("proveedor"));
+        tableEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
         cbxEstado.getItems().addAll(true,false);
         llenarTable();
     }
@@ -74,12 +68,12 @@ public class ControladorGestionarProduco implements Initializable {
     public void llenarTable(){
         if(list == null){
             list = modeloProducto.llenarTableProducto();
-            table_producto.setItems(list);
+            tableProducto.setItems(list);
         }
         else{
             list.removeAll(list);
             list = modeloProducto.llenarTableProducto();
-            table_producto.setItems(list);
+            tableProducto.setItems(list);
         }
         
     }
@@ -113,7 +107,7 @@ public class ControladorGestionarProduco implements Initializable {
 
     @FXML
     private void eliminarProducto(ActionEvent event) {
-        modeloProducto.setId(txt_id.getText());
+        modeloProducto.setId(txtId.getText());
         boolean resultado = modeloProducto.eliminarProducto();
         if (resultado){
             validar.mensajeEliminadoCorrecto();
@@ -125,19 +119,19 @@ public class ControladorGestionarProduco implements Initializable {
 
     @FXML
     private void seleccionarProducto(MouseEvent event) {
-        producto = (Producto)table_producto.getSelectionModel().getSelectedItem();
-        txt_id.setText(producto.getId());
-        txt_nom.setText(producto.getNombre());
-        txt_precioProd.setText(String.valueOf(producto.getPrecio()));
-        txt_categ.setText(producto.getCategoria());
-        txt_descrip.setText(producto.getDescripcion());
-        txt_estado.setText(String.valueOf(producto.isEstado()));
-        txt_prove.setText(producto.getProveedor());
+        producto = (Producto)tableProducto.getSelectionModel().getSelectedItem();
+        txtId.setText(producto.getId());
+        txtNom.setText(producto.getNombre());
+        txtPrecioProd.setText(String.valueOf(producto.getPrecio()));
+        txtCateg.setText(producto.getCategoria());
+        txtDescrip.setText(producto.getDescripcion());
+        txtEstado.setText(String.valueOf(producto.isEstado()));
+        txtProve.setText(producto.getProveedor());
     }
     
     public void obtenerDatos(){
-        boolean validarCampo = txt_id.equals("") && txt_nom.equals("") &&txt_categ.equals("") &&txt_descrip.equals("") &&txt_prove.equals("");
-        boolean validarPrecio = validar.validarFloat(txt_precioProd);
+        boolean validarCampo = txtId.equals("") && txtNom.equals("") &&txtCateg.equals("") &&txtDescrip.equals("") &&txtProve.equals("");
+        boolean validarPrecio = validar.validarFloat(txtPrecioProd);
         if(!validarCampo && !validarPrecio){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Campo");
@@ -146,13 +140,13 @@ public class ControladorGestionarProduco implements Initializable {
             alert.showAndWait();
         }
         else{
-            modeloProducto.setId(txt_id.getText());
-            modeloProducto.setNombre(txt_nom.getText());
-            modeloProducto.setPrecio(Float.parseFloat(txt_precioProd.getText()));
-            modeloProducto.setCategoria(txt_categ.getText());
-            modeloProducto.setDescripcion(txt_descrip.getText());
-            modeloProducto.setProveedor(txt_prove.getText());
-            modeloProducto.setEstado(Boolean.parseBoolean(txt_estado.getText()));
+            modeloProducto.setId(txtId.getText());
+            modeloProducto.setNombre(txtNom.getText());
+            modeloProducto.setPrecio(Float.parseFloat(txtPrecioProd.getText()));
+            modeloProducto.setCategoria(txtCateg.getText());
+            modeloProducto.setDescripcion(txtDescrip.getText());
+            modeloProducto.setProveedor(txtProve.getText());
+            modeloProducto.setEstado(Boolean.parseBoolean(txtEstado.getText()));
             
         }
         
@@ -161,7 +155,7 @@ public class ControladorGestionarProduco implements Initializable {
     @FXML
     private void obtenerEstado(ActionEvent event) {
         String seleccion = String.valueOf(cbxEstado.getValue());
-        txt_estado.setText(seleccion.toLowerCase()); 
+        txtEstado.setText(seleccion.toLowerCase()); 
     }
     
     

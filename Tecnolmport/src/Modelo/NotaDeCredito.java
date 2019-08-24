@@ -23,13 +23,6 @@ public class NotaDeCredito extends  Documento {
     }
     
 
-   
-
-    
-    
-    public void CancelarFactuar(Venta venta){
-    }
-
     public String getIdNota() {
         return idNota;
     }

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador.CtrlJefeBodega;
 
 import Modelo.Repartidor;
@@ -24,21 +20,21 @@ import javafx.scene.control.TableView;
  */
 public class CtrlJBAsignarRuta implements Initializable {
 
-    @FXML private JFXComboBox<String> cb_repartidor;
-    @FXML private JFXButton btn_asignarRuta;
-    @FXML private TableView<?> tbl_rutaEntrega;
+    @FXML private JFXComboBox<String> cbrepartidor;
+    @FXML private JFXButton btnasignarRuta;
+    @FXML private TableView<?> tblrutaEntrega;
     protected Repartidor repartidor = new Repartidor();
     @FXML
-    private JFXComboBox<String> cb_FiltrarRuta;
+    private JFXComboBox<String> cbFiltrarRuta;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         LinkedList<String> nombre =repartidor.obtenerRepartidorDisponible();
-        cb_FiltrarRuta.getItems().addAll("Norte","Sur","Centro","Este","Oeste");
+        cbFiltrarRuta.getItems().addAll("Norte","Sur","Centro","Este","Oeste");
         if(!comprobarNulidad(nombre))
-            cb_repartidor.getItems().addAll(nombre);
+            cbrepartidor.getItems().addAll(nombre);
     }    
     
     /**
@@ -48,20 +44,6 @@ public class CtrlJBAsignarRuta implements Initializable {
      */
     private boolean comprobarNulidad(List lista){
         return lista.isEmpty();
-    }
-            
-
-    @FXML
-    private void seleccionarRepartidor(ActionEvent event) {
-        
-    }
-
-    @FXML
-    private void asignarRuta(ActionEvent event) {
-    }
-
-    @FXML
-    private void seleccionarRuta(ActionEvent event) {
     }
     
 }

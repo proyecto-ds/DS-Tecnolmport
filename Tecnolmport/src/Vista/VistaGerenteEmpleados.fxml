@@ -13,18 +13,18 @@
             <Font name="Verdana Bold" size="13.0" />
          </font>
       </Label>
-      <TableView fx:id="table_empleado" layoutX="19.0" layoutY="54.0" onMouseClicked="#seleccionarEmpleado" prefHeight="524.0" prefWidth="714.0" stylesheets="@../css/fullpackstyling.css">
+      <TableView fx:id="tableEmpleado" layoutX="19.0" layoutY="54.0" prefHeight="524.0" prefWidth="714.0" stylesheets="@../css/fullpackstyling.css">
          <columns>
-            <TableColumn fx:id="table_id" prefWidth="64.0" text="ID" />
-            <TableColumn fx:id="table_nombre" prefWidth="66.0" text="Nombre" />
-            <TableColumn fx:id="table_apel" prefWidth="77.0" text="Apellido" />
-            <TableColumn fx:id="table_user" prefWidth="68.0" text="Usuario" />
-            <TableColumn fx:id="table_rol" prefWidth="70.0" text="   Rol" />
-            <TableColumn fx:id="table_salario" prefWidth="60.0" text="Salario" />
-            <TableColumn fx:id="table_email" prefWidth="101.0" text="     Email" />
-            <TableColumn fx:id="table_tel" prefWidth="66.0" text="Telefono" />
-            <TableColumn fx:id="table_local" prefWidth="74.0" text="      Local" />
-            <TableColumn fx:id="table_estado" prefWidth="69.5618896484375" text="Estado" />
+            <TableColumn fx:id="tableId" prefWidth="64.0" text="ID" />
+            <TableColumn fx:id="tableNombre" prefWidth="66.0" text="Nombre" />
+            <TableColumn fx:id="tableApel" prefWidth="77.0" text="Apellido" />
+            <TableColumn fx:id="tableUser" prefWidth="68.0" text="Usuario" />
+            <TableColumn fx:id="tableRol" prefWidth="70.0" text="   Rol" />
+            <TableColumn fx:id="tableSalario" prefWidth="60.0" text="Salario" />
+            <TableColumn fx:id="tableEmail" prefWidth="101.0" text="     Email" />
+            <TableColumn fx:id="tableTel" prefWidth="66.0" text="Telefono" />
+            <TableColumn fx:id="tableLocal" prefWidth="74.0" text="      Local" />
+            <TableColumn fx:id="tableEstado" prefWidth="69.5618896484375" text="Estado" />
          </columns>
       </TableView>
    </children>

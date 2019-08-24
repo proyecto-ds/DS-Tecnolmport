@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 import com.jfoenix.controls.JFXComboBox;
@@ -33,7 +29,7 @@ public class ControladorMenuAdministrador implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cbxGestionar.getItems().addAll("Cotizacion","Empleado","Entrega","Inventario","Producto","Pedido","Venta");
+        cbxGestionar.getItems().addAll("Empleado","Inventario","Producto");
     }
 
     @FXML
@@ -44,10 +40,7 @@ public class ControladorMenuAdministrador implements Initializable {
     
     public void gestionarSeleccion(String seleccion) throws IOException{
         String seleccionG = seleccion.toLowerCase();
-        if(seleccionG.equals("cotizacion")){
-            System.out.println("");
-        }
-        else if(seleccionG.equals("empleado")){
+        if(seleccionG.equals("empleado")){
             AnchorPane vistaGE = FXMLLoader.load(getClass().getResource(("/Vista/VistaGestionarEmpleado.fxml")));
             parent2.getChildren().setAll(vistaGE);
         }
@@ -58,12 +51,6 @@ public class ControladorMenuAdministrador implements Initializable {
         else if(seleccionG.equals("inventario")){
             AnchorPane vistaGI = FXMLLoader.load(getClass().getResource(("/Vista/VistaGestionarInventario.fxml")));
             parent2.getChildren().setAll(vistaGI);
-        }
-        else if(seleccionG.equals("pedido")){
-            System.out.println("");
-        }
-        else if(seleccionG.equals("venta")){
-            System.out.println("");
         }
     }
     

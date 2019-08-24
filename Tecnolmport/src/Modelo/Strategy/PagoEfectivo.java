@@ -22,7 +22,6 @@ public class PagoEfectivo implements Pago{
     
     @Override
     public boolean pagar(String idCliente) {
-         System.out.println("Ya pague pilass");
          return true;
     }
 

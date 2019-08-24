@@ -11,7 +11,6 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -137,7 +136,6 @@ public class Entrega {
                                 resultado.getString("e.direccion"),
                                 resultado.getString("descripcion")
                         ));
-                System.out.println(resultado.getString("idEnvio")+" "+resultado.getString("direccion"));
             }
         } catch (SQLException  ex) {
             LOGGER.log(Level.SEVERE, ex.getMessage());

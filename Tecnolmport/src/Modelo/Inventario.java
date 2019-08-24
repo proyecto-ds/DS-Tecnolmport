@@ -5,7 +5,6 @@
  */
 package Modelo;
 
-import Controlador.ControladorLogin;
 import static Controlador.ControladorLogin.user;
 import Singleton.DBConnection;
 import java.sql.CallableStatement;
@@ -30,7 +29,6 @@ public class Inventario {
     protected String idLocal;
     protected static final DBConnection CONNECTION = DBConnection.getInstance();
     protected static final Logger LOGGER = Logger.getLogger("Usuario Logger");
-    private Producto modeloProducto;
     private final String actualizar = "{call  actualizarInventario (?,?,?,?,?)}";
     private final String ingresar = "{call   ingresarInventario(?,?,?,?,?)}";
     private final String eliminar = "{call   eliminarInventario (?)}";

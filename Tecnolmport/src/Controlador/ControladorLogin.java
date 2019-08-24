@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 import Modelo.Usuario;
@@ -18,12 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
+import javafx.scene.Parent;     
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.MouseDragEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -35,27 +27,27 @@ public class ControladorLogin implements Initializable {
     
     
     @FXML private AnchorPane parent;
-    @FXML private JFXTextField text_usuario;
-    @FXML private JFXPasswordField text_contraseña;
-    @FXML private JFXButton btn_login;
+    @FXML private JFXTextField textUsuario;
+    @FXML private JFXPasswordField textContrasena;
     
     public static String user;
-    public static String permi = null;
+    public static String permi;
     private ControladorValidar controladorValidar = new ControladorValidar();
     private Usuario modeloUsuario = new Usuario();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        user=null;
+        permi = null;
     }    
 
     @FXML
     private void login(ActionEvent event) throws IOException {
-        String usuario = text_usuario.getText();
-        String contraseña = text_contraseña.getText();
-        if(controladorValidar.ValidarUsuarioContrasena(usuario, contraseña)){
+        String usuario = textUsuario.getText();
+        String contrasena = textContrasena.getText();
+        if(controladorValidar.validarUsuarioContrasena(usuario, contrasena)){
             modeloUsuario.setUsuario(usuario);
-            modeloUsuario.setContraseña(contraseña);
+            modeloUsuario.setContrasena(contrasena);
             String rol = modeloUsuario.login();
             if(rol !=null){
                 user = usuario;
@@ -70,21 +62,21 @@ public class ControladorLogin implements Initializable {
     }
     
     public void asignarVistaRol(String rol, ActionEvent event) throws IOException{
-        if(rol.toLowerCase().equals("gerente")){
+        if(rol.equalsIgnoreCase("gerente")){
             Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaGerente.fxml"));
             Scene sceneGerente = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(sceneGerente);
             stage.show();
         }
-        else if(rol.toLowerCase().equals("jefe")){
+        else if(rol.equalsIgnoreCase("jefe")){
             Parent root = FXMLLoader.load(getClass().getResource("/Vista/JefeB/VistaJB.fxml"));
             Scene sceneJefe = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(sceneJefe);
             stage.show();
         }
-        else if(rol.toLowerCase().equals("vendedor")){
+        else if(rol.equalsIgnoreCase("vendedor")){
             Parent root = FXMLLoader.load(getClass().getResource("/Vista/VistaVendedor.fxml"));
             Scene sceneVendedor = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

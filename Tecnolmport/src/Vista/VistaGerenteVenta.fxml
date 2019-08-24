@@ -10,14 +10,14 @@
    <children>
       <TableView fx:id="tableVenta" layoutX="27.0" layoutY="49.0" prefHeight="516.0" prefWidth="696.0" stylesheets="@../css/fullpackstyling.css">
         <columns>
-          <TableColumn fx:id="CidVenta" prefWidth="75.0" text="   id" />
-          <TableColumn fx:id="CFechaVenta" prefWidth="82.46366882324219" text="Fecha" />
-            <TableColumn fx:id="CCotizacion" prefWidth="74.21971130371094" text="Cotizacion" />
-            <TableColumn fx:id="CTotal" prefWidth="75.0" text="    Total" />
-            <TableColumn fx:id="CVendedor" prefWidth="91.70761108398438" text="  Vendedor" />
-            <TableColumn fx:id="CProductos" prefWidth="78.19549560546875" text=" Producto" />
-            <TableColumn fx:id="CidEnvio" prefWidth="122.0" text="Direccion de Envio" />
-            <TableColumn fx:id="CLocal" prefWidth="94.0" text="      Local" />
+          <TableColumn fx:id="cidVenta" prefWidth="75.0" text="   id" />
+          <TableColumn fx:id="cFechaVenta" prefWidth="82.46366882324219" text="Fecha" />
+            <TableColumn fx:id="cCotizacion" prefWidth="74.21971130371094" text="Cotizacion" />
+            <TableColumn fx:id="cTotal" prefWidth="75.0" text="    Total" />
+            <TableColumn fx:id="cVendedor" prefWidth="91.70761108398438" text="  Vendedor" />
+            <TableColumn fx:id="cProductos" prefWidth="78.19549560546875" text=" Producto" />
+            <TableColumn fx:id="cidEnvio" prefWidth="122.0" text="Direccion de Envio" />
+            <TableColumn fx:id="cLocal" prefWidth="94.0" text="      Local" />
         </columns>
       </TableView>
       <Label fx:id="lblTitulo" layoutX="326.0" layoutY="19.0" text="Lista Ventas">

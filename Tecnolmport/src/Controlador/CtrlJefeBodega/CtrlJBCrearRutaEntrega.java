@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador.CtrlJefeBodega;
 
 import Modelo.Entrega;
-import Modelo.Envio;
 import com.jfoenix.controls.JFXComboBox;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,18 +20,18 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class CtrlJBCrearRutaEntrega implements Initializable {
 
-    @FXML private JFXComboBox<String> cb_seleccionarRuta;
-    @FXML private TableView<Entrega> tbl_rutaEntrega;
+    @FXML private JFXComboBox<String> cbseleccionarRuta;
+    @FXML private TableView<Entrega> tblrutaEntrega;
     @FXML 
-    private TableColumn<Entrega, String> CIdEntrega;
+    private TableColumn<Entrega, String> cIdEntrega;
     @FXML
-    private TableColumn<Entrega, String> CIdEnvio;
+    private TableColumn<Entrega, String> cIdEnvio;
     @FXML
-    private TableColumn<Entrega, String> CFecha;
+    private TableColumn<Entrega, String> cFecha;
     @FXML
-    private TableColumn<Entrega, String> CDireccion;
+    private TableColumn<Entrega, String> cDireccion;
     @FXML
-    private TableColumn<Entrega, String> CDescripcion;
+    private TableColumn<Entrega, String> cDescripcion;
     
     protected ObservableList<Entrega> entregaObs =null;
     private Entrega entregaModelo = new Entrega();
@@ -45,25 +40,22 @@ public class CtrlJBCrearRutaEntrega implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        CIdEntrega.setCellValueFactory(new PropertyValueFactory<>("id"));
-        CIdEnvio.setCellValueFactory(new PropertyValueFactory<>("idEnvio"));
-        CFecha.setCellValueFactory(new PropertyValueFactory<>("date"));
-        CDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
-        CDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        cIdEntrega.setCellValueFactory(new PropertyValueFactory<>("id"));
+        cIdEnvio.setCellValueFactory(new PropertyValueFactory<>("idEnvio"));
+        cFecha.setCellValueFactory(new PropertyValueFactory<>("date"));
+        cDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
+        cDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         
         llenarTableEntrega();
-        cb_seleccionarRuta.getItems().addAll("Norte","Sur","Centro","Este","Oeste");
+        cbseleccionarRuta.getItems().addAll("Norte","Sur","Centro","Este","Oeste");
     }    
 
     private void llenarTableEntrega(){
         if(entregaObs == null){
             entregaObs = entregaModelo.cargarEntrega();
-            tbl_rutaEntrega.setItems(entregaObs);
+            tblrutaEntrega.setItems(entregaObs);
         }
     }
     
-    @FXML
-    private void seleccionarRuta(ActionEvent event) {
-    }
     
 }

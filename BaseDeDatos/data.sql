@@ -2,7 +2,7 @@ INSERT INTO `TecnolmportDS`.`Producto`()
 	VALUES('001','Teclado',15.55,'equipo','Uso para PC','ASUS',true,'2025-12-31');
 INSERT INTO `TecnolmportDS`.`Producto`()
 	VALUES('002','Case',50,'equipo','Uso para PC','LG',true,'2025-12-31');
-INSERT INTO `tecnolmportds`.`Producto`()
+INSERT INTO `tecnolmportDs`.`Producto`()
 	VALUES('003','Monitor',75.5,'equipo','Uso para PC','DELL',true,'2025-12-31');
 INSERT INTO `TecnolmportDS`.`Producto`()
 	VALUES('004','Camara',21,'equipo','Uso para PC','Sony',true,'2025-12-31');

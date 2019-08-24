@@ -28,22 +28,6 @@ public abstract class Documento {
         this.fechaExpredicion = fechaExpredicion;
         this.venta = venta;
     }
-    
-    
-    
-    
-    
-   public Documento ConsultarDocumento(){
-       return null;
-   }
-    
-    public boolean ImprimirDocumento(Documento documento){
-        return false;
-    }
-
-    public void EnviarPorCorreo(){
-        
-    }
 
     
 }

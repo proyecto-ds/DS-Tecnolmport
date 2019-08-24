@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 import Modelo.Usuario;
@@ -27,20 +23,20 @@ import javafx.scene.input.MouseEvent;
 public class ControladorVistaGerentePermisos implements Initializable {
 
     @FXML private Label lblTitutlo;
-    @FXML private TableView<Usuario> table_empleado;
-    @FXML private TableColumn<Usuario, String> table_id;
-    @FXML private TableColumn<Usuario, String> table_nombre;
-    @FXML private TableColumn<Usuario, String> table_apel;
-    @FXML private TableColumn<Usuario, String> table_user;
-    @FXML private TableColumn<Usuario, String> table_rol;
-    @FXML private TableColumn<Usuario, String> table_email;
-    @FXML private TableColumn<Usuario, String> table_tel;
-    @FXML private TableColumn<Usuario, String> table_local;
-    @FXML private TableColumn<Usuario, String> table_estado;
-    @FXML private TableColumn<Usuario, String> table_permiso;
+    @FXML private TableView<Usuario> tableEmpleado;
+    @FXML private TableColumn<Usuario, String> tableId;
+    @FXML private TableColumn<Usuario, String> tableNombre;
+    @FXML private TableColumn<Usuario, String> tableApel;
+    @FXML private TableColumn<Usuario, String> tableUser;
+    @FXML private TableColumn<Usuario, String> tableRol;
+    @FXML private TableColumn<Usuario, String> tableEmail;
+    @FXML private TableColumn<Usuario, String> tableTel;
+    @FXML private TableColumn<Usuario, String> tableLocal;
+    @FXML private TableColumn<Usuario, String> tableEstado;
+    @FXML private TableColumn<Usuario, String> tablePermiso;
     @FXML private Button btnAsigPermisos;
     
-    private Usuario modeloUsuario = new Usuario();
+    private final Usuario modeloUsuario = new Usuario();
     private ObservableList<Usuario> list = null;
     @FXML
     private Button btnQuitarPerm;
@@ -52,16 +48,16 @@ public class ControladorVistaGerentePermisos implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        table_id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        table_nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        table_apel.setCellValueFactory(new PropertyValueFactory<>("apellido"));
-        table_tel.setCellValueFactory(new PropertyValueFactory<>("telefono"));
-        table_email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        table_local.setCellValueFactory(new PropertyValueFactory<>("local"));
-        table_rol.setCellValueFactory(new PropertyValueFactory<>("rol"));
-        table_user.setCellValueFactory(new PropertyValueFactory<>("usuario"));
-        table_estado.setCellValueFactory(new PropertyValueFactory<>("activo"));
-        table_permiso.setCellValueFactory(new PropertyValueFactory<>("permisoAdmin"));
+        tableId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tableNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        tableApel.setCellValueFactory(new PropertyValueFactory<>("apellido"));
+        tableTel.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+        tableEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tableLocal.setCellValueFactory(new PropertyValueFactory<>("local"));
+        tableRol.setCellValueFactory(new PropertyValueFactory<>("rol"));
+        tableUser.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+        tableEstado.setCellValueFactory(new PropertyValueFactory<>("activo"));
+        tablePermiso.setCellValueFactory(new PropertyValueFactory<>("permisoAdmin"));
        
         llenarTable();
     }    
@@ -69,18 +65,18 @@ public class ControladorVistaGerentePermisos implements Initializable {
       public void llenarTable(){
         if(list == null){
             list = modeloUsuario.llenarTableEmpleadoPAdmin();
-            table_empleado.setItems(list);
+            tableEmpleado.setItems(list);
         }
         else{
             list.removeAll(list);
             list = modeloUsuario.llenarTableEmpleadoPAdmin();
-            table_empleado.setItems(list);
+            tableEmpleado.setItems(list);
         }
     }
 
     @FXML
     private void seleccionarAdmin(MouseEvent event) {
-        Usuario us =  table_empleado.getSelectionModel().getSelectedItem();
+        Usuario us =  tableEmpleado.getSelectionModel().getSelectedItem();
         modeloUsuario.setId(us.getId());
     }
 

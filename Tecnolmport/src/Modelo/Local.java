@@ -9,7 +9,6 @@ import Singleton.DBConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -156,10 +155,7 @@ public class Local {
         if (this.tipoLocal != other.tipoLocal) {
             return false;
         }
-        if (!Objects.equals(this.inventario, other.inventario)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.inventario, other.inventario);
     }
 
     @Override

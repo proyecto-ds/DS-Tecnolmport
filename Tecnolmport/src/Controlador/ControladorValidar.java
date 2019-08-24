@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 import com.jfoenix.controls.JFXTextField;
@@ -13,6 +9,7 @@ import javafx.scene.control.Alert;
  * @author bryan
  */
 public class ControladorValidar {
+    private String campo = "Campo";
     public void mensajeEliminadoCorrecto(){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Eliminar");
@@ -75,16 +72,16 @@ public class ControladorValidar {
     public boolean validarCampoVacio(JFXTextField txt) {
         if (txt.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Campo");
+            alert.setTitle(campo);
             alert.setHeaderText(null);
-            alert.setContentText("Campo vacio!");
+            alert.setContentText(campo+"vacio!");
             alert.showAndWait();
 
             return false;
         }
         return true;
     }
-    public boolean ValidarUsuarioContrasena(String txtU, String txtC) {
+    public boolean validarUsuarioContrasena(String txtU, String txtC) {
         if (txtU.isEmpty() || txtC.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Login");
@@ -100,7 +97,7 @@ public class ControladorValidar {
             return true;
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Campo");
+            alert.setTitle(campo);
             alert.setHeaderText(null);
             alert.setContentText("Tipo de dato invalido..!");
             alert.showAndWait();

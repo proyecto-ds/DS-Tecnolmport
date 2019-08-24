@@ -14,8 +14,8 @@ public class Gerente extends Usuario{
     public Gerente() {
     }
 
-    public Gerente(String usuario, String contraseña, String id, String nombre, String apellido, String rol, int salario, String direccion, String email, String telefono, String local, boolean activo) {
-        super(usuario, contraseña, id, nombre, apellido, rol, salario, direccion, email, telefono, local, activo);
+    public Gerente(String usuario, String contrasena, String id, String nombre, String apellido, String rol, int salario, String direccion, String email, String telefono, String local, boolean activo) {
+        super(usuario, contrasena, id, nombre, apellido, rol, salario, direccion, email, telefono, local, activo);
     }
 
     

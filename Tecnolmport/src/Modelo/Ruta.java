@@ -9,6 +9,8 @@ import Singleton.DBConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -29,7 +31,7 @@ public class Ruta {
     protected String direccion;
     protected String estado;
     
-    //protected static final Logger LOGGER = Logger.getLogger("Ruta Logger");
+    protected static final Logger LOGGER = Logger.getLogger("Ruta Logger");
     protected static final DBConnection CONNECTION = DBConnection.getInstance();
     
 
@@ -75,11 +77,6 @@ public class Ruta {
     }
     
     
-    public String ObtenerDirecciones(Entrega e){
-        return "rutas";
-        
-    }
-    
     public String getIdRuta() {
         return idRuta;
     }
@@ -118,19 +115,15 @@ public class Ruta {
                                 resultado.getString("Zona"),
                                 resultado.getString("nombre"),
                                 resultado.getString("apellido")
-                        ));
-            //System.out.println(resultado.getString("zona")+" "+resultado.getString("nombre")+" "+resultado.getString("apellido"));
-                
+                        )); 
             }
         } catch (SQLException  ex) {
-            //LOGGER.log(Level.SEVERE, ex.getMessage());
+            LOGGER.log(Level.SEVERE, ex.getMessage());
         } finally {
             CONNECTION.desconectar();
         }
         return lista;
     }
-    
-    //"select e.idEntrega, e.fecha, e.direccion, e.estado, r.idRuta from Entrega e, Ruta r where e.id_Ruta=r.idRuta and e.estado=1";
     
     public ObservableList<Ruta> cargarDatosRutaEntrega(){
         ObservableList <Ruta> lista = FXCollections.observableArrayList ();
@@ -150,7 +143,7 @@ public class Ruta {
                         ));
             }
         } catch (SQLException  ex) {
-            //LOGGER.log(Level.SEVERE, ex.getMessage());
+            LOGGER.log(Level.SEVERE, ex.getMessage());
         } finally {
             CONNECTION.desconectar();
         }

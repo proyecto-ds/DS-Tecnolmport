@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 import Modelo.Venta;
@@ -23,23 +19,23 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class ControladorVistaGerenteVenta implements Initializable {
 
     @FXML
-    private TableColumn<Venta, String> CidVenta;
+    private TableColumn<Venta, String> cidVenta;
     @FXML
-    private TableColumn<Venta, String> CFechaVenta;
+    private TableColumn<Venta, String> cFechaVenta;
     @FXML
-    private TableColumn<Venta, String> CCotizacion;
+    private TableColumn<Venta, String> cCotizacion;
     @FXML
-    private TableColumn<Venta, String> CLocal;
+    private TableColumn<Venta, String> cLocal;
     @FXML
-    private TableColumn<Venta, String> CTotal;
+    private TableColumn<Venta, String> cTotal;
     @FXML
-    private TableColumn<Venta, String> CVendedor;
+    private TableColumn<Venta, String> cVendedor;
     @FXML
-    private TableColumn<Venta, String> CidEnvio;
+    private TableColumn<Venta, String> cidEnvio;
     @FXML
-    private TableColumn<Venta, String> CProductos;
+    private TableColumn<Venta, String> cProductos;
     private ObservableList<Venta> list = null;
-    private Venta modeloVenta = new Venta();
+    private final Venta modeloVenta = new Venta();
     @FXML
     private TableView<Venta> tableVenta;
 
@@ -48,14 +44,14 @@ public class ControladorVistaGerenteVenta implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        CidVenta.setCellValueFactory(new PropertyValueFactory<>("id"));
-        CFechaVenta.setCellValueFactory(new PropertyValueFactory<>("date"));
-        CCotizacion.setCellValueFactory(new PropertyValueFactory<>("esCotizacion"));
-        CLocal.setCellValueFactory(new PropertyValueFactory<>("local"));
-        CTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
-        CVendedor.setCellValueFactory(new PropertyValueFactory<>("vendedor"));
-        CProductos.setCellValueFactory(new PropertyValueFactory<>("producto"));
-        CidEnvio.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        cidVenta.setCellValueFactory(new PropertyValueFactory<>("id"));
+        cFechaVenta.setCellValueFactory(new PropertyValueFactory<>("date"));
+        cCotizacion.setCellValueFactory(new PropertyValueFactory<>("esCotizacion"));
+        cLocal.setCellValueFactory(new PropertyValueFactory<>("local"));
+        cTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+        cVendedor.setCellValueFactory(new PropertyValueFactory<>("vendedor"));
+        cProductos.setCellValueFactory(new PropertyValueFactory<>("producto"));
+        cidEnvio.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         llenarTable();
     }
     public void llenarTable(){

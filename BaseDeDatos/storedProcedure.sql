@@ -175,12 +175,12 @@ create procedure obtenerPedidos()
 	begin
 		 select pe.idPedido, pe.observaciones, pe.estado, pe.fechaPedido , e.nombre as Gerente, pr.nombre as Producto , lo.nombre as Local 
  from Pedido pe join Empleado e on pe.id_Empleado = e.idEmpleado join
-							DetallePedido  dp on pe.idPedido = dp.id_Pedido  join Producto pr on dp.id_Producto =  pr.idProducto join local lo on e.id_Local = lo.idLocal 
+							DetallePedido  dp on pe.idPedido = dp.id_Pedido  join Producto pr on dp.id_Producto =  pr.idProducto join Local lo on e.id_Local = lo.idLocal 
 where    pe.id_Empleado = e.idEmpleado   ;
 	end $$
 delimiter ;
 
-
+call obtenerPedidos
 delimiter $$
 create procedure obtenerEnvio()
 	begin
@@ -202,7 +202,7 @@ delimiter $$
 create procedure obtenerVentas()
 	begin
 		select ve.idVenta , ve.fechaVenta, ve.esCotizacion , ve.total , e.nombre as Vendedor , p.nombre as Producto, en.direccion as DireccionEnvio , lo.nombre as Local 
-		from venta ve join Envio en on ve.idVenta = en.id_Venta  join Empleado e on ve.id_Empleado = e.idEmpleado 
+		from Venta ve join Envio en on ve.idVenta = en.id_Venta  join Empleado e on ve.id_Empleado = e.idEmpleado 
 			join Local lo on ve.id_Local = lo.idLocal   join DetalleVenta dv on ve.idVenta = dv.id_Venta   join Producto p on  p.idProducto = dv.id_Producto ;
 	end $$
 delimiter ;
@@ -266,7 +266,7 @@ create procedure ingresarPedido( in idPe varchar(20), in obse varchar(60), in fe
 						from Empleado
 						where usuario = emple);
 		insert into Pedido(idPedido, observaciones,estado,fechaPedido,id_Empleado) 
-			values(idP,obse,'1',fechaPe,idEmple);
+			values(idP,obse,'3',fechaPe,idEmple);
 	end $$
 delimiter ;
 

@@ -49,7 +49,7 @@
                         <Insets left="30.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#ConsultarPedido" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Pedidos" textFill="#b8b1b1">
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#consultarPedido" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Pedidos" textFill="#b8b1b1">
                      <font>
                         <Font name="Consolas" size="13.0" />
                      </font>
@@ -60,7 +60,7 @@
                         <Insets left="30.0" />
                      </padding>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#ConsultarVenta" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Ventas" textFill="#b8b1b1">
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#consultarVenta" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Ventas" textFill="#b8b1b1">
                      <font>
                         <Font name="Consolas" size="13.0" />
                      </font>
@@ -91,7 +91,7 @@
             </Label>
             <VBox alignment="CENTER" layoutY="399.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="250.0">
                <children>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#RealizarPedido" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Pedido" textFill="#b8b1b1">
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#realizarPedido" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Pedido" textFill="#b8b1b1">
                      <font>
                         <Font name="Consolas" size="13.0" />
                      </font>
@@ -114,7 +114,7 @@
             </Label>
             <VBox alignment="CENTER" layoutY="487.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="250.0">
                <children>
-                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#DarPermisos" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Permisos" textFill="#b8b1b1">
+                  <JFXButton alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#darPermisos" prefHeight="40.0" prefWidth="210.0" stylesheets="@../css/fullpackstyling.css" text="Permisos" textFill="#b8b1b1">
                      <font>
                         <Font name="Consolas" size="13.0" />
                      </font>

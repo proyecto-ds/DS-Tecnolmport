@@ -24,7 +24,6 @@ public class Paypal implements Pago{
      
     @Override
     public boolean pagar(String idCliente) {
-        System.out.println("no he pagado soy moroso");
         return  true;
     }
 

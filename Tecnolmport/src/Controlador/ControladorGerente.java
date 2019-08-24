@@ -1,23 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 
-import Modelo.Empleado;
+
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTreeTableColumn;
-import com.jfoenix.controls.JFXTreeTableView;
-import com.jfoenix.controls.RecursiveTreeItem;
-import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,10 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -51,6 +36,7 @@ public class ControladorGerente implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
     }
     
     @FXML
@@ -77,26 +63,26 @@ public class ControladorGerente implements Initializable {
     }
     
      @FXML
-    private void ConsultarPedido(ActionEvent event) throws IOException {
+    private void consultarPedido(ActionEvent event) throws IOException {
         AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaGerentePedido.fxml")));
         parent.getChildren().setAll(vistaBA);
     }
     
     
       @FXML
-    private void ConsultarVenta(ActionEvent event) throws IOException {
+    private void consultarVenta(ActionEvent event) throws IOException {
         AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaGerenteVenta.fxml")));
         parent.getChildren().setAll(vistaBA);
     }
     
      @FXML
-    private void RealizarPedido(ActionEvent event) throws IOException {
+    private void realizarPedido(ActionEvent event) throws IOException {
         AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaGerenteGPedido.fxml")));
         parent.getChildren().setAll(vistaBA);
     }
 
     @FXML
-    private void DarPermisos(ActionEvent event) throws IOException {
+    private void darPermisos(ActionEvent event) throws IOException {
         AnchorPane vistaBA = FXMLLoader.load(getClass().getResource(("/Vista/VistaGerentePermisos.fxml")));
        parent.getChildren().setAll(vistaBA);
     }

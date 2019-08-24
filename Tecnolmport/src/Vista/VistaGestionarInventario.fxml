@@ -22,49 +22,49 @@
       </Label>
       <VBox alignment="CENTER" layoutX="11.0" layoutY="99.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="307.0" prefWidth="171.0" spacing="12.0" style="-fx-border-color: #1e346d;">
          <children>
-            <JFXTextField fx:id="txt_idI" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="ID_INVENTARIO" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="txtIdI" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="ID_INVENTARIO" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_id" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="ID_PRODUCTO" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="txtId" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="ID_PRODUCTO" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_nom" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="NOMBRE" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="txtNom" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="NOMBRE" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_precioProd" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="PRECIO" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="txtPrecioProd" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="PRECIO" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_stock" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="STOCK" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="txtStock" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="STOCK" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_categ" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="CATEGORIA" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="txtCateg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="CATEGORIA" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_descrip" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="DESCRIPCION" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="txtDescrip" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="DESCRIPCION" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txt_prove" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="PROVEEDOR" unFocusColor="#b8b1b1">
+            <JFXTextField fx:id="txtProve" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="150.0" promptText="PROVEEDOR" unFocusColor="#b8b1b1">
                <font>
                   <Font name="Consolas Bold Italic" size="12.0" />
                </font>
             </JFXTextField>
             <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="150.0" spacing="10.0">
                <children>
-                  <JFXTextField fx:id="txt_estado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" promptText="ESTADO" unFocusColor="#b8b1b1">
+                  <JFXTextField fx:id="txtEstado" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" promptText="ESTADO" unFocusColor="#b8b1b1">
                      <font>
                         <Font name="Consolas Bold Italic" size="12.0" />
                      </font>
@@ -78,17 +78,17 @@
          </padding>
       </VBox>
       <Line endX="-9.0" endY="511.0" layoutX="203.0" layoutY="14.0" startX="-9.0" startY="-14.0" style="-fx-stroke: #1e346d;" />
-      <TableView fx:id="table_inventario" layoutX="204.0" layoutY="99.0" onMouseClicked="#seleccionarInventario" prefHeight="349.0" prefWidth="539.0" stylesheets="@../css/fullpackstyling.css">
+      <TableView fx:id="tableInventario" layoutX="204.0" layoutY="99.0" onMouseClicked="#seleccionarInventario" prefHeight="349.0" prefWidth="539.0" stylesheets="@../css/fullpackstyling.css">
         <columns>
-            <TableColumn fx:id="table_idI" prefWidth="82.0" text="IDInventario" />
-          <TableColumn fx:id="table_id" prefWidth="81.0" text="IDProducto" />
-          <TableColumn fx:id="table_nombre" prefWidth="65.0" text="Nombre" />
-            <TableColumn fx:id="table_precio" prefWidth="61.0" text="Precio" />
-            <TableColumn fx:id="table_stock" prefWidth="48.0" text="Stock" />
-            <TableColumn fx:id="table_categoria" prefWidth="77.0" text="Categoria" />
-            <TableColumn fx:id="table_descrip" prefWidth="102.0" text="Descripcion" />
-            <TableColumn fx:id="table_prov" prefWidth="77.0" text="Proveedor" />
-            <TableColumn fx:id="table_estado" prefWidth="95.0" text="Estado" />
+            <TableColumn fx:id="tableIdI" prefWidth="82.0" text="IDInventario" />
+          <TableColumn fx:id="tableId" prefWidth="81.0" text="IDProducto" />
+          <TableColumn fx:id="tableNombre" prefWidth="65.0" text="Nombre" />
+            <TableColumn fx:id="tablePrecio" prefWidth="61.0" text="Precio" />
+            <TableColumn fx:id="tableStock" prefWidth="48.0" text="Stock" />
+            <TableColumn fx:id="tableCategoria" prefWidth="77.0" text="Categoria" />
+            <TableColumn fx:id="tableDescrip" prefWidth="102.0" text="Descripcion" />
+            <TableColumn fx:id="tableProv" prefWidth="77.0" text="Proveedor" />
+            <TableColumn fx:id="tableEstado" prefWidth="95.0" text="Estado" />
         </columns>
       </TableView>
       <JFXButton layoutX="432.0" layoutY="464.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#ingresarInventario" prefHeight="30.0" prefWidth="85.0" stylesheets="@../css/fullpackstyling.css" text="Ingresar" textFill="#b8b1b1" />
